@@ -1,0 +1,75 @@
+# Private weekly queue and Nochmal feed
+
+The local selector and read-only endpoint are implemented and tested with synthetic data.
+**No live favorite data was fetched. No endpoint was deployed. No weekly automation is active.**
+Guitar creative acceptance must precede coin/safari correction and wider production.
+
+## Feed contract
+
+MINT-Bot now contains `api/production-favorites.js`. It executes one read-only SELECT over
+`mint.themen`, selecting rows whose derived `status = 'nochmal'` and `nochmal_tauglich = TRUE`.
+This follows the actual Nochmal semantics and retains all qualifying IDs without the search
+endpoint's 40-result limit. It does not read `mint.tage` or change schedules/experiments.
+
+GET `/api/production-favorites` requires `X-Erklaerbaer-Read-Token`, backed by a separate
+`ERKLAERBAER_READ_TOKEN` environment value of at least 32 characters. The feed refuses configuration
+where this equals `MINT_WRITE_TOKEN`. The existing `checkMintRequest` now explicitly rejects the
+read credential, even under a mistaken equal-token configuration. Do not distribute the write
+credential to ErklaerBaer. No credential was generated or installed during this implementation.
+
+Response fields are exclusively `schema_version: 1`, sorted unique `topic_ids`, and `revision`.
+Revision is SHA-256 of the compact UTF-8 JSON ID array. It is stable while eligible membership is
+unchanged; it intentionally contains no database revision, observation timestamps, family history,
+child fields or unrelated state. All responses prohibit caching. Errors contain no raw DB details.
+The endpoint still uses the existing MINT database connection implementation, which disables TLS
+certificate verification. That inherited limitation needs a separate CA/configuration correction
+before relying on the feed in production; no new database credentials or access were introduced.
+
+The client sends the dedicated header only to the configured HTTPS feed. Redirects and URL query
+credentials are rejected. It limits payload size, validates the exact schema/hash and stores an
+independent local fetch time. Missing, malformed or more-than-24-hour-old snapshots block selection.
+Unknown topic IDs are reported as errors. Fetching the feed is a third-party network call; no feed,
+queue, favorites or family data is ever part of a BFL/TTS design request or public deliverable.
+
+## Queue semantics
+
+`private/production/queue.json` is gitignored and written with mode 0600 in a private directory.
+A local advisory lock and atomic replace cover selection, claim and completion. A retry retains
+its topic, source hash, reason, snapshot, seed and language even if the feed is unavailable.
+A second worker cannot claim an already running slot. No timeout automatically steals running
+work; reconcile the worker/provider journal before explicitly marking a failure and retrying.
+
+Current uncovered favorites are selected randomly first. Newly observed uncovered favorites
+outrank previously observed uncovered favorites, followed by uncovered public topics. Observations
+are retained, so removing/re-adding an already observed topic does not make it artificially new.
+Changes affect future slots; running selections stay fixed. Accepted/completed coverage is
+at the topic level. Exhaustion stops selection instead of silently repeating an episode.
+
+Dutch guitar is the benchmark; German is the next slot. The language flips only when a slot
+completes with an exact accepted v3 build. Failure/retry preserves language. Default cadence is
+one Monday 09:00 Europe/Berlin slot; no scheduled job is installed. The legacy preparation/release
+GitHub jobs now have literal-false job guards and cannot become an alternative daily path simply
+by setting the old `PRODUCTION_ENABLED` flag. Legacy release records are untouched.
+
+## Manual preparation
+
+```bash
+# Validate a saved private snapshot and public topic file; no selection or provider calls.
+.venv/bin/python3 scripts/weekly_v3.py --slot 2026-09-14 --experiments PATH_TO_PUBLIC_EXPERIMENTS --snapshot PATH_TO_PRIVATE_ENVELOPE
+
+# After separate feed deployment/token setup authorization: one HTTPS read, no selection.
+.venv/bin/python3 scripts/weekly_v3.py --slot 2026-09-14 --experiments PATH_TO_PUBLIC_EXPERIMENTS --fetch
+
+# Explicit local selection only; never starts a renderer, TTS request, upload or publication.
+DRY_RUN=false .venv/bin/python3 scripts/weekly_v3.py --slot 2026-09-14 --experiments PATH_TO_PUBLIC_EXPERIMENTS --snapshot PATH_TO_PRIVATE_ENVELOPE --select
+```
+
+The selector API is prepared and tested; there is intentionally no unattended production runner.
+The CLI can currently resolve accepted coverage from the guitar benchmark bundles. Generalizing
+coverage discovery to later v3 templates belongs to the post-acceptance production phase.
+No local sample favorite list is silently substituted when production credentials are missing.
+
+Validation: Python tests cover priorities, stale/missing/malformed/unknown inputs, exhaustion,
+retry language and concurrent claim/selection. The Node harness under `scripts/mint-integration/`
+uses mock queries to verify an 83-topic response, stable revision, method/auth failures, read-token
+rejection by existing write authentication, sanitized errors and absence of history/DB calls.

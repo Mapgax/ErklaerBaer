@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="610"
+viewBox="0 0 960 610">
+<g id="body" stroke="#947248" stroke-width="3">
+<path id="left-wall" fill="#927554" d="M100 180 L230 330 L230 500 L100 350 Z"/>
+<path id="front-wall" fill="#be9a65" d="M230 330 L840 330 L840 500 L230 500 Z"/>
+<path id="top" fill="#d4b27b" d="M100 180 L710 180 L840 330 L230 330 Z"/>
+<ellipse id="top-hole" cx="480" cy="258" rx="103" ry="44" fill="#392c25"/>
+</g><g id="supports" fill="#d7b788" stroke="#947248" stroke-width="3">
+<path d="M225 222 L243 222 L294 286 L294 309 L276 309 L225 245 Z"/>
+<path d="M645 222 L663 222 L714 286 L714 309 L696 309 L645 245 Z"/>
+</g><path id="elastic" d="M258 253 L678 253" fill="none" stroke="#efac75" stroke-width="5"/>
+</svg>

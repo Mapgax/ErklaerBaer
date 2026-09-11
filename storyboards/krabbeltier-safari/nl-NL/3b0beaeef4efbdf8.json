@@ -1,0 +1,488 @@
+{
+  "schema_version": "2",
+  "template_version": "2",
+  "experiment_id": "krabbeltier-safari",
+  "source_hash": "3b0beaeef4efbdf8",
+  "language": "nl-NL",
+  "localized_title": "Wie woont er onder een steen?",
+  "category": "natur-tiere",
+  "scenes": [
+    {
+      "scene_id": "scene-1",
+      "mascot": {
+        "visible": true,
+        "action": "neutral",
+        "placement": "left",
+        "height_fraction": 0.34,
+        "start_seconds": 0.0
+      },
+      "segments": [
+        {
+          "segment_id": "scene-1-1",
+          "text": "Onder een steen kan een kleine wereld verborgen zijn. Bij een waarneming kwamen er verschillende kruipende dieren tevoorschijn.",
+          "pause_after_seconds": 0.2
+        },
+        {
+          "segment_id": "scene-1-2",
+          "text": "Ze zijn allemaal klein, maar horen ze daarom ook bij dezelfde groep? We kijken naar hun lichaamsbouw.",
+          "pause_after_seconds": 0.2
+        }
+      ],
+      "mechanism": {
+        "kind": "animal-observation",
+        "objects": [
+          "stone",
+          "soil",
+          "insect",
+          "spider",
+          "woodlouse"
+        ],
+        "relationships": [
+          "animals-under-stone",
+          "compare-leg-pairs"
+        ],
+        "beats": [
+          {
+            "segment_id": "scene-1-1",
+            "action": "observe"
+          },
+          {
+            "segment_id": "scene-1-2",
+            "action": "observe"
+          }
+        ]
+      },
+      "primitive": "question",
+      "narration": "Onder een steen kan een kleine wereld verborgen zijn. Bij een waarneming kwamen er verschillende kruipende dieren tevoorschijn. Ze zijn allemaal klein, maar horen ze daarom ook bij dezelfde groep? We kijken naar hun lichaamsbouw.",
+      "on_screen_words": [
+        "Wie zit daar?"
+      ],
+      "visual_tokens": [],
+      "claim_anchors": [
+        "evidence-anatomy",
+        "evidence-habitat"
+      ],
+      "sound_cue": "none",
+      "duration_hint_seconds": 18.75
+    },
+    {
+      "scene_id": "scene-2",
+      "mascot": {
+        "visible": false,
+        "action": "neutral",
+        "placement": "left",
+        "height_fraction": 0.34,
+        "start_seconds": 0.0
+      },
+      "segments": [
+        {
+          "segment_id": "scene-2-1",
+          "text": "Als de steen wordt opgetild, wordt zichtbaar wat eronder zit. Ons beeld laat mogelijke bewoners zien; niet onder elke steen zitten dezelfde dieren.",
+          "pause_after_seconds": 0.2
+        },
+        {
+          "segment_id": "scene-2-2",
+          "text": "Voor pissebedden is een vochtige, beschutte plek belangrijk. Ze drogen gemakkelijk uit. De ruimte onder een steen kan zo een geschikte schuilplek zijn.",
+          "pause_after_seconds": 0.2
+        }
+      ],
+      "mechanism": {
+        "kind": "animal-observation",
+        "objects": [
+          "stone",
+          "soil",
+          "insect",
+          "spider",
+          "woodlouse"
+        ],
+        "relationships": [
+          "animals-under-stone",
+          "compare-leg-pairs"
+        ],
+        "beats": [
+          {
+            "segment_id": "scene-2-1",
+            "action": "reveal"
+          },
+          {
+            "segment_id": "scene-2-2",
+            "action": "reveal"
+          }
+        ]
+      },
+      "primitive": "macro_to_micro",
+      "narration": "Als de steen wordt opgetild, wordt zichtbaar wat eronder zit. Ons beeld laat mogelijke bewoners zien; niet onder elke steen zitten dezelfde dieren. Voor pissebedden is een vochtige, beschutte plek belangrijk. Ze drogen gemakkelijk uit. De ruimte onder een steen kan zo een geschikte schuilplek zijn.",
+      "on_screen_words": [
+        "Een beschutte plek"
+      ],
+      "visual_tokens": [],
+      "claim_anchors": [
+        "evidence-anatomy",
+        "evidence-habitat"
+      ],
+      "sound_cue": "none",
+      "duration_hint_seconds": 24.64
+    },
+    {
+      "scene_id": "scene-3",
+      "mascot": {
+        "visible": false,
+        "action": "neutral",
+        "placement": "left",
+        "height_fraction": 0.34,
+        "start_seconds": 0.0
+      },
+      "segments": [
+        {
+          "segment_id": "scene-3-1",
+          "text": "Hier staat een volwassen insect. De poten zitten in drie paren aan het middelste deel van zijn lichaam.",
+          "pause_after_seconds": 0.2
+        },
+        {
+          "segment_id": "scene-3-2",
+          "text": "Drie links en drie rechts: samen zes poten. Ook heeft een insect een kop, een borststuk en een achterlijf.",
+          "pause_after_seconds": 0.2
+        }
+      ],
+      "mechanism": {
+        "kind": "animal-observation",
+        "objects": [
+          "stone",
+          "soil",
+          "insect",
+          "spider",
+          "woodlouse"
+        ],
+        "relationships": [
+          "animals-under-stone",
+          "compare-leg-pairs"
+        ],
+        "beats": [
+          {
+            "segment_id": "scene-3-1",
+            "action": "insect"
+          },
+          {
+            "segment_id": "scene-3-2",
+            "action": "insect"
+          }
+        ]
+      },
+      "primitive": "comparison",
+      "narration": "Hier staat een volwassen insect. De poten zitten in drie paren aan het middelste deel van zijn lichaam. Drie links en drie rechts: samen zes poten. Ook heeft een insect een kop, een borststuk en een achterlijf.",
+      "on_screen_words": [
+        "Insect · zes poten"
+      ],
+      "visual_tokens": [],
+      "claim_anchors": [
+        "evidence-anatomy",
+        "evidence-habitat"
+      ],
+      "sound_cue": "none",
+      "duration_hint_seconds": 19.82
+    },
+    {
+      "scene_id": "scene-4",
+      "mascot": {
+        "visible": false,
+        "action": "neutral",
+        "placement": "left",
+        "height_fraction": 0.34,
+        "start_seconds": 0.0
+      },
+      "segments": [
+        {
+          "segment_id": "scene-4-1",
+          "text": "Een spin heeft vier paar poten. Dat zijn er acht: vier aan elke kant. Daarom is een spin geen insect.",
+          "pause_after_seconds": 0.2
+        },
+        {
+          "segment_id": "scene-4-2",
+          "text": "Klein zijn en over de grond kruipen is dus niet genoeg om bij de insecten te horen. De bouw van het dier geeft betere aanwijzingen.",
+          "pause_after_seconds": 0.2
+        }
+      ],
+      "mechanism": {
+        "kind": "animal-observation",
+        "objects": [
+          "stone",
+          "soil",
+          "insect",
+          "spider",
+          "woodlouse"
+        ],
+        "relationships": [
+          "animals-under-stone",
+          "compare-leg-pairs"
+        ],
+        "beats": [
+          {
+            "segment_id": "scene-4-1",
+            "action": "spider"
+          },
+          {
+            "segment_id": "scene-4-2",
+            "action": "spider"
+          }
+        ]
+      },
+      "primitive": "comparison",
+      "narration": "Een spin heeft vier paar poten. Dat zijn er acht: vier aan elke kant. Daarom is een spin geen insect. Klein zijn en over de grond kruipen is dus niet genoeg om bij de insecten te horen. De bouw van het dier geeft betere aanwijzingen.",
+      "on_screen_words": [
+        "Spin · acht poten"
+      ],
+      "visual_tokens": [],
+      "claim_anchors": [
+        "evidence-anatomy",
+        "evidence-habitat"
+      ],
+      "sound_cue": "none",
+      "duration_hint_seconds": 24.11
+    },
+    {
+      "scene_id": "scene-5",
+      "mascot": {
+        "visible": false,
+        "action": "neutral",
+        "placement": "left",
+        "height_fraction": 0.34,
+        "start_seconds": 0.0
+      },
+      "segments": [
+        {
+          "segment_id": "scene-5-1",
+          "text": "Een volwassen pissebed heeft zeven paar poten. Ze zitten langs het gelede lichaam: zeven links en zeven rechts.",
+          "pause_after_seconds": 0.2
+        },
+        {
+          "segment_id": "scene-5-2",
+          "text": "Samen zijn dat veertien poten. Een pissebed is een kreeftachtige, geen insect. Jonge pissebedden kunnen nog minder poten hebben.",
+          "pause_after_seconds": 0.2
+        }
+      ],
+      "mechanism": {
+        "kind": "animal-observation",
+        "objects": [
+          "stone",
+          "soil",
+          "insect",
+          "spider",
+          "woodlouse"
+        ],
+        "relationships": [
+          "animals-under-stone",
+          "compare-leg-pairs"
+        ],
+        "beats": [
+          {
+            "segment_id": "scene-5-1",
+            "action": "woodlouse"
+          },
+          {
+            "segment_id": "scene-5-2",
+            "action": "woodlouse"
+          }
+        ]
+      },
+      "primitive": "comparison",
+      "narration": "Een volwassen pissebed heeft zeven paar poten. Ze zitten langs het gelede lichaam: zeven links en zeven rechts. Samen zijn dat veertien poten. Een pissebed is een kreeftachtige, geen insect. Jonge pissebedden kunnen nog minder poten hebben.",
+      "on_screen_words": [
+        "Pissebed · veertien poten"
+      ],
+      "visual_tokens": [],
+      "claim_anchors": [
+        "evidence-anatomy",
+        "evidence-habitat"
+      ],
+      "sound_cue": "none",
+      "duration_hint_seconds": 19.82
+    },
+    {
+      "scene_id": "scene-6",
+      "mascot": {
+        "visible": true,
+        "action": "think",
+        "placement": "left",
+        "height_fraction": 0.34,
+        "start_seconds": 0.0
+      },
+      "segments": [
+        {
+          "segment_id": "scene-6-1",
+          "text": "Een dier heeft vier paar poten. Welk dier uit onze vergelijking past daarbij: het insect, de spin of de volwassen pissebed?",
+          "pause_after_seconds": 2.8
+        }
+      ],
+      "mechanism": {
+        "kind": "animal-observation",
+        "objects": [
+          "stone",
+          "soil",
+          "insect",
+          "spider",
+          "woodlouse"
+        ],
+        "relationships": [
+          "animals-under-stone",
+          "compare-leg-pairs"
+        ],
+        "beats": [
+          {
+            "segment_id": "scene-6-1",
+            "action": "compare"
+          }
+        ]
+      },
+      "primitive": "prediction",
+      "narration": "Een dier heeft vier paar poten. Welk dier uit onze vergelijking past daarbij: het insect, de spin of de volwassen pissebed?",
+      "on_screen_words": [
+        "Zes · acht · veertien"
+      ],
+      "visual_tokens": [],
+      "claim_anchors": [
+        "evidence-anatomy",
+        "evidence-habitat"
+      ],
+      "sound_cue": "none",
+      "duration_hint_seconds": 11.25
+    },
+    {
+      "scene_id": "scene-7",
+      "mascot": {
+        "visible": false,
+        "action": "neutral",
+        "placement": "left",
+        "height_fraction": 0.34,
+        "start_seconds": 0.0
+      },
+      "segments": [
+        {
+          "segment_id": "scene-7-1",
+          "text": "Vier paar betekent acht poten. Dat past bij de spin. De pissebed heeft als volwassen dier zeven paar, en het insect drie.",
+          "pause_after_seconds": 0.2
+        },
+        {
+          "segment_id": "scene-7-2",
+          "text": "De dieren delen soms een schuilplek, maar niet hetzelfde voedsel. Pissebedden eten bijvoorbeeld verterende plantenresten. Dat geldt niet voor alle kleine bewoners.",
+          "pause_after_seconds": 0.2
+        }
+      ],
+      "mechanism": {
+        "kind": "animal-observation",
+        "objects": [
+          "stone",
+          "soil",
+          "insect",
+          "spider",
+          "woodlouse"
+        ],
+        "relationships": [
+          "animals-under-stone",
+          "compare-leg-pairs"
+        ],
+        "beats": [
+          {
+            "segment_id": "scene-7-1",
+            "action": "spider"
+          },
+          {
+            "segment_id": "scene-7-2",
+            "action": "reveal"
+          }
+        ]
+      },
+      "primitive": "cause_effect",
+      "narration": "Vier paar betekent acht poten. Dat past bij de spin. De pissebed heeft als volwassen dier zeven paar, en het insect drie. De dieren delen soms een schuilplek, maar niet hetzelfde voedsel. Pissebedden eten bijvoorbeeld verterende plantenresten. Dat geldt niet voor alle kleine bewoners.",
+      "on_screen_words": [
+        "Vier paar → spin"
+      ],
+      "visual_tokens": [],
+      "claim_anchors": [
+        "evidence-anatomy",
+        "evidence-habitat"
+      ],
+      "sound_cue": "none",
+      "duration_hint_seconds": 23.57
+    },
+    {
+      "scene_id": "scene-8",
+      "mascot": {
+        "visible": true,
+        "action": "aha",
+        "placement": "left",
+        "height_fraction": 0.34,
+        "start_seconds": 0.0
+      },
+      "segments": [
+        {
+          "segment_id": "scene-8-1",
+          "text": "Een gedeelde schuilplek maakt dieren niet hetzelfde. Hun lichaamsbouw helpt ons verschillen te zien.",
+          "pause_after_seconds": 0.2
+        },
+        {
+          "segment_id": "scene-8-2",
+          "text": "Een volwassen insect heeft zes poten, een spin acht en een volwassen pissebed veertien. Zo wordt goed kijken een kleine ontdekking.",
+          "pause_after_seconds": 0.2
+        }
+      ],
+      "mechanism": {
+        "kind": "animal-observation",
+        "objects": [
+          "stone",
+          "soil",
+          "insect",
+          "spider",
+          "woodlouse"
+        ],
+        "relationships": [
+          "animals-under-stone",
+          "compare-leg-pairs"
+        ],
+        "beats": [
+          {
+            "segment_id": "scene-8-1",
+            "action": "compare"
+          },
+          {
+            "segment_id": "scene-8-2",
+            "action": "compare"
+          }
+        ]
+      },
+      "primitive": "recap",
+      "narration": "Een gedeelde schuilplek maakt dieren niet hetzelfde. Hun lichaamsbouw helpt ons verschillen te zien. Een volwassen insect heeft zes poten, een spin acht en een volwassen pissebed veertien. Zo wordt goed kijken een kleine ontdekking.",
+      "on_screen_words": [
+        "Kijken",
+        "tellen",
+        "vergelijken"
+      ],
+      "visual_tokens": [],
+      "claim_anchors": [
+        "evidence-anatomy",
+        "evidence-habitat"
+      ],
+      "sound_cue": "none",
+      "duration_hint_seconds": 18.75
+    }
+  ],
+  "youtube": {
+    "title": "NL | Wie woont er onder een steen?",
+    "description": "Een uitleg van de waargenomen verschijnselen. De stem is gemaakt met tekst-naar-spraak.",
+    "tags": [
+      "kruipdiertjes",
+      "pissebed",
+      "natuur",
+      "dieren",
+      "biologie",
+      "wetenschap voor kinderen",
+      "simpele uitleg"
+    ],
+    "thumbnail_text": "Wie woont er onder een steen?"
+  },
+  "review": {
+    "approved": true,
+    "warnings": []
+  },
+  "estimated_duration_seconds": 160.71,
+  "created_at": "2026-09-05T14:00:00Z"
+}

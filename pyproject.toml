@@ -1,0 +1,46 @@
+[build-system]
+requires = ["setuptools>=75"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "erklaerbaer"
+version = "0.1.0"
+description = "Low-cost bilingual animated science videos for MINT-Bot"
+readme = "README.md"
+requires-python = ">=3.12,<3.13"
+license = { file = "LICENSE" }
+dependencies = [
+  "anthropic>=0.79,<1",
+  "google-api-python-client>=2.170,<3",
+  "google-auth-oauthlib>=1.2,<2",
+  "google-cloud-texttospeech>=2.29,<3",
+  "imageio>=2.37,<3",
+  "imageio-ffmpeg>=0.6,<1",
+  "numpy>=1.26,<3",
+  "Pillow>=11,<13",
+  "pydantic>=2.11,<3",
+]
+
+[project.optional-dependencies]
+dev = [
+  "pytest>=8.3,<10",
+  "ruff>=0.12,<1",
+]
+
+[project.scripts]
+erklaerbaer = "erklaerbaer.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]
+
+[tool.ruff]
+target-version = "py312"
+line-length = 100
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B", "SIM"]
+

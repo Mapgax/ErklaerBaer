@@ -1,0 +1,619 @@
+{
+  "schema_version": "3",
+  "template_version": "3",
+  "experiment_id": "springende-muenze",
+  "source_hash": "0d6d2f1d3eb3b75d",
+  "language": "de-DE",
+  "localized_title": "Warum die Münze hüpft",
+  "category": "weltraum-physik",
+  "scenes": [
+    {
+      "scene_id": "scene-1",
+      "mascot": {
+        "visible": true,
+        "action": "neutral",
+        "height_fraction": 0.62,
+        "placement": "left",
+        "start_seconds": 0.0
+      },
+      "segments": [
+        {
+          "segment_id": "scene-1-1",
+          "text": "Eine Münze liegt auf einer kalten Flasche.",
+          "pause_after_seconds": 0.2,
+          "speaker": "bear",
+          "delivery": "curious"
+        },
+        {
+          "segment_id": "scene-1-2",
+          "text": "Dann wärmen Hände die Flasche.",
+          "pause_after_seconds": 0.2,
+          "speaker": "narrator",
+          "delivery": "warm"
+        },
+        {
+          "segment_id": "scene-1-3",
+          "text": "Die Münze beginnt zu klacken und hebt sich kurz.",
+          "pause_after_seconds": 0.75,
+          "speaker": "narrator",
+          "delivery": "warm"
+        },
+        {
+          "segment_id": "scene-1-4",
+          "text": "Was bewegt sie? Im Inneren steckt Luft. Wir schauen uns an, wie diese unsichtbare Luft die Münze anheben kann.",
+          "pause_after_seconds": 0.2,
+          "speaker": "bear",
+          "delivery": "curious"
+        }
+      ],
+      "mechanism": {
+        "kind": "gas-pressure",
+        "objects": [
+          "bottle",
+          "gas",
+          "coin",
+          "heat"
+        ],
+        "relationships": [
+          "gas-inside-bottle",
+          "coin-seals-mouth",
+          "heat-to-gas"
+        ],
+        "beats": [
+          {
+            "segment_id": "scene-1-1",
+            "action": "observe"
+          },
+          {
+            "segment_id": "scene-1-2",
+            "action": "heat"
+          },
+          {
+            "segment_id": "scene-1-3",
+            "action": "lift"
+          },
+          {
+            "segment_id": "scene-1-4",
+            "action": "observe"
+          }
+        ]
+      },
+      "primitive": "question",
+      "narration": "Eine Münze liegt auf einer kalten Flasche. Dann wärmen Hände die Flasche. Die Münze beginnt zu klacken und hebt sich kurz. Was bewegt sie? Im Inneren steckt Luft. Wir schauen uns an, wie diese unsichtbare Luft die Münze anheben kann.",
+      "on_screen_words": [
+        "Warum hüpft die Münze?"
+      ],
+      "visual_tokens": [],
+      "claim_anchors": [
+        "evidence-gas",
+        "evidence-pressure"
+      ],
+      "sound_cue": "none",
+      "duration_hint_seconds": 21.43,
+      "shot": {
+        "template_id": "coin-collage",
+        "version": "3",
+        "framing": "establish",
+        "asset_bundle": "coin-v3"
+      }
+    },
+    {
+      "scene_id": "scene-2",
+      "mascot": {
+        "visible": false,
+        "action": "neutral",
+        "height_fraction": 0.65,
+        "placement": "left",
+        "start_seconds": 0.0
+      },
+      "segments": [
+        {
+          "segment_id": "scene-2-1",
+          "text": "Die Punkte in unserem Bild stehen für winzige Luftteilchen. In Wirklichkeit sind sie viel kleiner und unsichtbar.",
+          "pause_after_seconds": 0.2,
+          "speaker": "narrator",
+          "delivery": "warm"
+        },
+        {
+          "segment_id": "scene-2-2",
+          "text": "Zwischen ihnen ist viel freier Raum. Sie bewegen sich ständig und stossen gegen die Innenwand der Flasche und gegen die Münze.",
+          "pause_after_seconds": 0.2,
+          "speaker": "narrator",
+          "delivery": "warm"
+        }
+      ],
+      "mechanism": {
+        "kind": "gas-pressure",
+        "objects": [
+          "bottle",
+          "gas",
+          "coin",
+          "heat"
+        ],
+        "relationships": [
+          "gas-inside-bottle",
+          "coin-seals-mouth",
+          "heat-to-gas"
+        ],
+        "beats": [
+          {
+            "segment_id": "scene-2-1",
+            "action": "observe"
+          },
+          {
+            "segment_id": "scene-2-2",
+            "action": "observe"
+          }
+        ]
+      },
+      "primitive": "macro_to_micro",
+      "narration": "Die Punkte in unserem Bild stehen für winzige Luftteilchen. In Wirklichkeit sind sie viel kleiner und unsichtbar. Zwischen ihnen ist viel freier Raum. Sie bewegen sich ständig und stossen gegen die Innenwand der Flasche und gegen die Münze.",
+      "on_screen_words": [
+        "Luft in Bewegung"
+      ],
+      "visual_tokens": [],
+      "claim_anchors": [
+        "evidence-gas",
+        "evidence-pressure"
+      ],
+      "sound_cue": "none",
+      "duration_hint_seconds": 20.36,
+      "shot": {
+        "template_id": "coin-collage",
+        "version": "3",
+        "framing": "micro",
+        "asset_bundle": "coin-v3"
+      }
+    },
+    {
+      "scene_id": "scene-3",
+      "mascot": {
+        "visible": false,
+        "action": "neutral",
+        "height_fraction": 0.65,
+        "placement": "left",
+        "start_seconds": 0.0
+      },
+      "segments": [
+        {
+          "segment_id": "scene-3-1",
+          "text": "Wärme gelangt von den Händen durch das Glas zur Luft. Die Flasche bleibt dabei gleich gross.",
+          "pause_after_seconds": 0.2,
+          "speaker": "narrator",
+          "delivery": "warm"
+        },
+        {
+          "segment_id": "scene-3-2",
+          "text": "Die wärmere Luft besteht aus denselben Teilchen. Sie bewegen sich jetzt schneller. Im Bild zeigen wir das mit schnelleren Punkten.",
+          "pause_after_seconds": 0.2,
+          "speaker": "narrator",
+          "delivery": "warm"
+        }
+      ],
+      "mechanism": {
+        "kind": "gas-pressure",
+        "objects": [
+          "bottle",
+          "gas",
+          "coin",
+          "heat"
+        ],
+        "relationships": [
+          "gas-inside-bottle",
+          "coin-seals-mouth",
+          "heat-to-gas"
+        ],
+        "beats": [
+          {
+            "segment_id": "scene-3-1",
+            "action": "heat"
+          },
+          {
+            "segment_id": "scene-3-2",
+            "action": "faster"
+          }
+        ]
+      },
+      "primitive": "cause_effect",
+      "narration": "Wärme gelangt von den Händen durch das Glas zur Luft. Die Flasche bleibt dabei gleich gross. Die wärmere Luft besteht aus denselben Teilchen. Sie bewegen sich jetzt schneller. Im Bild zeigen wir das mit schnelleren Punkten.",
+      "on_screen_words": [
+        "Wärme → schnellere Teilchen"
+      ],
+      "visual_tokens": [],
+      "claim_anchors": [
+        "evidence-gas",
+        "evidence-pressure"
+      ],
+      "sound_cue": "none",
+      "duration_hint_seconds": 20.89,
+      "shot": {
+        "template_id": "coin-collage",
+        "version": "3",
+        "framing": "heat",
+        "asset_bundle": "coin-v3"
+      }
+    },
+    {
+      "scene_id": "scene-4",
+      "mascot": {
+        "visible": false,
+        "action": "neutral",
+        "height_fraction": 0.65,
+        "placement": "left",
+        "start_seconds": 0.0
+      },
+      "segments": [
+        {
+          "segment_id": "scene-4-1",
+          "text": "Die schnelleren Teilchen übertragen bei ihren Stössen insgesamt mehr Schwung auf die Wände. Der Druck in der Flasche steigt.",
+          "pause_after_seconds": 0.2,
+          "speaker": "narrator",
+          "delivery": "warm"
+        },
+        {
+          "segment_id": "scene-4-2",
+          "text": "Auch von aussen drückt Luft gegen die Münze. Entscheidend ist der Unterschied: Innen muss der Druck ausreichend grösser werden.",
+          "pause_after_seconds": 0.2,
+          "speaker": "narrator",
+          "delivery": "warm"
+        }
+      ],
+      "mechanism": {
+        "kind": "gas-pressure",
+        "objects": [
+          "bottle",
+          "gas",
+          "coin",
+          "heat"
+        ],
+        "relationships": [
+          "gas-inside-bottle",
+          "coin-seals-mouth",
+          "heat-to-gas"
+        ],
+        "beats": [
+          {
+            "segment_id": "scene-4-1",
+            "action": "pressure"
+          },
+          {
+            "segment_id": "scene-4-2",
+            "action": "pressure"
+          }
+        ]
+      },
+      "primitive": "particles",
+      "narration": "Die schnelleren Teilchen übertragen bei ihren Stössen insgesamt mehr Schwung auf die Wände. Der Druck in der Flasche steigt. Auch von aussen drückt Luft gegen die Münze. Entscheidend ist der Unterschied: Innen muss der Druck ausreichend grösser werden.",
+      "on_screen_words": [
+        "Mehr Druck"
+      ],
+      "visual_tokens": [],
+      "claim_anchors": [
+        "evidence-gas",
+        "evidence-pressure"
+      ],
+      "sound_cue": "none",
+      "duration_hint_seconds": 20.36,
+      "shot": {
+        "template_id": "coin-collage",
+        "version": "3",
+        "framing": "pressure",
+        "asset_bundle": "coin-v3"
+      }
+    },
+    {
+      "scene_id": "scene-5",
+      "mascot": {
+        "visible": true,
+        "action": "think",
+        "height_fraction": 0.65,
+        "placement": "left",
+        "start_seconds": 0.0
+      },
+      "segments": [
+        {
+          "segment_id": "scene-5-1",
+          "text": "Die Münze verschliesst die Öffnung noch. Innen ist der Druck gestiegen. Was könnte als Nächstes passieren?",
+          "pause_after_seconds": 2.8,
+          "speaker": "bear",
+          "delivery": "curious"
+        }
+      ],
+      "mechanism": {
+        "kind": "gas-pressure",
+        "objects": [
+          "bottle",
+          "gas",
+          "coin",
+          "heat"
+        ],
+        "relationships": [
+          "gas-inside-bottle",
+          "coin-seals-mouth",
+          "heat-to-gas"
+        ],
+        "beats": [
+          {
+            "segment_id": "scene-5-1",
+            "action": "pressure"
+          }
+        ]
+      },
+      "primitive": "prediction",
+      "narration": "Die Münze verschliesst die Öffnung noch. Innen ist der Druck gestiegen. Was könnte als Nächstes passieren?",
+      "on_screen_words": [
+        "Was passiert als Nächstes?"
+      ],
+      "visual_tokens": [],
+      "claim_anchors": [
+        "evidence-gas",
+        "evidence-pressure"
+      ],
+      "sound_cue": "none",
+      "duration_hint_seconds": 8.57,
+      "shot": {
+        "template_id": "coin-collage",
+        "version": "3",
+        "framing": "reaction",
+        "asset_bundle": "coin-v3"
+      }
+    },
+    {
+      "scene_id": "scene-6",
+      "mascot": {
+        "visible": false,
+        "action": "neutral",
+        "height_fraction": 0.65,
+        "placement": "left",
+        "start_seconds": 0.0
+      },
+      "segments": [
+        {
+          "segment_id": "scene-6-1",
+          "text": "Der zusätzliche Druck von innen kann die Münze gegen ihr Gewicht anheben. Jetzt entsteht ein kleiner Spalt.",
+          "pause_after_seconds": 0.75,
+          "speaker": "narrator",
+          "delivery": "warm"
+        },
+        {
+          "segment_id": "scene-6-2",
+          "text": "Durch diesen Spalt entweicht Luft. Dadurch wird der Druckunterschied kleiner. Die Luft bleibt also nicht vollständig in der Flasche eingeschlossen.",
+          "pause_after_seconds": 0.5,
+          "speaker": "narrator",
+          "delivery": "warm"
+        }
+      ],
+      "mechanism": {
+        "kind": "gas-pressure",
+        "objects": [
+          "bottle",
+          "gas",
+          "coin",
+          "heat"
+        ],
+        "relationships": [
+          "gas-inside-bottle",
+          "coin-seals-mouth",
+          "heat-to-gas"
+        ],
+        "beats": [
+          {
+            "segment_id": "scene-6-1",
+            "action": "lift"
+          },
+          {
+            "segment_id": "scene-6-2",
+            "action": "vent"
+          }
+        ]
+      },
+      "primitive": "cause_effect",
+      "narration": "Der zusätzliche Druck von innen kann die Münze gegen ihr Gewicht anheben. Jetzt entsteht ein kleiner Spalt. Durch diesen Spalt entweicht Luft. Dadurch wird der Druckunterschied kleiner. Die Luft bleibt also nicht vollständig in der Flasche eingeschlossen.",
+      "on_screen_words": [
+        "Heben → Luft entweicht"
+      ],
+      "visual_tokens": [],
+      "claim_anchors": [
+        "evidence-gas",
+        "evidence-pressure"
+      ],
+      "sound_cue": "none",
+      "duration_hint_seconds": 19.82,
+      "shot": {
+        "template_id": "coin-collage",
+        "version": "3",
+        "framing": "lift",
+        "asset_bundle": "coin-v3"
+      }
+    },
+    {
+      "scene_id": "scene-7",
+      "mascot": {
+        "visible": false,
+        "action": "neutral",
+        "height_fraction": 0.65,
+        "placement": "left",
+        "start_seconds": 0.0
+      },
+      "segments": [
+        {
+          "segment_id": "scene-7-1",
+          "text": "Die Münze fällt zurück auf die Öffnung. Wenn die eingeschlossene Luft weiter erwärmt wird, kann sich der Vorgang wiederholen.",
+          "pause_after_seconds": 0.75,
+          "speaker": "narrator",
+          "delivery": "warm"
+        },
+        {
+          "segment_id": "scene-7-2",
+          "text": "Das Klacken ist eine sichtbare und hörbare Folge davon, dass Wärme die Bewegung der Luftteilchen verändert.",
+          "pause_after_seconds": 0.2,
+          "speaker": "narrator",
+          "delivery": "warm"
+        }
+      ],
+      "mechanism": {
+        "kind": "gas-pressure",
+        "objects": [
+          "bottle",
+          "gas",
+          "coin",
+          "heat"
+        ],
+        "relationships": [
+          "gas-inside-bottle",
+          "coin-seals-mouth",
+          "heat-to-gas"
+        ],
+        "beats": [
+          {
+            "segment_id": "scene-7-1",
+            "action": "reset"
+          },
+          {
+            "segment_id": "scene-7-2",
+            "action": "observe"
+          }
+        ]
+      },
+      "primitive": "flow",
+      "narration": "Die Münze fällt zurück auf die Öffnung. Wenn die eingeschlossene Luft weiter erwärmt wird, kann sich der Vorgang wiederholen. Das Klacken ist eine sichtbare und hörbare Folge davon, dass Wärme die Bewegung der Luftteilchen verändert.",
+      "on_screen_words": [
+        "Die Münze fällt zurück"
+      ],
+      "visual_tokens": [],
+      "claim_anchors": [
+        "evidence-gas",
+        "evidence-pressure"
+      ],
+      "sound_cue": "none",
+      "duration_hint_seconds": 18.75,
+      "shot": {
+        "template_id": "coin-collage",
+        "version": "3",
+        "framing": "reset",
+        "asset_bundle": "coin-v3"
+      }
+    },
+    {
+      "scene_id": "scene-8",
+      "mascot": {
+        "visible": false,
+        "action": "aha",
+        "height_fraction": 0.65,
+        "placement": "left",
+        "start_seconds": 0.0
+      },
+      "segments": [
+        {
+          "segment_id": "scene-8-1",
+          "text": "Wärme macht die Luftteilchen schneller. Bei gleichem Platz steigt der Druck.",
+          "pause_after_seconds": 0.2,
+          "speaker": "narrator",
+          "delivery": "satisfied"
+        },
+        {
+          "segment_id": "scene-8-2",
+          "text": "Die Münze hebt sich.",
+          "pause_after_seconds": 0.2,
+          "speaker": "narrator",
+          "delivery": "satisfied"
+        },
+        {
+          "segment_id": "scene-8-3",
+          "text": "Luft entweicht, und der Druckunterschied sinkt.",
+          "pause_after_seconds": 0.2,
+          "speaker": "narrator",
+          "delivery": "satisfied"
+        },
+        {
+          "segment_id": "scene-8-4",
+          "text": "Die Münze fällt zurück. So wird unsichtbare Luftbewegung sichtbar.",
+          "pause_after_seconds": 0.2,
+          "speaker": "narrator",
+          "delivery": "satisfied"
+        }
+      ],
+      "mechanism": {
+        "kind": "gas-pressure",
+        "objects": [
+          "bottle",
+          "gas",
+          "coin",
+          "heat"
+        ],
+        "relationships": [
+          "gas-inside-bottle",
+          "coin-seals-mouth",
+          "heat-to-gas"
+        ],
+        "beats": [
+          {
+            "segment_id": "scene-8-1",
+            "action": "heat"
+          },
+          {
+            "segment_id": "scene-8-2",
+            "action": "lift"
+          },
+          {
+            "segment_id": "scene-8-3",
+            "action": "vent"
+          },
+          {
+            "segment_id": "scene-8-4",
+            "action": "reset"
+          }
+        ]
+      },
+      "primitive": "recap",
+      "narration": "Wärme macht die Luftteilchen schneller. Bei gleichem Platz steigt der Druck. Die Münze hebt sich. Luft entweicht, und der Druckunterschied sinkt. Die Münze fällt zurück. So wird unsichtbare Luftbewegung sichtbar.",
+      "on_screen_words": [
+        "Wärme · Druck · Bewegung"
+      ],
+      "visual_tokens": [],
+      "claim_anchors": [
+        "evidence-gas",
+        "evidence-pressure"
+      ],
+      "sound_cue": "none",
+      "duration_hint_seconds": 17.68,
+      "shot": {
+        "template_id": "coin-collage",
+        "version": "3",
+        "framing": "recap",
+        "asset_bundle": "coin-v3"
+      }
+    }
+  ],
+  "youtube": {
+    "title": "DE | Warum die Münze hüpft",
+    "description": "Eine Erklärung der beobachteten Vorgänge. Die Stimme wurde mit Text-to-Speech erzeugt.",
+    "tags": [
+      "Luft",
+      "Wärme",
+      "Physik",
+      "Experiment",
+      "Münze",
+      "Druck",
+      "Kinder",
+      "Naturwissenschaft",
+      "Erklärfilm"
+    ],
+    "thumbnail_text": "Warum die Münze hüpft"
+  },
+  "review": {
+    "approved": true,
+    "warnings": [
+      "Scene 2, segment 2-2: 'Zwischen ihnen ist viel freier Raum' is accurate and aligns with evidence-gas correction to remove 'tightly packed' language. Approved.",
+      "Scene 3, segment 3-1: 'Die Flasche bleibt dabei ungefähr gleich groß' correctly reflects rigid container assumption. Approved.",
+      "Scene 4, segment 4-2: Pressure difference framing ('Entscheidend ist der Unterschied') is scientifically sound and age-appropriate. Approved.",
+      "Scene 6, segment 6-2: Venting mechanism ('Durch diesen Spalt entweicht Luft') correctly explains pressure equalization per evidence-pressure. Approved.",
+      "No experimental commands detected. Narration explains simplified particle visualization appropriately for ages 6–9.",
+      "German phrasing is natural and accessible throughout.",
+      "Prediction (Scene 5) is open-ended without prescriptive instruction.",
+      "Causal chain (heat → particle speed → pressure rise → coin lift → venting → reset) is mechanically sound and evidence-supported."
+    ]
+  },
+  "estimated_duration_seconds": 147.86,
+  "created_at": "2026-09-05T15:26:49.113896Z"
+}

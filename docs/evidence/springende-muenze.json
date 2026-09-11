@@ -1,0 +1,29 @@
+{
+  "schema_version": 1,
+  "experiment_id": "springende-muenze",
+  "source_hash": "0d6d2f1d3eb3b75d",
+  "snapshot": "snapshots/springende-muenze-0d6d2f1d3eb3b75d.json",
+  "facts": [
+    {
+      "id": "evidence-gas",
+      "claim": "Gas particles are widely separated and move continuously. Higher temperature means greater average kinetic energy. Collisions transfer momentum to container walls.",
+      "sources": [
+        "https://openstax.org/books/chemistry-2e/pages/9-5-the-kinetic-molecular-theory"
+      ]
+    },
+    {
+      "id": "evidence-pressure",
+      "claim": "With approximately fixed gas amount and rigid container volume, warming raises gas pressure. The coin can lift when the pressure difference supplies enough upward force to overcome its weight and sealing forces. Venting reduces the trapped gas amount and pressure difference; the coin returns.",
+      "sources": [
+        "https://openstax.org/books/college-physics-2e/pages/13-3-the-ideal-gas-law",
+        "https://openstax.org/books/chemistry-2e/pages/9-5-the-kinetic-molecular-theory"
+      ]
+    }
+  ],
+  "corrections": [
+    "Remove tightly packed cold air: gases remain mostly empty space.",
+    "The rigid glass bottle keeps approximately the same volume; the gas pressure rises.",
+    "Show a simplified particle model, not literal particle sizes or exact collision trajectories."
+  ],
+  "review_status": "authored-awaiting-independent-review"
+}

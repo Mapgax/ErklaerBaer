@@ -1,0 +1,13 @@
+{
+  "semantic_id": "ear-illustration",
+  "version": "3",
+  "provider": "BFL",
+  "model": "flux-2-pro",
+  "seed": 42641,
+  "prompt": "One unmistakably recognizable human outer ear (pinna) in side view, as a beautiful handmade layered paper and softly modelled felt collage illustration for children. Anatomically recognizable curved outer helix, folded antihelix, concha bowl, small tragus, subtle dark ear-canal opening facing LEFT, soft rounded earlobe at bottom. No head, no face, no hair, no person, no jewellery, no hearing aid. Warm peach and muted terracotta paper, subtle paper fibres, soft restrained relief and shadows like the reference's tactile quality. Do not copy the bear. Large centered ear occupying 75 percent of height, all silhouette inside canvas. Pure perfectly uniform warm off-white background #F5F0E6, no floor shadow. No letters, numbers, symbols, diagrams, arrows, text, border or watermark.",
+  "reference_sha256": "798ea535c8d9d1ac452952f58baa08385cef489d2e4adb9bb60e52051cdfe168",
+  "sha256": "d00c6572ebcbbe5cf64533aa65cf8422126773acab257cc0f4838265efe38702",
+  "reserved_credits": 20,
+  "actual_credits": 6.0,
+  "review_status": "provisional"
+}

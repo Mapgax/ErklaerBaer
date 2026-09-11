@@ -1,0 +1,108 @@
+{
+  "schema_version": 1,
+  "actions": {
+    "neutral": {
+      "frame_count": 120,
+      "duration_seconds": 4.0,
+      "behavior": "loop",
+      "maximum_motion_mean_error": 4.3677,
+      "first_last_mean_error": 0.0027,
+      "loop_seam_mean_error": 0.0027,
+      "minimum_alpha_coverage": 0.2875,
+      "bounds_union": [
+        86,
+        144,
+        477,
+        711
+      ]
+    },
+    "lift": {
+      "frame_count": 61,
+      "duration_seconds": 2.0,
+      "behavior": "play-once-hold-last",
+      "maximum_motion_mean_error": 2.3078,
+      "first_last_mean_error": 0.0,
+      "loop_seam_mean_error": null,
+      "minimum_alpha_coverage": 0.2788,
+      "bounds_union": [
+        105,
+        135,
+        520,
+        714
+      ],
+      "neutral_start_mean_error": 20.5028
+    },
+    "explain": {
+      "frame_count": 61,
+      "duration_seconds": 2.0,
+      "behavior": "play-once-hold-last",
+      "maximum_motion_mean_error": 3.4165,
+      "first_last_mean_error": 0.0,
+      "loop_seam_mean_error": null,
+      "minimum_alpha_coverage": 0.2693,
+      "bounds_union": [
+        117,
+        133,
+        514,
+        688
+      ],
+      "neutral_start_mean_error": 17.1375
+    },
+    "think": {
+      "frame_count": 76,
+      "duration_seconds": 2.5,
+      "behavior": "play-once-hold-last",
+      "maximum_motion_mean_error": 3.0036,
+      "first_last_mean_error": 3.0036,
+      "loop_seam_mean_error": null,
+      "minimum_alpha_coverage": 0.275,
+      "bounds_union": [
+        138,
+        125,
+        458,
+        693
+      ],
+      "neutral_start_mean_error": 18.2238
+    },
+    "surprise": {
+      "frame_count": 46,
+      "duration_seconds": 1.5,
+      "behavior": "play-once-hold-last",
+      "maximum_motion_mean_error": 2.7996,
+      "first_last_mean_error": 0.0,
+      "loop_seam_mean_error": null,
+      "minimum_alpha_coverage": 0.2688,
+      "bounds_union": [
+        131,
+        125,
+        454,
+        708
+      ],
+      "neutral_start_mean_error": 16.4729
+    },
+    "aha": {
+      "frame_count": 55,
+      "duration_seconds": 1.8,
+      "behavior": "play-once-hold-last",
+      "maximum_motion_mean_error": 3.8062,
+      "first_last_mean_error": 0.0,
+      "loop_seam_mean_error": null,
+      "minimum_alpha_coverage": 0.2847,
+      "bounds_union": [
+        102,
+        138,
+        499,
+        687
+      ],
+      "neutral_start_mean_error": 17.9573
+    }
+  },
+  "failures": [],
+  "bounds_union": [
+    86,
+    125,
+    520,
+    714
+  ],
+  "passed": true
+}

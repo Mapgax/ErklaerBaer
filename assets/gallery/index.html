@@ -1,0 +1,13 @@
+<!doctype html><html lang="en"><meta charset="utf-8">
+<meta name="viewport" content="width=device-width"><title>ErklaerBaer asset library</title>
+<style>body{margin:4vw;background:#f8efd8;color:#344744;font:17px system-ui}h1{font-size:34px}
+input{padding:14px;border:1px solid #839b91;border-radius:9px;font:inherit;width:min(85%,550px)}
+main{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:24px;margin-top:30px}
+article{background:#fffcf3;border-radius:15px;padding:24px}img{height:260px;width:100%;object-fit:contain}
+h2{font-size:21px}p{line-height:1.5}article[hidden]{display:none}</style>
+<h1>ErklaerBaer asset library</h1><p>Local v3 working library. Creative review is pending.</p>
+<label for="search">Find an asset</label><br><input id="search" placeholder="guitar, felt, bear…">
+<main><article data-search="guitar-v3 guitar sound box collage"><img src="../library/guitar/v3/preview.png" alt="guitar-v3"><h2>guitar-v3</h2><p>provisional</p><p>Rive prop animation source/runtime pending desktop connection</p></article><article data-search="collage-materials paper felt texture"><img src="../library/materials/v3/material-sheet.png" alt="collage-materials"><h2>collage-materials</h2><p>provisional</p><p></p></article><article data-search="ear-illustration ear felt sound"><img src="../library/ear/v3/ear.png" alt="ear-illustration"><h2>ear-illustration</h2><p>provisional</p><p></p></article><article data-search="bear-v3-working bear six actions repaired rim"><img src="../mascot/rig/v3/frames/neutral/0000.png" alt="bear-v3-working"><h2>bear-v3-working</h2><p>provisional-repaired</p><p>Native runtime bake checked; owner creative review pending</p></article></main><script>document.querySelector('input').addEventListener('input',e=>{
+for(const card of document.querySelectorAll('article')) {
+card.hidden=!card.dataset.search.toLowerCase().includes(e.target.value.toLowerCase());
+}});</script></html>

@@ -1,0 +1,9 @@
+{
+  "content_hash": "57fa816575ed81641c4841e4dc637082399b3753fdcda23ed31ff5eb61d73b67",
+  "result": {
+    "approved": true,
+    "warnings": []
+  },
+  "model": "claude-haiku-4-5",
+  "scope": "science and script only; visual and owner review separate"
+}

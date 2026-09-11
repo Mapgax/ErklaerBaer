@@ -1,0 +1,73 @@
+{
+  "schema_version": 2,
+  "master": {"file_id": 2558769, "status": "approved-v1-preserved"},
+  "working_duplicate": {
+    "file_id": 2561970,
+    "name": "ErklaerBaer_Mascot (1)",
+    "status": "implemented-exported-runtime-checked-awaiting-owner-review"
+  },
+  "exports": {
+    "runtime_file": "assets/mascot/rig/v2/erklaerbaer-mascot-v2.riv",
+    "runtime_sha256": "0e291bb163dc8a9e713a4fd04fe306457f795af501dc4163e3809c71441e0c75",
+    "authoring_file": "assets/mascot/rig/v2/erklaerbaer-mascot-v2.rev",
+    "authoring_sha256": "6cac4e9f47f18e32d4f3abc564b7f992872c0ea71a81085c4ce17f743d375196",
+    "document_only_backup": "assets/mascot/rig/v2/erklaerbaer-mascot-v2-document-only.rev",
+    "document_only_backup_sha256": "61201139d713011b7ca78c12b7023ee8f300307eda2219999af158e0b356198d",
+    "clip_manifest": "assets/mascot/rig/v2/manifest.json",
+    "clip_format": "rgba-png-sequence",
+    "clip_fps": 30,
+    "rejected_runtime": "assets/mascot/rig/v2/erklaerbaer-mascot-v2-unbound.rejected.riv",
+    "rejected_runtime_sha256": "ab628b6f569e5a70b8351c6d44d70d372c4503f363c0e62929371a3fd08a370d",
+    "rejection_reason": "artboard lacked its ViewModel1 Instance data context, so Full optimization removed action and five timelines",
+    "status": "native-exports-secured-six-action-runtime-bake-passed"
+  },
+  "artboard": {
+    "name": "ErklaerBaer_Mascot",
+    "width": 1200,
+    "height": 1600,
+    "background": "transparent",
+    "component": true
+  },
+  "state_machine": {
+    "name": "State Machine 1",
+    "view_model": "ViewModel1",
+    "production_property": "action",
+    "property_type": "number",
+    "default": 0,
+    "range": [0, 5],
+    "wired": true,
+    "artboard_data_context": "ViewModel1/Instance",
+    "artboard_data_context_bound": true,
+    "simulation_checked": true
+  },
+  "actions": {
+    "0": {"semantic_name": "neutral", "timeline": "idle_loop", "duration_seconds": 4.0, "behavior": "loop"},
+    "1": {
+      "semantic_name": "lift",
+      "timeline": "lift_v2",
+      "duration_seconds": 2.0,
+      "behavior": "play-once-hold",
+      "limitation": "accepted pose contains a held stone; coordinate with one separate scene prop and never show a second lifted stone"
+    },
+    "2": {"semantic_name": "explain", "timeline": "explain_v2", "duration_seconds": 2.0, "behavior": "play-once-hold"},
+    "3": {"semantic_name": "think", "timeline": "think_v2", "duration_seconds": 2.5, "behavior": "play-once-attentive-hold"},
+    "4": {"semantic_name": "surprise", "timeline": "surprise_v2", "duration_seconds": 1.5, "behavior": "play-once-settle"},
+    "5": {"semantic_name": "aha", "timeline": "aha_v2", "duration_seconds": 1.8, "behavior": "play-once-settle"}
+  },
+  "bind_pose": {
+    "mascot_root": {"x": 595, "y": 787},
+    "timeline_root": {"x": 600, "y": 800},
+    "head_rotation_degrees": -0.10641551025538434,
+    "bones": ["bone_root", "bone_torso", "bone_head"],
+    "eyelids": ["blink_left", "blink_right"]
+  },
+  "capabilities": {
+    "neutral_head_deformation": "implemented-technically-checked",
+    "synchronized_neutral_blink": "implemented-technically-checked",
+    "alternate_pose_meshes": "implemented-technically-checked-in-editor",
+    "six_action_selection": "implemented-simulation-checked",
+    "runtime_alpha_and_edges": "passed",
+    "fixed_step_30fps_clips": "passed-419-frames",
+    "owner_approved_v2": false
+  }
+}

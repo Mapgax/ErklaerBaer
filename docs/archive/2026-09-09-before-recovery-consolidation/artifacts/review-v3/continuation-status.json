@@ -1,0 +1,58 @@
+{
+  "voice_samples": [
+    {
+      "file": "gemini-de-DE-narrator.wav",
+      "duration_seconds": 10.971166666666667,
+      "sha256": "ff643ba14f1d44623c33fa43a6489520e6707d577e7bb7392ed8f65d4fb01b1c",
+      "listening_verified": false
+    },
+    {
+      "file": "gemini-nl-NL-bear.wav",
+      "duration_seconds": 16.691166666666668,
+      "sha256": "0bb6ec219369b93d49d9bc84ca56cff330f6af97858674ab3690eace7962b756",
+      "listening_verified": false
+    },
+    {
+      "file": "gemini-nl-NL-narrator.wav",
+      "duration_seconds": 12.011166666666666,
+      "sha256": "4b8be06b8a47b7ebeeab84ce91f61cfd15c5cfdfa9018f75d05621e48cd9dbe7",
+      "listening_verified": false
+    }
+  ],
+  "remaining": {
+    "bfl_credits_reserved": 200,
+    "bfl_requests": 10,
+    "llm_calls": 19,
+    "tts_characters": 10571
+  },
+  "gemini_reserved_usd": 3.022848,
+  "native_exports_received": true,
+  "runtime_bake_complete": true,
+  "blocker": null,
+  "next": [
+    "Owner review of full video and intro",
+    "Complete reusable native guitar prop assets"
+  ],
+  "gemini_attempts": 18,
+  "episode_build": "cedfada8807f70f3fe6b4a2c",
+  "intro_build": "fb10cd42eb4001c23272e5ef",
+  "youtube_video_id": "z_1Fx6L3N_Q",
+  "youtube_final_save_verified": true,
+  "youtube": {
+    "video_id": "z_1Fx6L3N_Q",
+    "url": "https://youtu.be/z_1Fx6L3N_Q",
+    "privacy": "private",
+    "verified_in_channel_content": true,
+    "date": "2026-09-09",
+    "intro_build": "fb10cd42eb4001c23272e5ef",
+    "episode_build": "cedfada8807f70f3fe6b4a2c",
+    "captions_uploaded": "nl-NL",
+    "made_for_kids": true,
+    "notifications": false,
+    "copyright_check": "No issues found",
+    "custom_thumbnail": "Not uploaded: channel phone verification required",
+    "duration_seconds_local": 187.03,
+    "youtube_display_duration": "3:08",
+    "owner_creative_approved": false
+  }
+}

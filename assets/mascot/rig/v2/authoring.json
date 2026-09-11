@@ -1,0 +1,42 @@
+{
+  "master_file_id": 2558769,
+  "working_file_id": 2561970,
+  "working_url": "https://editor.rive.app/file/erklaerbaer_mascot-1/2561970",
+  "status": "authored-native-exported-runtime-bake-passed",
+  "backup": "../v1-backup/erklaerbaer_mascot.rev",
+  "mcp_endpoint": "http://127.0.0.1:9791/mcp",
+  "desktop_version": "0.8.5761",
+  "mcp_version": "0.6",
+  "verified": [
+    "session_info",
+    "hierarchy",
+    "queryKeyFrames",
+    "backup with embedded assets",
+    "corrected full embedded backup exported inside the native app sandbox",
+    "property edit and restoration",
+    "transparent capture",
+    "three new mesh generations and bone bindings",
+    "six semantic timelines",
+    "ViewModel1.action state selection for values 0 through 5",
+    "state-machine simulation for values 0 through 5",
+    "ViewModel1 Instance bound to artboard 0-2",
+    "native runtime export secured and hashed",
+    "native full embedded backup secured and hashed",
+    "all six runtime timelines decoded at fixed-step 30 fps",
+    "alpha, bounds, loop seam, motion, and action-distinctness QA passed"
+  ],
+  "not_yet_verified": [
+    "owner creative approval"
+  ],
+  "exports": {
+    "runtime_file": "erklaerbaer-mascot-v2.riv",
+    "runtime_bytes": 11743468,
+    "runtime_sha256": "0e291bb163dc8a9e713a4fd04fe306457f795af501dc4163e3809c71441e0c75",
+    "authoring_file": "erklaerbaer-mascot-v2.rev",
+    "authoring_bytes": 11523132,
+    "authoring_sha256": "6cac4e9f47f18e32d4f3abc564b7f992872c0ea71a81085c4ce17f743d375196",
+    "runtime_frames": 419,
+    "qa_report": "mascot-qa.json",
+    "qa_passed": true
+  }
+}

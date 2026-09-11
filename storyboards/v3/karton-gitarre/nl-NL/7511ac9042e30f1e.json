@@ -1,0 +1,578 @@
+{
+  "schema_version": "3",
+  "template_version": "3",
+  "experiment_id": "karton-gitarre",
+  "source_hash": "7511ac9042e30f1e",
+  "language": "nl-NL",
+  "localized_title": "Hoe een kartonnen gitaar klinkt",
+  "category": "technik",
+  "scenes": [
+    {
+      "scene_id": "scene-1",
+      "shot": {
+        "template_id": "guitar-collage",
+        "version": "3",
+        "framing": "establish",
+        "asset_bundle": "guitar-v3"
+      },
+      "mascot": {
+        "visible": true,
+        "action": "neutral",
+        "placement": "left",
+        "height_fraction": 0.62,
+        "start_seconds": 0.0
+      },
+      "segments": [
+        {
+          "segment_id": "scene-1-1",
+          "text": "Een elastiek over een kartonnen doos kan een toon maken. Het lijkt een kleine gitaar. Maar waar komt dat geluid vandaan?",
+          "pause_after_seconds": 0.2,
+          "speaker": "bear",
+          "delivery": "curious"
+        },
+        {
+          "segment_id": "scene-1-2",
+          "text": "Na een pluk beweegt het elastiek heen en weer. Die beweging is het begin van een reis naar je oren.",
+          "pause_after_seconds": 0.2,
+          "speaker": "narrator",
+          "delivery": "warm"
+        }
+      ],
+      "mechanism": {
+        "kind": "vibrating-string",
+        "objects": [
+          "string",
+          "box",
+          "air",
+          "ear"
+        ],
+        "relationships": [
+          "string-on-box",
+          "vibration-to-air",
+          "air-to-ear"
+        ],
+        "beats": [
+          {
+            "segment_id": "scene-1-1",
+            "action": "observe"
+          },
+          {
+            "segment_id": "scene-1-2",
+            "action": "pluck"
+          }
+        ]
+      },
+      "primitive": "question",
+      "narration": "Een elastiek over een kartonnen doos kan een toon maken. Het lijkt een kleine gitaar. Maar waar komt dat geluid vandaan? Na een pluk beweegt het elastiek heen en weer. Die beweging is het begin van een reis naar je oren.",
+      "on_screen_words": [
+        "Hoe ontstaat geluid?"
+      ],
+      "visual_tokens": [],
+      "claim_anchors": [
+        "evidence-vibration",
+        "evidence-sound"
+      ],
+      "sound_cue": "none",
+      "duration_hint_seconds": 21.96
+    },
+    {
+      "scene_id": "scene-2",
+      "shot": {
+        "template_id": "guitar-collage",
+        "version": "3",
+        "framing": "string",
+        "asset_bundle": "guitar-v3"
+      },
+      "mascot": {
+        "visible": false,
+        "action": "neutral",
+        "placement": "left",
+        "height_fraction": 0.65,
+        "start_seconds": 0.0
+      },
+      "segments": [
+        {
+          "segment_id": "scene-2-1",
+          "text": "We bekijken één elastiek van dichtbij. De uiteinden zitten vast, terwijl het midden heen en weer kan bewegen.",
+          "pause_after_seconds": 0.2,
+          "speaker": "narrator",
+          "delivery": "warm"
+        },
+        {
+          "segment_id": "scene-2-2",
+          "text": "Dat noemen we trillen. In onze tekening gaat het langzaam, zodat de beweging zichtbaar is. In werkelijkheid kan het elastiek veel sneller trillen.",
+          "pause_after_seconds": 0.2,
+          "speaker": "narrator",
+          "delivery": "warm"
+        }
+      ],
+      "mechanism": {
+        "kind": "vibrating-string",
+        "objects": [
+          "string",
+          "box",
+          "air",
+          "ear"
+        ],
+        "relationships": [
+          "string-on-box",
+          "vibration-to-air",
+          "air-to-ear"
+        ],
+        "beats": [
+          {
+            "segment_id": "scene-2-1",
+            "action": "vibrate"
+          },
+          {
+            "segment_id": "scene-2-2",
+            "action": "vibrate"
+          }
+        ]
+      },
+      "primitive": "macro_to_micro",
+      "narration": "We bekijken één elastiek van dichtbij. De uiteinden zitten vast, terwijl het midden heen en weer kan bewegen. Dat noemen we trillen. In onze tekening gaat het langzaam, zodat de beweging zichtbaar is. In werkelijkheid kan het elastiek veel sneller trillen.",
+      "on_screen_words": [
+        "Het elastiek trilt"
+      ],
+      "visual_tokens": [],
+      "claim_anchors": [
+        "evidence-vibration",
+        "evidence-sound"
+      ],
+      "sound_cue": "none",
+      "duration_hint_seconds": 21.96
+    },
+    {
+      "scene_id": "scene-3",
+      "shot": {
+        "template_id": "guitar-collage",
+        "version": "3",
+        "framing": "attachments",
+        "asset_bundle": "guitar-v3"
+      },
+      "mascot": {
+        "visible": false,
+        "action": "neutral",
+        "placement": "left",
+        "height_fraction": 0.65,
+        "start_seconds": 0.0
+      },
+      "segments": [
+        {
+          "segment_id": "scene-3-1",
+          "text": "Het trillende elastiek trekt en duwt aan de plekken waar het op de doos steunt. Zo gaat ook de doos een beetje meetrillen.",
+          "pause_after_seconds": 0.2,
+          "speaker": "narrator",
+          "delivery": "warm"
+        },
+        {
+          "segment_id": "scene-3-2",
+          "text": "Die beweging is klein. De grote oppervlakken van de doos kunnen de lucht eromheen in beweging brengen.",
+          "pause_after_seconds": 0.2,
+          "speaker": "narrator",
+          "delivery": "warm"
+        }
+      ],
+      "mechanism": {
+        "kind": "vibrating-string",
+        "objects": [
+          "string",
+          "box",
+          "air",
+          "ear"
+        ],
+        "relationships": [
+          "string-on-box",
+          "vibration-to-air",
+          "air-to-ear"
+        ],
+        "beats": [
+          {
+            "segment_id": "scene-3-1",
+            "action": "couple"
+          },
+          {
+            "segment_id": "scene-3-2",
+            "action": "surface"
+          }
+        ]
+      },
+      "primitive": "cause_effect",
+      "narration": "Het trillende elastiek trekt en duwt aan de plekken waar het op de doos steunt. Zo gaat ook de doos een beetje meetrillen. Die beweging is klein. De grote oppervlakken van de doos kunnen de lucht eromheen in beweging brengen.",
+      "on_screen_words": [
+        "Elastiek en steunpunten"
+      ],
+      "visual_tokens": [],
+      "claim_anchors": [
+        "evidence-vibration",
+        "evidence-sound"
+      ],
+      "sound_cue": "none",
+      "duration_hint_seconds": 21.43
+    },
+    {
+      "scene_id": "scene-4",
+      "shot": {
+        "template_id": "guitar-collage",
+        "version": "3",
+        "framing": "air",
+        "asset_bundle": "guitar-v3"
+      },
+      "mascot": {
+        "visible": false,
+        "action": "neutral",
+        "placement": "left",
+        "height_fraction": 0.65,
+        "start_seconds": 0.0
+      },
+      "segments": [
+        {
+          "segment_id": "scene-4-1",
+          "text": "De trillende doos duwt afwisselend tegen de lucht en beweegt weer terug. Zo ontstaan kleine verschillen in luchtdruk.",
+          "pause_after_seconds": 0.2,
+          "speaker": "narrator",
+          "delivery": "warm"
+        },
+        {
+          "segment_id": "scene-4-2",
+          "text": "Die verschillen reizen door de lucht. De luchtdeeltjes bewegen vooral heen en weer rond hun eigen plek. Ze vliegen niet allemaal naar je oor.",
+          "pause_after_seconds": 0.2,
+          "speaker": "narrator",
+          "delivery": "warm"
+        }
+      ],
+      "mechanism": {
+        "kind": "vibrating-string",
+        "objects": [
+          "string",
+          "box",
+          "air",
+          "ear"
+        ],
+        "relationships": [
+          "string-on-box",
+          "vibration-to-air",
+          "air-to-ear"
+        ],
+        "beats": [
+          {
+            "segment_id": "scene-4-1",
+            "action": "surface"
+          },
+          {
+            "segment_id": "scene-4-2",
+            "action": "propagate"
+          }
+        ]
+      },
+      "primitive": "flow",
+      "narration": "De trillende doos duwt afwisselend tegen de lucht en beweegt weer terug. Zo ontstaan kleine verschillen in luchtdruk. Die verschillen reizen door de lucht. De luchtdeeltjes bewegen vooral heen en weer rond hun eigen plek. Ze vliegen niet allemaal naar je oor.",
+      "on_screen_words": [
+        "Lucht trilt"
+      ],
+      "visual_tokens": [],
+      "claim_anchors": [
+        "evidence-vibration",
+        "evidence-sound"
+      ],
+      "sound_cue": "none",
+      "duration_hint_seconds": 22.5
+    },
+    {
+      "scene_id": "scene-5",
+      "shot": {
+        "template_id": "guitar-collage",
+        "version": "3",
+        "framing": "ear",
+        "asset_bundle": "guitar-v3"
+      },
+      "mascot": {
+        "visible": false,
+        "action": "neutral",
+        "placement": "left",
+        "height_fraction": 0.65,
+        "start_seconds": 0.0
+      },
+      "segments": [
+        {
+          "segment_id": "scene-5-1",
+          "text": "Bij je oor laat de bewegende lucht je trommelvlies trillen. Zo begint het horen van de toon.",
+          "pause_after_seconds": 0.2,
+          "speaker": "narrator",
+          "delivery": "warm"
+        },
+        {
+          "segment_id": "scene-5-2",
+          "text": "Hoe vaak het elastiek per seconde trilt, bepaalt de toonhoogte. Vaker heen en weer betekent een hogere toon; minder vaak betekent een lagere toon.",
+          "pause_after_seconds": 0.2,
+          "speaker": "narrator",
+          "delivery": "warm"
+        }
+      ],
+      "mechanism": {
+        "kind": "vibrating-string",
+        "objects": [
+          "string",
+          "box",
+          "air",
+          "ear"
+        ],
+        "relationships": [
+          "string-on-box",
+          "vibration-to-air",
+          "air-to-ear"
+        ],
+        "beats": [
+          {
+            "segment_id": "scene-5-1",
+            "action": "hear"
+          },
+          {
+            "segment_id": "scene-5-2",
+            "action": "vibrate"
+          }
+        ]
+      },
+      "primitive": "comparison",
+      "narration": "Bij je oor laat de bewegende lucht je trommelvlies trillen. Zo begint het horen van de toon. Hoe vaak het elastiek per seconde trilt, bepaalt de toonhoogte. Vaker heen en weer betekent een hogere toon; minder vaak betekent een lagere toon.",
+      "on_screen_words": [
+        "Je oor hoort"
+      ],
+      "visual_tokens": [],
+      "claim_anchors": [
+        "evidence-vibration",
+        "evidence-sound"
+      ],
+      "sound_cue": "none",
+      "duration_hint_seconds": 21.96
+    },
+    {
+      "scene_id": "scene-6",
+      "shot": {
+        "template_id": "guitar-collage",
+        "version": "3",
+        "framing": "reaction",
+        "asset_bundle": "guitar-v3"
+      },
+      "mascot": {
+        "visible": true,
+        "action": "think",
+        "placement": "left",
+        "height_fraction": 0.65,
+        "start_seconds": 0.0
+      },
+      "segments": [
+        {
+          "segment_id": "scene-6-1",
+          "text": "Stel dat het elastiek niet meer heen en weer beweegt. Zou de toon dan blijven klinken, of juist verdwijnen?",
+          "pause_after_seconds": 2.8,
+          "speaker": "bear",
+          "delivery": "curious"
+        }
+      ],
+      "mechanism": {
+        "kind": "vibrating-string",
+        "objects": [
+          "string",
+          "box",
+          "air",
+          "ear"
+        ],
+        "relationships": [
+          "string-on-box",
+          "vibration-to-air",
+          "air-to-ear"
+        ],
+        "beats": [
+          {
+            "segment_id": "scene-6-1",
+            "action": "vibrate"
+          }
+        ]
+      },
+      "primitive": "prediction",
+      "narration": "Stel dat het elastiek niet meer heen en weer beweegt. Zou de toon dan blijven klinken, of juist verdwijnen?",
+      "on_screen_words": [
+        "Als de trilling stopt?"
+      ],
+      "visual_tokens": [],
+      "claim_anchors": [
+        "evidence-vibration",
+        "evidence-sound"
+      ],
+      "sound_cue": "none",
+      "duration_hint_seconds": 10.18
+    },
+    {
+      "scene_id": "scene-7",
+      "shot": {
+        "template_id": "guitar-collage",
+        "version": "3",
+        "framing": "decay",
+        "asset_bundle": "guitar-v3"
+      },
+      "mascot": {
+        "visible": false,
+        "action": "neutral",
+        "placement": "left",
+        "height_fraction": 0.65,
+        "start_seconds": 0.0
+      },
+      "segments": [
+        {
+          "segment_id": "scene-7-1",
+          "text": "Zonder een nieuwe pluk wordt de trilling steeds kleiner. De bewegingsenergie wordt overgedragen en uiteindelijk onder meer omgezet in warmte.",
+          "pause_after_seconds": 0.2,
+          "speaker": "narrator",
+          "delivery": "warm"
+        },
+        {
+          "segment_id": "scene-7-2",
+          "text": "Als het elastiek en de doos tot rust komen, sterft de toon weg. De doos maakte geen nieuwe energie. Ze hielp de trilling door te geven.",
+          "pause_after_seconds": 0.2,
+          "speaker": "narrator",
+          "delivery": "warm"
+        }
+      ],
+      "mechanism": {
+        "kind": "vibrating-string",
+        "objects": [
+          "string",
+          "box",
+          "air",
+          "ear"
+        ],
+        "relationships": [
+          "string-on-box",
+          "vibration-to-air",
+          "air-to-ear"
+        ],
+        "beats": [
+          {
+            "segment_id": "scene-7-1",
+            "action": "damp"
+          },
+          {
+            "segment_id": "scene-7-2",
+            "action": "damp"
+          }
+        ]
+      },
+      "primitive": "cause_effect",
+      "narration": "Zonder een nieuwe pluk wordt de trilling steeds kleiner. De bewegingsenergie wordt overgedragen en uiteindelijk onder meer omgezet in warmte. Als het elastiek en de doos tot rust komen, sterft de toon weg. De doos maakte geen nieuwe energie. Ze hielp de trilling door te geven.",
+      "on_screen_words": [
+        "Trilling neemt af"
+      ],
+      "visual_tokens": [],
+      "claim_anchors": [
+        "evidence-vibration",
+        "evidence-sound"
+      ],
+      "sound_cue": "none",
+      "duration_hint_seconds": 24.64
+    },
+    {
+      "scene_id": "scene-8",
+      "shot": {
+        "template_id": "guitar-collage",
+        "version": "3",
+        "framing": "recap",
+        "asset_bundle": "guitar-v3"
+      },
+      "mascot": {
+        "visible": false,
+        "action": "aha",
+        "placement": "left",
+        "height_fraction": 0.65,
+        "start_seconds": 0.0
+      },
+      "segments": [
+        {
+          "segment_id": "scene-8-1",
+          "text": "Eerst trilt het elastiek. Het laat de doos meetrillen, en de doos brengt de lucht in beweging.",
+          "pause_after_seconds": 0.2,
+          "speaker": "narrator",
+          "delivery": "satisfied"
+        },
+        {
+          "segment_id": "scene-8-2",
+          "text": "De verandering in luchtdruk bereikt je oor. Zo wordt een kleine beweging een hoorbare toon.",
+          "pause_after_seconds": 0.2,
+          "speaker": "narrator",
+          "delivery": "satisfied"
+        }
+      ],
+      "mechanism": {
+        "kind": "vibrating-string",
+        "objects": [
+          "string",
+          "box",
+          "air",
+          "ear"
+        ],
+        "relationships": [
+          "string-on-box",
+          "vibration-to-air",
+          "air-to-ear"
+        ],
+        "beats": [
+          {
+            "segment_id": "scene-8-1",
+            "action": "pluck"
+          },
+          {
+            "segment_id": "scene-8-2",
+            "action": "sound"
+          }
+        ]
+      },
+      "primitive": "recap",
+      "narration": "Eerst trilt het elastiek. Het laat de doos meetrillen, en de doos brengt de lucht in beweging. De verandering in luchtdruk bereikt je oor. Zo wordt een kleine beweging een hoorbare toon.",
+      "on_screen_words": [
+        "Elastiek",
+        "doos",
+        "lucht"
+      ],
+      "visual_tokens": [],
+      "claim_anchors": [
+        "evidence-vibration",
+        "evidence-sound"
+      ],
+      "sound_cue": "none",
+      "duration_hint_seconds": 17.14
+    }
+  ],
+  "youtube": {
+    "title": "NL | Hoe een kartonnen gitaar klinkt",
+    "description": "Een uitleg van de waargenomen verschijnselen. De stem is gemaakt met tekst-naar-spraak.",
+    "tags": [
+      "geluid",
+      "gitaar",
+      "trillingen",
+      "wetenschap",
+      "kinderen",
+      "akoestiek",
+      "experiment",
+      "muziek"
+    ],
+    "thumbnail_text": "Hoe een kartonnen gitaar klinkt"
+  },
+  "review": {
+    "approved": true,
+    "warnings": [
+      "Scene 2, segment 2-2: Clarification is pedagogically sound—the note that drawings show slowed motion and actual vibration is faster aligns with evidence and the supplied correction about visible frequency not matching actual pitch.",
+      "Scene 7, segment 7-1: Energy conversion language ('overgedragen en uiteindelijk onder meer omgezet in warmte') is accurate per evidence-vibration (damped string loses amplitude). Phrasing is appropriate for age 6–9.",
+      "Scene 4, segment 4-2: Distinction between local particle motion and pressure wave propagation is scientifically correct and well-explained for the target age.",
+      "All claim anchors (evidence-vibration, evidence-sound) are present and supported by narration.",
+      "No experimental commands detected; script is observational and explanatory.",
+      "Language (nl-NL) is natural and age-appropriate throughout.",
+      "Mechanism objects (string, box, air, ear) and relationships (string-on-box, vibration-to-air, air-to-ear) are consistently mapped and causal.",
+      "Prediction question (scene 6) is open-ended and does not instruct performance.",
+      "No unsupported generalizations about string thickness or box size detected.",
+      "Box role correctly framed as coupling vibration to air, not creating energy (scene 7-2 explicitly states this)."
+    ]
+  },
+  "estimated_duration_seconds": 161.77,
+  "created_at": "2026-09-05T15:40:26.519688Z"
+}

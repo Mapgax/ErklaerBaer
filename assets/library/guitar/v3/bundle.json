@@ -1,0 +1,40 @@
+{
+  "semantic_id": "guitar-v3",
+  "version": "3",
+  "tags": [
+    "guitar",
+    "sound",
+    "box",
+    "collage"
+  ],
+  "files": {
+    "body.png": "487143bdac661106a6da62733e978c1a4affa66d87c38b037d420b96b2a45f50",
+    "ear.png": "0fdef2a2221a3c920bc9f28d34b1b1cdb57bb56392d09423ae53cc638d675022",
+    "geometry.svg": "9eb892e59e114a6da427cdbe8cd67d9d9fa11a43e9f25b5eaf58543e03f4a464",
+    "layers.svg": "8c1b7607bf4a138f1237a3492bcff052b1ea6caaa10b2a47eb1363722cdd89af",
+    "preview.png": "9ef3d9f7f028a071a8833f766e7a04fcadfaae18f931b28178d2ffdfc5be3a35",
+    "soundboard.png": "4e19e9aff9c77fb2c3850e51c13f1c471dc9ab0d1fec6083fc87281e5c583393",
+    "supports.png": "a062f8766842c41b3cbd9802957dd3b64899847decec87c4898d2c6a4a7427d1"
+  },
+  "preview": "library/guitar/v3/preview.png",
+  "review_status": "provisional",
+  "owner_approved": false,
+  "source": "BFL texture with deterministic editable geometry",
+  "anchors": {
+    "elastic_left": [
+      258,
+      253
+    ],
+    "elastic_right": [
+      678,
+      253
+    ]
+  },
+  "dimensions": [
+    960,
+    610
+  ],
+  "limitations": [
+    "Rive prop animation source/runtime pending desktop connection"
+  ]
+}

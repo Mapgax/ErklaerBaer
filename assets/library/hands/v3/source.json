@@ -1,0 +1,14 @@
+{
+  "semantic_id": "warming-hand",
+  "version": "3",
+  "provider": "BFL",
+  "model": "flux-2-pro",
+  "seed": 42663,
+  "prompt": "One single human hand of a warm, friendly adult, seen from the back of the hand, fingers gently curved to the RIGHT as if cupping and warming a jar just out of frame, thumb tucked below, wrist cut off cleanly at the bottom right with no arm and no sleeve. Handmade layered paper and softly modelled felt collage illustration for children, warm peach and muted terracotta papers, subtle paper fibres, soft restrained relief and gentle shadows, the same tactile handmade quality as the reference. Do not copy the bear, no bear, no animal, no face, no jewellery, no nail polish, no patterns on the skin. Large centered hand occupying 80 percent of the canvas, entire silhouette inside canvas. Pure perfectly uniform background #F5F0E6, no floor shadow, no gradient. No letters, numbers, symbols, diagrams, arrows, text, border or watermark.",
+  "background": "#F5F0E6",
+  "reference_sha256": "798ea535c8d9d1ac452952f58baa08385cef489d2e4adb9bb60e52051cdfe168",
+  "sha256": "7f58545b4a35277f15e6c55aa9daa31da2746f9055ad2fb1a7f5006b5d158d8d",
+  "reserved_credits": 20,
+  "actual_credits": 6.0,
+  "review_status": "provisional"
+}

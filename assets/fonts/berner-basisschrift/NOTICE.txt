@@ -1,0 +1,31 @@
+Berner Basisschrift 1
+=====================
+
+File: berner-basisschrift.basisschrift1.ttf
+Family: Berner Basisschrift 1, Regular, version 1.000
+Designer: Peter Wiegel, www.peter-wiegel.de
+Source: https://www.1001fonts.com/berner-basisschrift-font.html
+
+Declared in the font's own name table, verbatim:
+
+  Copyright (c) 2014 by Peter Wiegel.   Open Font under Terms of following
+  Free Software Licenses: GPL (General Public License) with font-exception
+  and OFL (Open Font License
+
+  License: GPL- General Public License AND OFL-Open Font License
+  License URL: http://www.fsf.org/licenses/gpl.html AND http://scripts.sil.org/OFL
+
+Free for personal and commercial use under either licence. Used here only to
+set child-facing on-screen words, small shot labels and the episode thumbnail.
+The letters are rendered to pixels in the video; the font file itself is not
+redistributed in any published deliverable.
+
+If these asset folders are ever published, add the full SIL Open Font License
+1.1 text next to this notice, as the OFL requires when the font file travels.
+
+Why this font rather than the alternatives, checked 2026-09-09:
+  - Deutschschweizer Basisschrift (basisschrift.ch) has no eszett, and needs a
+    paid BKZ licence for products used outside Switzerland.
+  - Grundschrift (Grundschulverband e.V.) is licensed for non-commercial use
+    only and has no accented Latin vowels, which Dutch needs.
+  - Berner Basisschrift 1 covers every character this project uses.

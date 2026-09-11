@@ -1,0 +1,20 @@
+{
+  "content_hash": "a85a59eee10523757d417fcb6c691373bdde2045ae040e5f247bd67fd614391c",
+  "result": {
+    "approved": true,
+    "warnings": [
+      "Scene 2, segment 2-2: Clarification is pedagogically sound—the note that drawings show slowed motion and actual vibration is faster aligns with evidence and the supplied correction about visible frequency not matching actual pitch.",
+      "Scene 7, segment 7-1: Energy conversion language ('overgedragen en uiteindelijk onder meer omgezet in warmte') is accurate per evidence-vibration (damped string loses amplitude). Phrasing is appropriate for age 6–9.",
+      "Scene 4, segment 4-2: Distinction between local particle motion and pressure wave propagation is scientifically correct and well-explained for the target age.",
+      "All claim anchors (evidence-vibration, evidence-sound) are present and supported by narration.",
+      "No experimental commands detected; script is observational and explanatory.",
+      "Language (nl-NL) is natural and age-appropriate throughout.",
+      "Mechanism objects (string, box, air, ear) and relationships (string-on-box, vibration-to-air, air-to-ear) are consistently mapped and causal.",
+      "Prediction question (scene 6) is open-ended and does not instruct performance.",
+      "No unsupported generalizations about string thickness or box size detected.",
+      "Box role correctly framed as coupling vibration to air, not creating energy (scene 7-2 explicitly states this)."
+    ]
+  },
+  "model": "claude-haiku-4-5",
+  "scope": "science and script only; visual and owner review separate"
+}

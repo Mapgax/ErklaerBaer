@@ -1,0 +1,158 @@
+{
+  "schema_version": "1",
+  "template_version": "1",
+  "experiment_id": "farben-wanderung",
+  "source_hash": "fdfc6e0cdf465c9f",
+  "language": "de-DE",
+  "localized_title": "Wanderndes Wasser",
+  "category": "kuechenchemie",
+  "scenes": [
+    {
+      "scene_id": "scene-1-question",
+      "primitive": "question",
+      "narration": "Kann Wasser eigentlich klettern? Nicht wie ein Mensch – aber es kann sich selbst nach oben ziehen, ganz von allein.",
+      "on_screen_words": [
+        "Kann Wasser klettern?"
+      ],
+      "visual_tokens": [
+        "two_glasses_with_colored_water",
+        "paper_towel_bridge"
+      ],
+      "claim_anchors": [
+        "fact"
+      ],
+      "sound_cue": "none",
+      "duration_hint_seconds": 12.05
+    },
+    {
+      "scene_id": "scene-2-visible-result",
+      "primitive": "macro_to_micro",
+      "narration": "Das bunte Wasser klettert durchs Papier ins leere Glas. Dort mischen sich die beiden Farben zu einer neuen Farbe.",
+      "on_screen_words": [
+        "Wasser klettert hoch"
+      ],
+      "visual_tokens": [
+        "colored_water_rising_in_paper",
+        "color_mixing_in_glass"
+      ],
+      "claim_anchors": [
+        "observed_result"
+      ],
+      "sound_cue": "whoosh",
+      "duration_hint_seconds": 11.7
+    },
+    {
+      "scene_id": "scene-3-invisible-mechanism",
+      "primitive": "particles",
+      "narration": "Im Küchenpapier sind winzig kleine Kanäle – viel dünner als ein Haar. Das Wasser hält sich an den Wänden dieser Kanäle fest und bleibt dort kleben.",
+      "on_screen_words": [
+        "Winzige Kanäle im Papier"
+      ],
+      "visual_tokens": [
+        "microscopic_view_paper_fibers",
+        "water_molecules_on_walls"
+      ],
+      "claim_anchors": [
+        "explanation"
+      ],
+      "sound_cue": "sparkle",
+      "duration_hint_seconds": 14.17
+    },
+    {
+      "scene_id": "scene-4-causal-sequence",
+      "primitive": "cause_effect",
+      "narration": "Das Wasser zieht sich selbst Stück für Stück weiter – sogar nach oben. Ein Wasserteilchen zieht das nächste mit sich, immer weiter hinauf.",
+      "on_screen_words": [
+        "Wasser zieht sich selbst"
+      ],
+      "visual_tokens": [
+        "water_molecules_chain",
+        "upward_movement_animation"
+      ],
+      "claim_anchors": [
+        "explanation"
+      ],
+      "sound_cue": "whoosh",
+      "duration_hint_seconds": 13.11
+    },
+    {
+      "scene_id": "scene-5-familiar-example",
+      "primitive": "comparison",
+      "narration": "Pflanzen machen es genauso! So kommt Wasser von der Wurzel bis ins höchste Blatt. Bäume trinken mit ihren Wurzeln auf diese Weise – das Wasser klettert in ihnen nach oben.",
+      "on_screen_words": [
+        "Pflanzen trinken so"
+      ],
+      "visual_tokens": [
+        "tree_with_roots",
+        "water_rising_in_plant"
+      ],
+      "claim_anchors": [
+        "explanation",
+        "fact"
+      ],
+      "sound_cue": "none",
+      "duration_hint_seconds": 15.58
+    },
+    {
+      "scene_id": "scene-6-prediction-pause",
+      "primitive": "prediction",
+      "narration": "Was denkst du – wie lange braucht das Wasser, um das ganze Papier hochzuklettern?",
+      "on_screen_words": [
+        "Wie lange dauert es?"
+      ],
+      "visual_tokens": [
+        "question_mark",
+        "paper_towel_bridge"
+      ],
+      "claim_anchors": [
+        "observed_result"
+      ],
+      "sound_cue": "chime",
+      "duration_hint_seconds": 9.94
+    },
+    {
+      "scene_id": "scene-7-recap",
+      "primitive": "recap",
+      "narration": "Wasser kann klettern! In ganz dünnen Kanälen kriecht es sogar nach oben. Das passiert, weil Wasserteilchen sich gegenseitig hochziehen und an den Wänden festhalten.",
+      "on_screen_words": [
+        "Wasser klettert nach oben"
+      ],
+      "visual_tokens": [
+        "water_rising_summary",
+        "molecular_connection"
+      ],
+      "claim_anchors": [
+        "fact",
+        "explanation"
+      ],
+      "sound_cue": "sparkle",
+      "duration_hint_seconds": 13.45
+    }
+  ],
+  "youtube": {
+    "title": "DE | Wanderndes Wasser – einfach erklärt",
+    "description": "Wasser kann klettern! In diesem Video sehen wir, wie buntes Wasser durch Küchenpapier nach oben wandert und neue Farben entstehen. Wir entdecken die winzigen Kanäle im Papier und erfahren, wie Pflanzen Wasser auf die gleiche Weise trinken – von der Wurzel bis zum höchsten Blatt.",
+    "tags": [
+      "Wasser",
+      "Kapillarität",
+      "Küchenpapier",
+      "Pflanzen",
+      "Experiment",
+      "Naturwissenschaft",
+      "Kinder",
+      "Wissenschaft"
+    ],
+    "thumbnail_text": "Wasser klettert!"
+  },
+  "review": {
+    "approved": true,
+    "warnings": [
+      "Scene 3 narration: 'bleibt dort kleben' (stays stuck there) is not in source; source says water 'zieht sich selbst weiter' (pulls itself further). Consider: 'Das Wasser hält sich an den Wänden dieser Kanäle fest und zieht sich selbst weiter.'",
+      "Scene 5 on-screen label 'Pflanzen trinken so' is abbreviated but acceptable for child audience; source uses 'trinken mit ihren Wurzeln' (drink with roots).",
+      "Estimated runtime 90.0 seconds is at lower boundary of acceptable range (90–180 seconds); verify actual narration delivery matches 100–130 wpm target.",
+      "YouTube description uses 'einfach erklärt' (simply explained) which is not in source data; minor localization addition, acceptable for platform."
+    ]
+  },
+  "estimated_duration_seconds": 90.0,
+  "created_at": "2026-09-05T15:28:58.037607Z"
+}

@@ -1,0 +1,47 @@
+.env*
+!.env.example
+*.json.gpg
+credentials*.json
+client_secret*.json
+
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.ruff_cache/
+.coverage
+.venv/
+.DS_Store
+/feedback_andreas/
+node_modules/
+*.request.json
+catalog/*.lock
+
+build/*
+!build/.gitkeep
+*.wav
+*.mp3
+*.mp4
+!/legacy/atom_laser.mp4
+
+# V3 private favorites and observations never belong in public artifacts.
+/private/
+*.pending
+
+# Build outputs and immutable review bundles stay local. They are large, regenerable from
+# the sealed inputs, and a public repository is the wrong place for finished media.
+/artifacts/
+/deliverables/
+
+# The spending ledger is a private journal, not source.
+/catalog/usage.json
+
+# Baked mascot frames and the Rive binaries are hundreds of megabytes and are derived from,
+# or exported by, the editor. `assets/mascot/ASSETS.md` records where each one lives and how
+# to reproduce it; the manifests and contracts beside them are versioned.
+/assets/mascot/rig/*/frames/
+/assets/mascot/rig/*/native/
+/assets/mascot/rig/*/*.riv
+/assets/mascot/rig/*/*.rev
+/assets/mascot/rive-input/
+/assets/mascot/concepts/

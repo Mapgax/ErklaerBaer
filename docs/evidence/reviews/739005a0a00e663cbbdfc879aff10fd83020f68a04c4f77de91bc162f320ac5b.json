@@ -1,0 +1,16 @@
+{
+  "content_hash": "739005a0a00e663cbbdfc879aff10fd83020f68a04c4f77de91bc162f320ac5b",
+  "result": {
+    "approved": true,
+    "warnings": [
+      "Scene 7, segment 7-1: 'bewegingsenergie wordt overgedragen en uiteindelijk onder meer omgezet in warmte' — clarify for age 6–9 that energy transforms into heat/sound/friction, not that it 'converts into heat among other things.' Consider: 'De energie wordt gebruikt en verandert in warmte en geluid.'",
+      "Scene 4, segment 4-2: 'Ze vliegen niet allemaal naar je oor' is pedagogically sound but could be reinforced: 'De luchtdeeltjes zelf gaan niet naar je oor; alleen de drukgolf reist verder.' Current phrasing is acceptable for this age.",
+      "Scene 2, segment 2-2: Explicit acknowledgment that 'In onze tekening gaat het langzaam' correctly addresses the simplified visual representation per evidence correction. No revision needed.",
+      "All causal chains (pluck → vibration → box coupling → air pressure → ear) align with evidence-vibration and evidence-sound. No unsupported claims about string thickness or box size detected.",
+      "Prediction (scene 6) is well-formed and answer (scene 7) is mechanically sound: vibration ceases → energy dissipates → sound stops. No command to perform experiment present.",
+      "Dutch phrasing is natural and age-appropriate throughout (6–9 years). No grammatical or register issues detected."
+    ]
+  },
+  "model": "claude-haiku-4-5",
+  "scope": "science and script only; visual and owner review separate"
+}

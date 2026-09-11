@@ -1,0 +1,110 @@
+[project]
+timezone = "Europe/Berlin"
+language_mode = "alternating"
+date_epoch = "1970-01-01"
+date_parity_algorithm = "days_since_epoch_modulo_2"
+template_version = "2"
+schema_version = "1"
+
+[languages]
+even_ordinal = "de-DE"
+odd_ordinal = "nl-NL"
+
+[sources]
+experiments_url = "https://mint-bot-nine.vercel.app/data/experiments.json"
+schedule_url = "https://mint-bot-nine.vercel.app/data/schedule.json"
+
+[content]
+min_scenes = 6
+max_scenes = 9
+target_min_seconds = 90
+target_max_seconds = 180
+hard_max_seconds = 300
+min_words_per_minute = 105
+max_words_per_minute = 120
+max_on_screen_words = 5
+
+[llm]
+model = "claude-haiku-4-5"
+max_tokens = 6000
+
+[render]
+width = 1920
+height = 1080
+fps = 30
+audio_sample_rate = 48000
+video_codec = "libx264"
+audio_codec = "aac"
+pixel_format = "yuv420p"
+safe_margin_fraction = 0.10
+
+[voices]
+de-DE = "de-DE-Chirp3-HD-Aoede"
+nl-NL = "nl-NL-Chirp3-HD-Aoede"
+
+[speaking_rates]
+de-DE = 0.85
+nl-NL = 0.72
+
+[tts]
+provider = "chirp3-hd"
+use_pause_markup = true
+scene_tail_seconds = 0.45
+
+[budgets]
+monthly_tts_characters = 750000
+monthly_llm_calls = 200
+max_generation_attempts = 2
+max_videos_per_run = 5
+
+[asset_design]
+model = "flux-2-pro"
+endpoint = "https://api.eu.bfl.ai/v1/flux-2-pro"
+concept_version = "v1"
+width = 1024
+height = 1360
+seed_base = 42620
+safety_tolerance = 2
+poll_interval_seconds = 1.0
+poll_timeout_seconds = 240
+max_images_per_run = 1
+reserved_credits_per_image = 20
+monthly_credit_limit = 400
+
+[discovery]
+lookahead_days = 14
+
+[youtube]
+upload_privacy = "private"
+made_for_kids = true
+notify_subscribers = false
+german_title = "DE | {title} – einfach erklärt"
+dutch_title = "NL | {title} – simpel uitgelegd"
+german_playlist_name = "ErklaerBaer – Deutsch"
+dutch_playlist_name = "ErklaerBaer – Nederlands"
+playlist_privacy = "public"
+ai_voice_disclosure_de = "Die Stimme in diesem Video wurde mit Text-to-Speech erzeugt."
+ai_voice_disclosure_nl = "De stem in deze video is gemaakt met tekst-naar-spraak."
+# The script writer often states the voice disclosure in its own words. If the description
+# already contains this phrase, the configured sentence is not appended a second time.
+ai_voice_phrase_de = "text-to-speech"
+ai_voice_phrase_nl = "tekst-naar-spraak"
+# Standing upload settings. Category 27 is Education.
+category_id = "27"
+license = "youtube"
+embeddable = true
+# YouTube's altered-content flag is for realistic synthetic depictions. These episodes are
+# drawn paper-cut animation and depict no real person or event; the text-to-speech voice is
+# disclosed in the description instead. Owner decision, 2026-09-10.
+contains_synthetic_media = false
+
+[weekly_v3]
+enabled = false
+videos_per_week = 1
+day = "Monday"
+hour = 9
+timezone = "Europe/Berlin"
+language_policy = "alternate_completed_slots"
+benchmark_language = "nl-NL"
+next_language = "de-DE"
+favorite_max_age_hours = 24

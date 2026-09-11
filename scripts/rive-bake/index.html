@@ -1,0 +1,33 @@
+<!doctype html><meta charset="utf-8"><title>ErklaerBaer · Local Rive baker</title>
+<style>body{background:#eee6d5;font:18px system-ui;max-width:900px;margin:30px auto;color:#234}canvas{background:repeating-conic-gradient(#ddd 0% 25%,white 0% 50%) 0/24px 24px;max-height:65vh}button{padding:16px;font:inherit}pre{white-space:pre-wrap}</style>
+<h1>Six-action local bake</h1><p>Official Rive runtime. Fixed 30 fps, transparent PNGs. All files and frames stay on this computer.</p><button id="bake">Bake six actions</button><pre id="status">Ready</pre><canvas id="canvas" width="600" height="800"></canvas>
+<script type="module">
+import Rive from '/runtime.mjs';
+const status=document.querySelector('#status'),button=document.querySelector('button'),canvas=document.querySelector('canvas');
+button.onclick=async()=>{button.disabled=true;try{
+ const config=await (await fetch('/config.json')).json();
+ const runtime=await Rive({wasmBinary:await(await fetch('/rive.wasm')).arrayBuffer()});
+ const file=await runtime.load(new Uint8Array(await(await fetch('/mascot.riv')).arrayBuffer()),undefined,false);
+ const renderer=runtime.makeRenderer(canvas);
+ for(const [action,spec] of Object.entries(config.actions)){
+  const artboard=file.artboardByName(config.artboard);
+  if(!artboard)throw Error('Missing artboard');
+  const animation=artboard.animationByName(spec.animation);
+  if(!animation)throw Error('Missing animation '+spec.animation);
+  const instance=new runtime.LinearAnimationInstance(animation,artboard);
+  const count=Math.round(spec.duration*30)+(spec.loop?0:1);
+  for(let frame=0;frame<count;frame++){
+   instance.time=frame/30;instance.apply(1);artboard.advance(0);
+   renderer.clear();renderer.save();renderer.align(runtime.Fit.contain,runtime.Alignment.center,{minX:0,minY:0,maxX:600,maxY:800},artboard.bounds);artboard.draw(renderer);renderer.restore();renderer.flush();runtime.resolveAnimationFrame();
+   const png=await new Promise(resolve=>canvas.toBlob(resolve,'image/png'));
+   const response=await fetch(`/frames/${action}/${String(frame).padStart(4,'0')}.png`,{method:'POST',headers:{'X-Bake-Token':config.token},body:png});
+   if(!response.ok)throw Error(await response.text());
+   status.textContent=`${action}: ${frame+1}/${count}`;
+  }
+  instance.delete();artboard.delete();
+ }
+ renderer.delete();file.delete();
+ const result=await fetch('/complete',{method:'POST',headers:{'X-Bake-Token':config.token}});
+ if(!result.ok)throw Error(await result.text());status.textContent='Complete — six PNG sequences saved and checksummed.';
+ }catch(error){status.textContent=String(error);button.disabled=false;}};
+</script>

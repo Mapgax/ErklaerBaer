@@ -1,0 +1,135 @@
+{
+  "schema_version": 1,
+  "current_builds": {
+    "springende-muenze|de-DE|0d6d2f1d3eb3b75d": "springende-muenze|de-DE|0d6d2f1d3eb3b75d|4e0c3cb535e39d89a3235e32",
+    "karton-gitarre|nl-NL|7511ac9042e30f1e": "karton-gitarre|nl-NL|7511ac9042e30f1e|d4ff8a1fe55d79e548550733",
+    "krabbeltier-safari|nl-NL|3b0beaeef4efbdf8": "krabbeltier-safari|nl-NL|3b0beaeef4efbdf8|729348c4fb407962e7175fdf"
+  },
+  "videos": {
+    "krabbeltier-safari|nl-NL|3b0beaeef4efbdf8": {
+      "experiment_id": "krabbeltier-safari",
+      "language": "nl-NL",
+      "source_hash": "3b0beaeef4efbdf8",
+      "template_version": "2",
+      "status": "rendered",
+      "storyboard_path": "storyboards/krabbeltier-safari/nl-NL/3b0beaeef4efbdf8.json",
+      "video_sha256": "0eb89cc7815c2372a1d5beb586dd2bbb9dfaae8dd5aa41aed23f040c3e5f0cca",
+      "duration_seconds": 106.0,
+      "warnings": [
+        "Pilot v2 vereist menselijke creatieve beoordeling voor upload."
+      ],
+      "updated_at": "2026-09-05T20:17:16.872800Z"
+    },
+    "springende-muenze|de-DE|0d6d2f1d3eb3b75d": {
+      "experiment_id": "springende-muenze",
+      "language": "de-DE",
+      "source_hash": "0d6d2f1d3eb3b75d",
+      "template_version": "1",
+      "status": "rendered",
+      "storyboard_path": "storyboards/springende-muenze/de-DE/0d6d2f1d3eb3b75d.json",
+      "video_sha256": "e5335d5dffabeb90e9792b8e56c8131a4f50aa903f7e00f615cca614b677a320",
+      "duration_seconds": 102.87,
+      "warnings": [
+        "Scene 6 label 'Wie ein Ballon aufgeblasen' contains 4 words; acceptable but consider 'Ballon-Vergleich' (2 words) for brevity.",
+        "Scene 7 label 'Was kommt danach?' is a question; minor stylistic note—consider 'Dann?' (1 word) for consistency with other labels.",
+        "Estimated runtime 102.86 seconds is within range (90–180 inclusive); narration pace approximately 115 wpm (within 100–130 range).",
+        "Recap (scene 9) forms a clear causal chain: thermal expansion → pressure increase → coin bounce. Factually sound and well-anchored to source.",
+        "YouTube description contains no direct commands; all verbs are observational or descriptive.",
+        "All scientific claims (thermal expansion, pressure, particle motion) are supported by source data and age-appropriate for children."
+      ],
+      "updated_at": "2026-09-05T15:27:39.530484Z"
+    },
+    "farben-wanderung|de-DE|fdfc6e0cdf465c9f": {
+      "experiment_id": "farben-wanderung",
+      "language": "de-DE",
+      "source_hash": "fdfc6e0cdf465c9f",
+      "template_version": "1",
+      "status": "rendered",
+      "storyboard_path": "storyboards/farben-wanderung/de-DE/fdfc6e0cdf465c9f.json",
+      "video_sha256": "4523ebf4f77d6c746b07b91cb44c73746535269bb8a74ff41f7ae5b0b1c87011",
+      "duration_seconds": 90.0,
+      "warnings": [
+        "Scene 3 narration: 'bleibt dort kleben' (stays stuck there) is not in source; source says water 'zieht sich selbst weiter' (pulls itself further). Consider: 'Das Wasser hält sich an den Wänden dieser Kanäle fest und zieht sich selbst weiter.'",
+        "Scene 5 on-screen label 'Pflanzen trinken so' is abbreviated but acceptable for child audience; source uses 'trinken mit ihren Wurzeln' (drink with roots).",
+        "Estimated runtime 90.0 seconds is at lower boundary of acceptable range (90–180 seconds); verify actual narration delivery matches 100–130 wpm target.",
+        "YouTube description uses 'einfach erklärt' (simply explained) which is not in source data; minor localization addition, acceptable for platform."
+      ],
+      "updated_at": "2026-09-05T15:29:42.499738Z"
+    },
+    "karton-gitarre|nl-NL|7511ac9042e30f1e": {
+      "experiment_id": "karton-gitarre",
+      "language": "nl-NL",
+      "source_hash": "7511ac9042e30f1e",
+      "template_version": "1",
+      "status": "rendered",
+      "storyboard_path": "storyboards/karton-gitarre/nl-NL/7511ac9042e30f1e.json",
+      "video_sha256": "77b0cd9941f05c56ad958bbdb8ae09d8bc6927003b2e0954033dbe3e0c2da9c3",
+      "duration_seconds": 91.6,
+      "warnings": [
+        "Scene 5 narration: 'Dat gat laat de lucht in de buik trillen' is slightly imprecise; source states the hollow body makes air vibrate, not that the hole itself causes this. Minor phrasing issue.",
+        "Estimated runtime 91.61 seconds is within range but very close to lower bound (90 s inclusive); verify actual narration pacing matches 100–130 wpm.",
+        "Scene 8 recap forms a valid causal chain: vibration → sound, hollow box → amplification, thickness → pitch, therefore guitar design. Approved.",
+        "Label word counts all within five-word limit per scene.",
+        "No direct commands to viewer detected; all verbs are observational or descriptive.",
+        "Dutch localization is consistent and age-appropriate for child audience."
+      ],
+      "updated_at": "2026-09-05T15:41:13.168185Z"
+    },
+    "springende-muenze|de-DE|0d6d2f1d3eb3b75d|4e0c3cb535e39d89a3235e32": {
+      "experiment_id": "springende-muenze",
+      "language": "de-DE",
+      "source_hash": "0d6d2f1d3eb3b75d",
+      "template_version": "2",
+      "status": "rendered",
+      "build_hash": "4e0c3cb535e39d89a3235e32",
+      "storyboard_path": "artifacts/springende-muenze/de-DE/0d6d2f1d3eb3b75d/4e0c3cb535e39d89a3235e32/storyboard.json",
+      "video_sha256": "f45a3ef83d66ff089fb1236cf88d1c973073ba990dfde8d3dbaff72cbcc71fd1",
+      "duration_seconds": 139.82999999999998,
+      "warnings": [
+        "Scene 2, segment 2-2: 'Zwischen ihnen ist viel freier Raum' is accurate and aligns with evidence-gas correction to remove 'tightly packed' language. Approved.",
+        "Scene 3, segment 3-1: 'Die Flasche bleibt dabei ungefähr gleich groß' correctly reflects rigid container assumption. Approved.",
+        "Scene 4, segment 4-2: Pressure difference framing ('Entscheidend ist der Unterschied') is scientifically sound and age-appropriate. Approved.",
+        "Scene 6, segment 6-2: Venting mechanism ('Durch diesen Spalt entweicht Luft') correctly explains pressure equalization per evidence-pressure. Approved.",
+        "No experimental commands detected. Narration explains simplified particle visualization appropriately for ages 6–9.",
+        "German phrasing is natural and accessible throughout.",
+        "Prediction (Scene 5) is open-ended without prescriptive instruction.",
+        "Causal chain (heat → particle speed → pressure rise → coin lift → venting → reset) is mechanically sound and evidence-supported."
+      ],
+      "updated_at": "2026-09-08T15:22:24.118421Z"
+    },
+    "karton-gitarre|nl-NL|7511ac9042e30f1e|d4ff8a1fe55d79e548550733": {
+      "experiment_id": "karton-gitarre",
+      "language": "nl-NL",
+      "source_hash": "7511ac9042e30f1e",
+      "template_version": "2",
+      "status": "rendered",
+      "build_hash": "d4ff8a1fe55d79e548550733",
+      "storyboard_path": "artifacts/karton-gitarre/nl-NL/7511ac9042e30f1e/d4ff8a1fe55d79e548550733/storyboard.json",
+      "video_sha256": "d2b3e4a7ceecc97912038614856a1b67a6db9828f4da14eddedd724ed3543b59",
+      "duration_seconds": 166.9,
+      "warnings": [
+        "Scene 7, segment 7-1: 'bewegingsenergie wordt overgedragen en uiteindelijk onder meer omgezet in warmte' — clarify for age 6–9 that energy transforms into heat/sound/friction, not that it 'converts into heat among other things.' Consider: 'De energie wordt gebruikt en verandert in warmte en geluid.'",
+        "Scene 4, segment 4-2: 'Ze vliegen niet allemaal naar je oor' is pedagogically sound but could be reinforced: 'De luchtdeeltjes zelf gaan niet naar je oor; alleen de drukgolf reist verder.' Current phrasing is acceptable for this age.",
+        "Scene 2, segment 2-2: Explicit acknowledgment that 'In onze tekening gaat het langzaam' correctly addresses the simplified visual representation per evidence correction. No revision needed.",
+        "All causal chains (pluck → vibration → box coupling → air pressure → ear) align with evidence-vibration and evidence-sound. No unsupported claims about string thickness or box size detected.",
+        "Prediction (scene 6) is well-formed and answer (scene 7) is mechanically sound: vibration ceases → energy dissipates → sound stops. No command to perform experiment present.",
+        "Dutch phrasing is natural and age-appropriate throughout (6–9 years). No grammatical or register issues detected."
+      ],
+      "updated_at": "2026-09-08T15:24:41.036143Z"
+    },
+    "krabbeltier-safari|nl-NL|3b0beaeef4efbdf8|729348c4fb407962e7175fdf": {
+      "experiment_id": "krabbeltier-safari",
+      "language": "nl-NL",
+      "source_hash": "3b0beaeef4efbdf8",
+      "template_version": "2",
+      "status": "rendered",
+      "build_hash": "729348c4fb407962e7175fdf",
+      "storyboard_path": "artifacts/krabbeltier-safari/nl-NL/3b0beaeef4efbdf8/729348c4fb407962e7175fdf/storyboard.json",
+      "video_sha256": "d38d6a076963b0b4b5e6a0cfc1956b3c5f2c69dfb2e89c78a5351968fbc0e69e",
+      "duration_seconds": 176.6,
+      "warnings": [],
+      "updated_at": "2026-09-08T15:26:15.908849Z"
+    }
+  },
+  "releases": {}
+}

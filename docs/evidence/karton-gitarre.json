@@ -1,0 +1,30 @@
+{
+  "schema_version": 1,
+  "experiment_id": "karton-gitarre",
+  "source_hash": "7511ac9042e30f1e",
+  "snapshot": "snapshots/karton-gitarre-7511ac9042e30f1e.json",
+  "facts": [
+    {
+      "id": "evidence-vibration",
+      "claim": "A plucked stretched string vibrates. Oscillation frequency determines pitch. A damped string transfers energy and loses vibration amplitude.",
+      "sources": [
+        "https://openstax.org/books/physics/pages/14-1-speed-of-sound-frequency-and-wavelength",
+        "https://newt.phys.unsw.edu.au/music/guitar/guitarintro.html"
+      ]
+    },
+    {
+      "id": "evidence-sound",
+      "claim": "String motion couples through its supports into a guitar body. The body and enclosed air contribute to radiated sound. Air oscillates locally while a pressure disturbance travels outward; the body does not create extra energy.",
+      "sources": [
+        "https://phys.unsw.edu.au/music/guitaracoustics/construction.html",
+        "https://openstax.org/books/physics/pages/14-1-speed-of-sound-frequency-and-wavelength"
+      ]
+    }
+  ],
+  "corrections": [
+    "Avoid unsupported generalizations about string thickness or box size.",
+    "The box couples vibration to air; it does not create additional energy.",
+    "Motion shown at reduced speed; visible vibration frequency is not the actual pitch."
+  ],
+  "review_status": "authored-awaiting-independent-review"
+}

@@ -1,0 +1,87 @@
+{
+  "build_hash": "cedfada8807f70f3fe6b4a2c",
+  "technical_pass": true,
+  "captions": {
+    "intervals": 15,
+    "first_start_seconds": 0.0,
+    "last_end_seconds": 174.37
+  },
+  "owner_approved": false,
+  "creative_gate_complete": false,
+  "limitations": [
+    "Prop Rive source/runtime pending",
+    "Full-video listening and owner creative review pending"
+  ],
+  "checked_at": "2026-09-09T08:09:25.040995+00:00",
+  "bundle": "artifacts/review-v3/guitar/cedfada8807f70f3fe6b4a2c",
+  "media": {
+    "build_hash": "cedfada8807f70f3fe6b4a2c",
+    "technical_warnings": [],
+    "duration_seconds": 175.03,
+    "resolution": [
+      1920,
+      1080
+    ],
+    "fps": 30.0,
+    "integrated_lufs": -15.8,
+    "true_peak_dbfs": -1.4,
+    "audio_sample_rate": 48000,
+    "voice_status": "Gemini narrator selected by owner; warmer bear delivery; full listening review pending",
+    "owner_approved": false,
+    "creative_gate": "incomplete",
+    "remaining": [
+      "Full-video listening review",
+      "Animated prop Rive source and runtime",
+      "Full MP4 visual inspection"
+    ]
+  },
+  "python_tests_passed": 70,
+  "ruff": "pass",
+  "native_mascot_qa": "pass; all six actions; all 120 neutral rim frames inspected",
+  "decoded_frame_inspection": {
+    "shot_count": 8,
+    "transition_samples": 21,
+    "full_resolution_examples": [
+      "scene-1.png",
+      "scene-4.png"
+    ],
+    "evidence": "build/v3/mp4-qa/cedfada8807f70f3fe6b4a2c",
+    "observations": [
+      "Continuous repaired rim",
+      "Recognizable ear and sound hole",
+      "Connected string/support geometry",
+      "No observed scene/title overlap in sampled transitions"
+    ],
+    "scope": "Sampled visual inspection; full listening unverified"
+  },
+  "private_upload": {
+    "authorized": true,
+    "started": false,
+    "blocker": "Chrome file chooser timeout; user asked to enable extension file URL access"
+  },
+  "youtube_upload": {
+    "video_id": "z_1Fx6L3N_Q",
+    "url": "https://youtu.be/z_1Fx6L3N_Q",
+    "privacy": "private",
+    "verified_in_channel_content": true,
+    "date": "2026-09-09",
+    "intro_build": "fb10cd42eb4001c23272e5ef",
+    "episode_build": "cedfada8807f70f3fe6b4a2c",
+    "captions_uploaded": "nl-NL",
+    "made_for_kids": true,
+    "notifications": false,
+    "copyright_check": "No issues found",
+    "custom_thumbnail": "Not uploaded: channel phone verification required",
+    "duration_seconds_local": 187.03,
+    "youtube_display_duration": "3:08",
+    "owner_creative_approved": false
+  },
+  "brand_intro": {
+    "path": "intro/fb10cd42eb4001c23272e5ef",
+    "visual_qa": "Decoded 0.6, 2, 4, 8, 10.8, 11.9, 12.1, 13.5 s inspected",
+    "checksum_verified": true,
+    "caption_shift_seconds": 12,
+    "provider_cost_usd": 0,
+    "full_listening_verified": false
+  }
+}

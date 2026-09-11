@@ -1,0 +1,31 @@
+{
+  "schema_version": 1,
+  "experiment_id": "krabbeltier-safari",
+  "source_hash": "3b0beaeef4efbdf8",
+  "snapshot": "snapshots/krabbeltier-safari-3b0beaeef4efbdf8.json",
+  "facts": [
+    {
+      "id": "evidence-anatomy",
+      "claim": "Adult insects have six legs in three pairs. Spiders have eight legs in four pairs and are not insects. Adult woodlice have seven pairs, fourteen legs, and are crustaceans.",
+      "sources": [
+        "https://naturalhistory.si.edu/education/teaching-resources/life-science/what-insect",
+        "https://www.wildlifetrusts.org/wildlife-explorer/invertebrates/crustacea-centipedes-and-millipedes/pill-woodlouse"
+      ]
+    },
+    {
+      "id": "evidence-habitat",
+      "claim": "Woodlice commonly occupy damp sheltered places such as under stones and feed on decaying plant material. Not every small animal found there is a detritivore. Not every woodlouse species rolls into a ball.",
+      "sources": [
+        "https://www.wildlifetrusts.org/wildlife-explorer/invertebrates/crustacea-centipedes-and-millipedes/common-woodlouse",
+        "https://www.wildlifetrusts.org/wildlife-explorer/invertebrates/crustacea-centipedes-and-millipedes/pill-woodlouse"
+      ]
+    }
+  ],
+  "corrections": [
+    "Do not claim animals occur under almost every stone.",
+    "Restrict fourteen legs to adult woodlice.",
+    "Do not call all small animals insects or all animals decomposers.",
+    "No universal rolling-up claim; no zoo analogy."
+  ],
+  "review_status": "authored-awaiting-independent-review"
+}

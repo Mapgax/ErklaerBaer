@@ -1,0 +1,18 @@
+{
+  "content_hash": "b9788e5701abb58becceb083bdbc88d7830dd179b7c8a101eb37ca86344013d9",
+  "result": {
+    "approved": true,
+    "warnings": [
+      "Scene 2, segment 2-2: 'Zwischen ihnen ist viel freier Raum' is accurate and aligns with evidence-gas correction to remove 'tightly packed' language. Approved.",
+      "Scene 3, segment 3-1: 'Die Flasche bleibt dabei ungefähr gleich groß' correctly reflects rigid container assumption. Approved.",
+      "Scene 4, segment 4-2: Pressure difference framing ('Entscheidend ist der Unterschied') is scientifically sound and age-appropriate. Approved.",
+      "Scene 6, segment 6-2: Venting mechanism ('Durch diesen Spalt entweicht Luft') correctly explains pressure equalization per evidence-pressure. Approved.",
+      "No experimental commands detected. Narration explains simplified particle visualization appropriately for ages 6–9.",
+      "German phrasing is natural and accessible throughout.",
+      "Prediction (Scene 5) is open-ended without prescriptive instruction.",
+      "Causal chain (heat → particle speed → pressure rise → coin lift → venting → reset) is mechanically sound and evidence-supported."
+    ]
+  },
+  "model": "claude-haiku-4-5",
+  "scope": "science and script only; visual and owner review separate"
+}

@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="610"
+viewBox="0 0 960 610">
+<g id="body"><image href="body.png" width="960" height="610"/></g>
+<g id="soundboard"><image href="soundboard.png" width="960" height="610"/></g>
+<g id="supports"><image href="supports.png" width="960" height="610"/></g>
+<g id="elastic" fill="none" stroke="#efac75" stroke-width="5"><path d="M258 253 L678 253"/></g>
+</svg>

@@ -1,0 +1,14 @@
+{
+  "content_hash": "cf905713c10783c9383c5073bcea37dc8dc26d5171d771ec956511502d6db488",
+  "result": {
+    "approved": true,
+    "warnings": [
+      "Scene 2, segment 2-2: 'stoßen gegen die Innenwand der Flasche und gegen die Münze' is accurate but could emphasize that collisions with the coin contribute to pressure. Minor phrasing note only; no revision required.",
+      "Scene 4, segment 4-1: 'übertragen bei ihren Stößen insgesamt mehr Schwung' correctly conveys momentum transfer. Phrasing is age-appropriate and mechanistically sound.",
+      "Scene 6, segment 6-2: 'Die Luft bleibt also nicht vollständig in der Flasche eingeschlossen' is correct and explains the venting mechanism clearly. No revision needed.",
+      "Overall: Script successfully incorporates all evidence-pack corrections. Gases are presented as mostly empty space (scene 2). Rigid container volume is stated (scene 3). Simplified particle model is used with explicit disclaimer (scene 2). No commands to perform the experiment are present. Causal chain (heat → faster particles → higher pressure → coin lifts → air vents → pressure drops → coin falls) is logically sound and age-appropriate for 6–9 year-olds. German phrasing is natural and clear. Prediction question in scene 5 is open-ended without instructional framing."
+    ]
+  },
+  "model": "claude-haiku-4-5",
+  "scope": "science and script only; visual and owner review separate"
+}

@@ -1,0 +1,9 @@
+{
+  "name": "erklaerbaer-rive-bake",
+  "private": true,
+  "type": "module",
+  "description": "Occasional offline Rive clip export only",
+  "dependencies": {
+    "@rive-app/canvas-advanced": "2.42.0"
+  }
+}

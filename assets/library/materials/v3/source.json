@@ -1,0 +1,13 @@
+{
+  "semantic_id": "collage-materials",
+  "version": "3",
+  "provider": "BFL",
+  "model": "flux-2-pro",
+  "seed": 42640,
+  "prompt": "Material texture atlas for layered paper collage science animation, matching the quiet tactile handmade material quality of the reference. NO bear, NO objects, NO lettering. Flat overhead view, four equally sized edge-to-edge rectangular material swatches in a 2 by 2 grid: upper left warm honey tan kraft cardboard with subtle paper fibres; upper right darker brown corrugated cardboard paper with very restrained fibres; bottom left soft peach handmade paper; bottom right muted teal felt. Uniform illumination, restrained fine texture, no gradients, no folds, no seams within swatches, no highlights, no drop shadows. Full canvas.",
+  "reference_sha256": "798ea535c8d9d1ac452952f58baa08385cef489d2e4adb9bb60e52051cdfe168",
+  "sha256": "3c977aa683fe8f4db5fa517feff3d513bb9db78ab781875e875179f6fbe9efb4",
+  "reserved_credits": 20,
+  "actual_credits": 6.0,
+  "review_status": "provisional"
+}

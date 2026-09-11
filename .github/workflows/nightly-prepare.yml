@@ -1,0 +1,72 @@
+name: Prepare ErklaerBaer video buffer
+
+on:
+  schedule:
+    - cron: "17 2 * * *"
+  workflow_dispatch:
+    inputs:
+      days:
+        description: "Lookahead window"
+        required: true
+        default: "14"
+        type: string
+      dry_run:
+        description: "Plan only; do not call paid APIs or YouTube"
+        required: true
+        default: true
+        type: boolean
+
+permissions:
+  contents: write
+
+concurrency:
+  group: erklaerbaer-catalog-writer
+  cancel-in-progress: false
+
+jobs:
+  prepare:
+    if: ${{ false }} # Superseded by local weekly v3; explicit activation required.
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    env:
+      DRY_RUN: ${{ github.event_name == 'workflow_dispatch' && inputs.dry_run || 'false' }}
+      ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+      GOOGLE_CLOUD_PROJECT: ${{ vars.GOOGLE_CLOUD_PROJECT }}
+      GOOGLE_APPLICATION_CREDENTIALS: ${{ runner.temp }}/gcp-tts.json
+      GOOGLE_TTS_CREDENTIALS_JSON: ${{ secrets.GOOGLE_TTS_CREDENTIALS_JSON }}
+      YOUTUBE_CLIENT_ID: ${{ secrets.YOUTUBE_CLIENT_ID }}
+      YOUTUBE_CLIENT_SECRET: ${{ secrets.YOUTUBE_CLIENT_SECRET }}
+      YOUTUBE_REFRESH_TOKEN: ${{ secrets.YOUTUBE_REFRESH_TOKEN }}
+      YOUTUBE_CHANNEL_ID: ${{ vars.YOUTUBE_CHANNEL_ID }}
+      YOUTUBE_PLAYLIST_DE_ID: ${{ vars.YOUTUBE_PLAYLIST_DE_ID }}
+      YOUTUBE_PLAYLIST_NL_ID: ${{ vars.YOUTUBE_PLAYLIST_NL_ID }}
+      YOUTUBE_API_AUDIT_COMPLETE: ${{ vars.YOUTUBE_API_AUDIT_COMPLETE }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+          cache-dependency-path: requirements.lock
+      - name: Install locked dependencies
+        run: |
+          python3 -m pip install -r requirements.lock
+          python3 -m pip install --no-deps .
+      - name: Create temporary TTS credential file
+        if: env.DRY_RUN != 'true'
+        run: |
+          umask 077
+          printf '%s' "$GOOGLE_TTS_CREDENTIALS_JSON" > "$GOOGLE_APPLICATION_CREDENTIALS"
+      - name: Prepare missing private drafts
+        run: python3 -m erklaerbaer prepare --days "${{ inputs.days || '14' }}"
+      - name: Persist non-secret production state
+        if: always() && env.DRY_RUN != 'true'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add artifacts catalog storyboards
+          if git diff --cached --quiet; then exit 0; fi
+          git commit -m "Update video buffer"
+          git push
