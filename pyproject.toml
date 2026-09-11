@@ -10,7 +10,7 @@ readme = "README.md"
 requires-python = ">=3.12,<3.13"
 license = { file = "LICENSE" }
 dependencies = [
-  "anthropic>=0.79,<1",
+  "anthropic>=0.79,<2",
   "google-api-python-client>=2.170,<3",
   "google-auth-oauthlib>=1.2,<2",
   "google-cloud-texttospeech>=2.29,<3",
