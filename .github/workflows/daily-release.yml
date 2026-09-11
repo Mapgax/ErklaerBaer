@@ -32,7 +32,7 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 120
     env:
-      DRY_RUN: ${{ github.event_name == 'workflow_dispatch' && inputs.dry_run || 'false' }}
+      DRY_RUN: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.dry_run || 'false' }}
       ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
       GOOGLE_CLOUD_PROJECT: ${{ vars.GOOGLE_CLOUD_PROJECT }}
       GOOGLE_APPLICATION_CREDENTIALS: ${{ runner.temp }}/gcp-tts.json
@@ -63,8 +63,8 @@ jobs:
           EVENT_NAME: ${{ github.event_name }}
           DISPATCH_DATE: ${{ github.event.client_payload.date }}
           DISPATCH_EXPERIMENT: ${{ github.event.client_payload.experiment_id }}
-          MANUAL_DATE: ${{ inputs.date }}
-          MANUAL_EXPERIMENT: ${{ inputs.experiment_id }}
+          MANUAL_DATE: ${{ github.event.inputs.date }}
+          MANUAL_EXPERIMENT: ${{ github.event.inputs.experiment_id }}
         run: |
           if [ "$EVENT_NAME" = "repository_dispatch" ]; then
             RELEASE_DATE="$DISPATCH_DATE"

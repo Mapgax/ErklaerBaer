@@ -29,7 +29,7 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 120
     env:
-      DRY_RUN: ${{ github.event_name == 'workflow_dispatch' && inputs.dry_run || 'false' }}
+      DRY_RUN: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.dry_run || 'false' }}
       ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
       GOOGLE_CLOUD_PROJECT: ${{ vars.GOOGLE_CLOUD_PROJECT }}
       GOOGLE_APPLICATION_CREDENTIALS: ${{ runner.temp }}/gcp-tts.json
@@ -60,7 +60,7 @@ jobs:
           umask 077
           printf '%s' "$GOOGLE_TTS_CREDENTIALS_JSON" > "$GOOGLE_APPLICATION_CREDENTIALS"
       - name: Prepare missing private drafts
-        run: python3 -m erklaerbaer prepare --days "${{ inputs.days || '14' }}"
+        run: python3 -m erklaerbaer prepare --days "${{ github.event.inputs.days || '14' }}"
       - name: Persist non-secret production state
         if: always() && env.DRY_RUN != 'true'
         run: |
