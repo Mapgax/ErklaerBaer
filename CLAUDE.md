@@ -63,7 +63,9 @@ These are earned from owner review, not preference. Each one cost a rejected bui
 - Keep private feedback, favorites, credentials, ledgers and journals out of public media/gallery/code packages. Local Rive authoring can still send selected artwork/tool results into model context.
 - Technical validation is not creative acceptance. Record owner approval only for exact reviewed identities. Publishing is the owner's action at a time of their choosing; do not infer authority to publish from an approved build.
 - No weekly activation, feed deployment or Git commit/push is authorized by current work.
-- Weekly language alternates by completed accepted slot, not calendar-day parity. Default is one weekly video; there is no installed unattended runner. Keep legacy jobs disabled.
+- One video a week, language alternating by completed accepted slot rather than calendar parity. Owner decision 2026-09-11; the two daily workflows were deleted. A scheduled run builds, reviews its own frames against the lessons above, fixes what it finds, uploads Private and then stops. Publishing and creative acceptance stay with the owner.
+- Topics come from the MINT library, preferring the redo list. That endpoint returns 404 and was never deployed, so pick from the 56 untouched topics until it exists. What gates a week is whether the topic's mechanism already has a drawing template; a new one is about a day.
+- An episode never needs Rive. It uses the baked frame library. Tell the owner only when the bear himself must change, because the export must go through the editor's own menu.
 - Single agent unless the owner explicitly asks for delegation. Continue independent authorized work when an actual account/permission/budget gate blocks one part.
 - Preserve all user work. The checkout is largely untracked. Do not bulk-stage, delete historical assets or use code ZIPs as full backups.
 

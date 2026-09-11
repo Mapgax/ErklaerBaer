@@ -1,3 +1,38 @@
+# Weekly production
+
+> Owner decision, 2026-09-11. This supersedes the daily design below, which was never active
+> and whose workflows have been deleted.
+
+**One video a week, alternating language.** The last completed and accepted slot decides the
+next language, not the calendar.
+
+**Topic source.** The public MINT library at `https://mint-bot-nine.vercel.app/data/experiments.json`
+is live and holds 60 topics in four categories: kuechenchemie, natur-tiere, technik and
+weltraum-physik. Four have been touched here, so 56 have never been used.
+
+The "waiting to be redone" list the owner wants preferred is **not available**:
+`https://mint-bot-nine.vercel.app/api/production-favorites` returns 404. The endpoint was
+written into MINT-Bot but never deployed, and no `ERKLAERBAER_READ_TOKEN` was ever generated.
+Until it is deployed, pick from the not-yet-done list.
+
+**What gates a week is the drawing template, not the topic.** A topic whose mechanism already
+has one is a short week. `vibrating-string` has `guitar-collage` and `gas-pressure` has
+`coin-collage`. Any other mechanism needs a new template first, which is roughly a day.
+
+**Rive is not needed for an episode.** Episodes use the baked frame library. Rive is only
+needed when the bear himself changes, which has happened twice. When that is the case the
+owner is told, because the export must go through the editor's own menu.
+
+**A scheduled run builds and stops.** It writes the episode, reviews its own frames against
+the lessons in CLAUDE.md, fixes what it finds, uploads Private, and then waits. Publishing
+and creative acceptance stay with the owner.
+
+**The build catalogue is stale.** `catalog/videos.json` still lists the three v1/v2 pilots.
+The two published v3 episodes were built by the direct scripts and are recorded under
+`artifacts/review-v3/` instead. Reconciling the catalogue is open work.
+
+---
+
 # Private weekly queue and Nochmal feed
 
 > For current delivery, subsequent owner authorizations, archives and remaining work, see [Recovery and next steps](RECOVERY_AND_NEXT_STEPS.md). The original requirements/history below remain preserved.
