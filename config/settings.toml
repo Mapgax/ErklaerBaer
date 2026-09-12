@@ -71,6 +71,22 @@ max_images_per_run = 1
 reserved_credits_per_image = 20
 monthly_credit_limit = 400
 
+[video_design]
+# FLUX 3 Video, used only to bake short mascot clips into the frame library.
+# The bear's motion is the only thing this may generate; never a science shot.
+endpoint = "https://api.eu.bfl.ai/v1/flux-3-video"
+mode = "i2v"
+resolution = "hd"
+aspect_ratio = "3:4"
+duration_seconds = 5
+generate_audio = false
+poll_interval_seconds = 3.0
+poll_timeout_seconds = 900
+max_clips_per_run = 1
+# $0.06/s draft, $0.17/s hd. Reserved per clip with retry margin, in micro-USD.
+reserved_micro_usd_per_clip = 1000000
+monthly_micro_usd_limit = 10000000
+
 [discovery]
 lookahead_days = 14
 

@@ -26,7 +26,10 @@ SHORT_LINE_CHARACTERS = 60
 # 2026-09-10 after comparing the reservation to the billed cost; see the
 # authorizations entry in catalog/usage.json. The constant and the ledger must both
 # allow a request, so raising one alone still cannot spend anything.
-TASK_REQUESTS = 58  # does not renew on resume
+# 2026-09-12: raised to 90 for the first clip-path pilot episode. 52 are used, an
+# episode is about 19 segments, and the rest is the retry margin the coin episode's
+# four separate raises existed only because it lacked.
+TASK_REQUESTS = 90  # does not renew on resume
 PROFILES = {
     "warm": "Warm, calm adult female science narrator. Natural curiosity, clear gentle emphasis. ",
     "curious": "A gentle friendly bear asking a sincere question. Warm natural adult voice. ",

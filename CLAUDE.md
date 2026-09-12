@@ -46,7 +46,7 @@ These are earned from owner review, not preference. Each one cost a rejected bui
 - **BFL may be spent to improve any object,** not only the bear, whenever an asset is what holds a shot back. Check the ledger first and reserve conservatively.
 - **Read `ASSETS.json` before generating anything.** It lists every reusable piece, what produced it, what it cost and how to rebuild it. Reuse beats a new call, and the index exists so that choice can be made without guessing.
 - **Spending has been measured and is small.** Both videos together cost 0.11 CHF of Gemini speech and $0.77 of BFL, against reservations about twenty-five times larger. The owner is comfortable spending a little more where it helps. Still read the ledger first, size a raise from the estimate rather than the reservation, and leave retry margin.
-- **The bear rig deforms the magnifier.** Across the neutral idle loop the lens visibly changes shape and rim thickness. It is a rig defect on duplicate 2564932, not a render defect, and it needs Rive authoring to fix.
+- **The bear's library is rig v5, selected by `RIG_VERSION`.** Neutral is the v4 Rive loop (the magnifier deformation was fixed there by rebinding it to the torso); the five one-shot actions are FLUX 3 Video clips baked by `scripts/bake_mascot_clips.py`, each anchored on a baked v4 frame, never on a concept master. The crop is derived from the bake and the owner chose it on 2026-09-12; it renders the bear slightly smaller than v4. v5 is provisional until the owner accepts a build with it. Older rigs stay on disk so earlier builds reproduce, and the build fingerprint includes the manifest.
 
 ### Working method
 

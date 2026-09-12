@@ -9,7 +9,9 @@ from .models import MascotAction
 
 # Which baked rig generation v3 storyboards use. v3 is the rig the published Dutch episode
 # was built from and is kept for exact reproduction; v4 rebinds the magnifier to the torso.
-RIG_VERSION = "v4"
+# v5 replaces the five one-shot actions with baked video clips, cropped to the bounds derived
+# from that bake; v4 is kept untouched so both published v4 rebuilds stay reproducible.
+RIG_VERSION = "v5"
 
 
 def rig_root(project_root):

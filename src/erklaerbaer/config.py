@@ -159,3 +159,24 @@ def _validate_settings(settings: Settings) -> None:
         raise ConfigurationError("Invalid BFL local credit guard")
     if int(asset_design["max_images_per_run"]) != 1:
         raise ConfigurationError("BFL mascot concepts must be generated one at a time")
+    if "video_design" in settings.raw:
+        _validate_video_design(settings.section("video_design"))
+
+
+def _validate_video_design(video: dict[str, Any]) -> None:
+    """Mascot clips only: same pinned EU host, one clip per run, no generated audio."""
+    endpoint = urlparse(str(video.get("endpoint", "")))
+    if endpoint.scheme != "https" or endpoint.hostname != "api.eu.bfl.ai":
+        raise ConfigurationError("Mascot clips must use the configured BFL EU endpoint")
+    if video.get("mode") not in {"i2v", "v2v"}:
+        raise ConfigurationError("Mascot clips must start from approved artwork, not from text")
+    if video.get("generate_audio") is not False:
+        raise ConfigurationError("Generated audio is never used; sound is the phenomenon")
+    if not 5 <= int(video["duration_seconds"]) <= 20:
+        raise ConfigurationError("FLUX 3 Video accepts 5 to 20 seconds")
+    if int(video["max_clips_per_run"]) != 1:
+        raise ConfigurationError("Mascot clips must be generated one at a time")
+    reserved = int(video["reserved_micro_usd_per_clip"])
+    monthly = int(video["monthly_micro_usd_limit"])
+    if not 0 < reserved <= monthly <= 20_000_000:
+        raise ConfigurationError("Invalid BFL video spend guard")
