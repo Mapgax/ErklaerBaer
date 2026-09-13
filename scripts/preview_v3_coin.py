@@ -5,6 +5,7 @@ from __future__ import annotations
 from PIL import Image, ImageDraw
 
 from erklaerbaer.config import load_settings
+from erklaerbaer.episode import synthetic_timing
 from erklaerbaer.mechanisms import beat_at
 from erklaerbaer.models import Storyboard
 from erklaerbaer.renderer import PaperCutRenderer, school_font
@@ -14,33 +15,11 @@ SAMPLES = 6
 INK = "#344744"
 
 
-def synthetic_timing(board):
-    """Even segment timings, so the template can be judged before any speech exists."""
-    durations, segments, cursor = [], [], 0.0
-    for scene in board.scenes:
-        start = cursor
-        for segment in scene.segments:
-            seconds = max(3.0, len(segment.text) / 15.0)
-            segments.append(
-                {
-                    "scene_id": scene.scene_id,
-                    "segment_id": segment.segment_id,
-                    "start": cursor,
-                    "end": cursor + seconds,
-                    "scene_start": cursor - start,
-                }
-            )
-            cursor += seconds + segment.pause_after_seconds
-        cursor += 0.45
-        durations.append(cursor - start)
-    return {"scene_durations": durations, "segments": segments}
-
-
 def main() -> None:
     settings = load_settings()
     root = settings.project_root
     board = Storyboard.model_validate_json((root / BOARD).read_text())
-    timing = synthetic_timing(board)
+    timing = synthetic_timing(board, min_segment_seconds=3.0)
     renderer = PaperCutRenderer(settings)
     out = root / "build/v3/coin-preview"
     out.mkdir(parents=True, exist_ok=True)

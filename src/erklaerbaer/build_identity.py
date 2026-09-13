@@ -8,7 +8,7 @@ from pathlib import Path
 
 from .config import Settings
 from .mascot_library import RIG_VERSION
-from .models import Storyboard
+from .models import TEMPLATES, Storyboard
 from .speech_cache import digest_json
 
 
@@ -49,7 +49,12 @@ def build_payload(storyboard: Storyboard, settings: Settings) -> dict:
         "visuals.py",
     }
     if storyboard.schema_version == "3":
+        # collage_guitar holds the shared paper helpers every template draws with; each
+        # template adds its own modules, so changing one never reuses a stale render.
         dependency_names |= {"collage_guitar.py", "expressive_speech.py"}
+        for scene in storyboard.scenes:
+            if scene.shot:
+                dependency_names |= set(TEMPLATES[scene.shot.template_id].modules)
     renderer = {name: sha256(code / name) for name in sorted(dependency_names)}
     evidence_path = root / "docs" / "evidence" / f"{storyboard.experiment_id}.json"
     evidence = (
@@ -73,10 +78,13 @@ def build_payload(storyboard: Storyboard, settings: Settings) -> dict:
     if storyboard.schema_version == "3":
         texture = root / "assets/library/materials/v3/material-sheet.png"
         assets["collage-materials/v3"] = sha256(texture)
-        ear_path = root / "assets/library/ear/v3/ear.png"
-        if ear_path.exists():
-            assets["ear/v3"] = sha256(ear_path)
-        renderer["build_v3_guitar.py"] = sha256(root / "scripts/build_v3_guitar.py")
+        # Every drawn-asset file a template pastes decides pixels, so each is hashed.
+        for key, relative in (
+            ("ear/v3", "assets/library/ear/v3/ear.png"),
+            ("hands/v3", "assets/library/hands/v3/hand.png"),
+        ):
+            if (root / relative).exists():
+                assets[key] = sha256(root / relative)
     from .renderer import SCHOOL_FONT, available_font_paths
 
     fonts = [sha256(p) if p else "pillow-default" for p in available_font_paths()]

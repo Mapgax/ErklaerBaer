@@ -141,35 +141,23 @@ def drawn_art() -> list[dict]:
 
 
 def templates() -> list[dict]:
-    from erklaerbaer.models import TEMPLATE_SHOTS
+    from erklaerbaer.models import TEMPLATES
 
-    described = {
-        "guitar-collage": (
-            "src/erklaerbaer/collage_guitar.py",
-            "Rubber band on a cardboard box, a radial air field spreading from the box face, "
-            "a drawn ear cutaway and a two-rate pitch comparison.",
-        ),
-        "coin-collage": (
-            "src/erklaerbaer/collage_coin.py",
-            "A bottle of gas with a coin on its neck, deterministic particles reflecting off "
-            "the drawn outline, paper hands, and a halo cue for pressure.",
-        ),
-    }
     entries = []
-    for template, (module, summary) in described.items():
-        bundle, framings = TEMPLATE_SHOTS[template]
+    for template_id, template in TEMPLATES.items():
         entries.append(
             describe(
-                ROOT / module,
-                id=f"template-{template}",
+                ROOT / "src/erklaerbaer" / template.modules[0],
+                id=f"template-{template_id}",
                 kind="template",
-                title=template,
-                asset_bundle=bundle,
-                framings=sorted(framings),
-                summary=summary,
+                title=template_id,
+                asset_bundle=template.bundle,
+                framings=sorted(template.framings),
+                summary=template.summary,
                 reuse=(
-                    "One template renders one mechanism. Add a framing to TEMPLATE_SHOTS and "
-                    "a branch in the module's draw(); every geometry derives from a View."
+                    "One template renders one mechanism. Register it once in "
+                    "models.TEMPLATES and add a branch in the module's draw(); every "
+                    "geometry derives from a View."
                 ),
             )
         )
@@ -204,16 +192,20 @@ def audio() -> list[dict]:
             reuse="--duration and --outro-duration set their lengths; --language picks the card.",
         ),
         describe(
-            ROOT / "scripts/build_v3_coin.py",
+            ROOT / "src/erklaerbaer/sounds.py",
             id="audio-sound-anchors",
             kind="audio",
             title="Local sound anchors",
             summary=(
-                "clack, settle and escape for the coin; pluck, thud and arrival for the "
-                "guitar. Each sits in measured silence and names something the picture does."
+                "pluck, thud and arrival for the guitar; clack, settle and escape for the "
+                "coin; knock, double_knock and crunch for falling objects. Each sits in "
+                "measured silence and names something the picture does."
             ),
             provenance="Synthesized locally from numpy; no samples",
-            reuse="Copy the shape function and give its beat 0.5 to 0.75 s of authored pause.",
+            reuse=(
+                "Name the shape in the episode's SoundEvent in episodes.py; the mixer "
+                "refuses an anchor outside 20 to 25 dB under speech."
+            ),
         ),
         describe(
             ROOT / "src/erklaerbaer/audio.py",

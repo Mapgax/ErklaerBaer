@@ -1,0 +1,39 @@
+{
+  "schema_version": 1,
+  "experiment_id": "fall-wettrennen",
+  "source_hash": "c120949aca72eba7",
+  "snapshot": "snapshots/fall-wettrennen-c120949aca72eba7.json",
+  "facts": [
+    {
+      "id": "evidence-gravity",
+      "claim": "Near the Earth's surface and without air resistance, all objects fall with the same acceleration, about 9.8 m/s², whatever their mass. They start from rest, speed up steadily, and cover growing distances in equal time steps (s = g t² / 2). The pull of gravity is larger on a heavier object, but a heavier object needs a proportionally larger force to speed up, so the two effects cancel.",
+      "sources": [
+        "https://openstax.org/books/college-physics-2e/pages/2-7-falling-objects",
+        "https://openstax.org/books/college-physics-2e/pages/4-4-newtons-second-law-of-motion-concept-of-a-system"
+      ]
+    },
+    {
+      "id": "evidence-air",
+      "claim": "Air resistance depends on an object's shape, size and speed. A small dense object such as a stone or a glass marble is hardly slowed over a drop of about a metre. A flat sheet of paper must push a lot of air aside for its small weight, reaches a low speed and drifts down. Crumpled into a ball, the same paper meets far less air resistance and falls almost as fast as a stone over a short drop.",
+      "sources": [
+        "https://openstax.org/books/university-physics-volume-1/pages/6-4-drag-force-and-terminal-speed",
+        "https://openstax.org/books/college-physics-2e/pages/2-7-falling-objects"
+      ]
+    },
+    {
+      "id": "evidence-galileo",
+      "claim": "Galileo Galilei studied falling bodies from about 1590 until his book of 1638, roughly four hundred years ago. He argued that, apart from the effect of air, heavy and light bodies fall equally fast, against the view accepted since Aristotle.",
+      "sources": [
+        "https://www.britannica.com/biography/Galileo-Galilei"
+      ]
+    }
+  ],
+  "corrections": [
+    "MINT says the Earth pulls on all things equally strongly. The pull is stronger on heavier things; the script does not claim equal force and says only that heavy and light things fall equally fast.",
+    "The apple and grape are replaced by a stone and a glass marble. Both are small and dense, so air resistance is negligible over a short drop, and the mascot's baked lift pose already holds a stone.",
+    "A crumpled paper ball falls almost, not exactly, as fast as the stone; the script says 'bijna'.",
+    "Drawings are slowed down and labelled as such. Strobe positions follow s = g t² / 2 at equal time steps.",
+    "No drop from a tower is claimed; the historical anecdote is uncertain."
+  ],
+  "review_status": "authored-awaiting-independent-review"
+}

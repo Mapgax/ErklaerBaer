@@ -54,6 +54,10 @@ scene_tail_seconds = 0.45
 [budgets]
 monthly_tts_characters = 750000
 monthly_llm_calls = 200
+# Gemini speech requests per calendar month. Two episodes a week is at most ten a month at
+# about 30 requests each; the rest is retry margin. Each reserves $0.167936, so this bounds
+# reserved spend at $60.46 a month; measured cost is about $0.003 a request.
+monthly_speech_requests = 360
 max_generation_attempts = 2
 max_videos_per_run = 5
 
@@ -114,13 +118,13 @@ embeddable = true
 # disclosed in the description instead. Owner decision, 2026-09-10.
 contains_synthetic_media = false
 
-[weekly_v3]
-enabled = false
-videos_per_week = 1
-day = "Monday"
-hour = 9
-timezone = "Europe/Berlin"
-language_policy = "alternate_completed_slots"
-benchmark_language = "nl-NL"
-next_language = "de-DE"
-favorite_max_age_hours = 24
+[production_v3]
+# Owner decision, 2026-09-13: two episodes a week, German on Monday and Dutch on Thursday,
+# each on a MINT topic that has never had a storyboard in any language. A scheduled run
+# builds, reviews its own frames, uploads Private and stops. Publishing stays with the owner.
+timezone = "Europe/Zurich"
+hour = 7
+slots = [
+    { weekday = "Monday", language = "de-DE" },
+    { weekday = "Thursday", language = "nl-NL" },
+]

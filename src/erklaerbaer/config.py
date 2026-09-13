@@ -138,6 +138,7 @@ def _validate_settings(settings: Settings) -> None:
     for name in (
         "monthly_tts_characters",
         "monthly_llm_calls",
+        "monthly_speech_requests",
         "max_generation_attempts",
         "max_videos_per_run",
     ):
@@ -161,6 +162,8 @@ def _validate_settings(settings: Settings) -> None:
         raise ConfigurationError("BFL mascot concepts must be generated one at a time")
     if "video_design" in settings.raw:
         _validate_video_design(settings.section("video_design"))
+    if "production_v3" in settings.raw:
+        _validate_production_slots(settings.section("production_v3"))
 
 
 def _validate_video_design(video: dict[str, Any]) -> None:
@@ -180,3 +183,17 @@ def _validate_video_design(video: dict[str, Any]) -> None:
     monthly = int(video["monthly_micro_usd_limit"])
     if not 0 < reserved <= monthly <= 20_000_000:
         raise ConfigurationError("Invalid BFL video spend guard")
+
+
+def _validate_production_slots(production: dict[str, Any]) -> None:
+    """Each slot is a distinct weekday with a supported language."""
+    weekdays = {"Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"}
+    slots = production.get("slots", [])
+    if not slots or len({slot.get("weekday") for slot in slots}) != len(slots):
+        raise ConfigurationError("Production slots must name distinct weekdays")
+    for slot in slots:
+        if slot.get("weekday") not in weekdays:
+            raise ConfigurationError(f"Unknown production weekday {slot.get('weekday')!r}")
+        Language(slot.get("language"))
+    if not 0 <= int(production.get("hour", -1)) <= 23:
+        raise ConfigurationError("Production hour must be 0 to 23")

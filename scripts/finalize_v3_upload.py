@@ -13,8 +13,8 @@ from datetime import UTC, datetime
 from pathlib import Path
 
 from erklaerbaer.config import load_settings
+from erklaerbaer.cuts import load_cut, write_record
 from erklaerbaer.media import validate_media
-from erklaerbaer.models import Storyboard
 from erklaerbaer.youtube import YouTubeClient
 
 
@@ -39,57 +39,51 @@ def main() -> None:
     parser.add_argument("--video-id", required=True)
     parser.add_argument("--cut", type=Path, required=True)
     parser.add_argument("--timeout", type=float, default=900.0)
+    parser.add_argument("--supersedes", help="video id this cut replaces, if any")
     args = parser.parse_args()
     settings = load_settings()
     root = settings.project_root
-
-    manifest = json.loads((args.cut / "manifest.json").read_text())
-    episode = manifest["episode_build"]
-    board = Storyboard.model_validate_json(
-        (root / "artifacts/review-v3/guitar" / episode / "storyboard.json").read_text()
-    )
+    cut = load_cut(root, args.cut)
     client = YouTubeClient(settings)
     status = wait_for_processing(client, args.video_id, args.timeout)
     if status != "succeeded":
         raise SystemExit(f"Refusing to attach assets: processing status is {status}")
 
-    client._ensure_post_upload_assets(
-        args.video_id,
-        board,
-        args.cut / "captions.srt",
-        args.cut / "thumbnail.jpg",
-    )
+    client._ensure_post_upload_assets(args.video_id, cut.board, cut.captions, cut.thumbnail)
     privacy = client.privacy_status(args.video_id)
-    report = validate_media(args.cut / "full-review.mp4", settings)
+    report = validate_media(cut.video, settings)
     captions = client.service.captions().list(part="snippet", videoId=args.video_id).execute()
-    evidence = {
-        "video_id": args.video_id,
-        "url": f"https://youtu.be/{args.video_id}",
-        "privacy": privacy,
-        "date": datetime.now(UTC).date().isoformat(),
-        "intro_build": args.cut.name,
-        "episode_build": episode,
-        "intro_seconds": manifest["duration"],
-        "duration_seconds_local": report.probe.duration_seconds,
-        "integrated_lufs": report.loudness.integrated_lufs,
-        "true_peak_dbfs": report.loudness.true_peak_dbfs,
-        "caption_tracks": [
-            {
-                "language": item["snippet"]["language"],
-                "name": item["snippet"]["name"],
-                "status": item["snippet"].get("status"),
-            }
-            for item in captions.get("items", [])
-        ],
-        "made_for_kids": True,
-        "notifications": False,
-        "custom_thumbnail_error": client.thumbnail_error,
-        "supersedes": "z_1Fx6L3N_Q",
-        "owner_creative_approved": False,
-    }
-    out = root / "artifacts/review-v3/youtube-private-upload-v2.json"
-    out.write_text(json.dumps(evidence, indent=1) + "\n")
-    print(json.dumps(evidence, indent=1))
+    record = cut.record_path(root)
+    # Finalizing adds to what the upload recorded; it never discards it.
+    evidence = json.loads(record.read_text()) if record.exists() else {}
+    evidence.update(
+        {
+            "video_id": args.video_id,
+            "url": f"https://youtu.be/{args.video_id}",
+            "privacy": privacy,
+            "finalized": datetime.now(UTC).date().isoformat(),
+            "intro_build": cut.folder.name,
+            "episode_build": cut.episode_build,
+            "intro_seconds": cut.manifest["duration"],
+            "duration_seconds_local": report.probe.duration_seconds,
+            "integrated_lufs": report.loudness.integrated_lufs,
+            "true_peak_dbfs": report.loudness.true_peak_dbfs,
+            "caption_tracks": [
+                {
+                    "language": item["snippet"]["language"],
+                    "name": item["snippet"]["name"],
+                    "status": item["snippet"].get("status"),
+                }
+                for item in captions.get("items", [])
+            ],
+            "made_for_kids": bool(settings.section("youtube")["made_for_kids"]),
+            "notifications": False,
+            "custom_thumbnail_error": client.thumbnail_error,
+            "supersedes": args.supersedes,
+            "owner_creative_approved": False,
+        }
+    )
+    write_record(record, evidence)
     if privacy != "private":
         raise SystemExit(f"Uploaded video is {privacy}, expected private")
 

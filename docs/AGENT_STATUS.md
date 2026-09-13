@@ -1,6 +1,71 @@
 # Current agent checkpoint
 
-Updated 2026-09-10. Start with [RECOVERY_AND_NEXT_STEPS.md](RECOVERY_AND_NEXT_STEPS.md): exact artifact paths, archives, remaining spending and ordered continuation.
+Updated 2026-09-13. Start with [RECOVERY_AND_NEXT_STEPS.md](RECOVERY_AND_NEXT_STEPS.md): exact artifact paths, archives, remaining spending and ordered continuation.
+
+## Review, one pipeline, two episodes a week, 2026-09-13
+
+A bad-day code review of the pilot session found copy-paste, a stale-render bug and budget
+counters that could not survive recurring production. All findings are fixed. Each fix was
+proven before it replaced what it fixed:
+- narration, mixed audio, sound events, thumbnails and 75 sampled frames hashed before and
+  after
+- guitar and coin byte-identical
+- the pilot identical except two intended subpixel and label shifts
+- a full cache-only rebuild of the pilot through the new builder, with narration, captions
+  and sound events identical to the uploaded video
+
+- **One builder.** `src/erklaerbaer/episode.py` replaces the three copied build scripts, which
+  are deleted. Episodes are data in `episodes.py`, sound shapes live in `sounds.py`, and each
+  template's thumbnail lives in its module. The command is `scripts/build_episode.py <name>`.
+  Rendering the pilot dropped from about four minutes to about two, because shadows are now
+  blurred in small patches.
+- **One template registry.** `models.TEMPLATES` and `models.MECHANISMS` are the only
+  registration. Validators, renderer, build identity and asset index read them.
+- **Fixed: stale renders.** Coin builds never hashed `collage_coin.py`, `gas.py` or the hand
+  artwork, so a coin template change could return an old video as "Existing exact render".
+  Also fixed: an interrupted build left an unsealed folder that would have counted as
+  finished; now only a folder with `checksums.sha256` counts.
+- **Fixed: floor strip.** It altered the alpha of a cached texture.
+- **Monthly budget.** 360 Gemini requests, 750,000 characters and 200 LLM calls per
+  calendar month replace the one-time counters (90 total, 79 used). Recorded as an owner
+  authorization in `catalog/usage.json`; nothing was reset.
+- **Cadence.** German on Monday, Dutch on Thursday, at 07:00, each on a never-used topic.
+  - `scripts/next_topic.py` selects the topic.
+  - `docs/EPISODE_RUNBOOK.md` is the procedure.
+  - `scripts/check_speech.py` is the speech gate.
+  - Local scheduled tasks `erklaerbaer-monday-german` and `erklaerbaer-thursday-dutch` run
+    it; the first is 2026-09-14. They need the Claude app open.
+- **Upload path.** Upload and finalize share `cuts.py`. Finalize merges into the upload's
+  record instead of overwriting it, reads made-for-kids from settings, and uses the
+  episode's composed thumbnail.
+- **Not changed, flagged.** `weekly_queue.py`, the favourites queue, remains unused because
+  its feed was never deployed.
+
+95 tests and Ruff pass.
+
+## Pilot on a new topic, rig v5, uploaded Private, 2026-09-12
+
+"Wat valt het eerst?" (`fall-wettrennen`, nl-NL). First episode built end to end on a new
+template, and the first to use all six clip-baked bear actions.
+
+- Private: https://youtu.be/1LounhliDRk, 3:08 with bookends. Episode `4c7030cea87d9b93cc47a7a2`,
+  177.93 s, -16.0 LUFS, -1.4 dBFS true peak, no technical warnings. Cut
+  `050e69ccdfb4af6d35715eb5`. Dutch captions serving, custom thumbnail attached, notifications off.
+  Evidence: `artifacts/review-v3/uploads/4c7030cea87d9b93cc47a7a2-050e69ccdfb4af6d35715eb5.json`.
+- New template `fall-collage` (`src/erklaerbaer/collage_fall.py`), mechanism `falling-objects`,
+  evidence pack `docs/evidence/fall-wettrennen.json`, script generator `scripts/author_fall_v3.py`,
+  stills gate `scripts/preview_v3_fall.py`, build `scripts/build_episode.py fall`, geometry tests
+  `tests/test_fall_template.py`. Science review (Haiku) approved with no warnings.
+- Spend: 25 Gemini speech requests (79 of 90 now used; the repeated line "De klep gaat open." is
+  one cached take), one LLM review call. No BFL.
+- Workflow faults this run found and fixed: the short-line repeat trimmer cut five single Dutch
+  readings mid-sentence (the pilot now trims only a take too slow for its text and caps edge
+  silence; coin audio verified identical); the bookend builder required a Rive runtime a clip
+  library does not have; finalize only looked in the guitar folder and hard-coded a superseded
+  id; both upload scripts overwrote one evidence file (now one file per cut).
+- Open, owner: full listening, especially whether "De klep gaat open." is one slow reading;
+  creative acceptance; paid promotion and Shorts remix in Studio. Known weak spots: the landed
+  and crumple scenes hold one composition for long stretches; the air displacement is subtle.
 
 ## Completed
 

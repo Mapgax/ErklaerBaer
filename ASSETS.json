@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-09-11T19:33:04+00:00",
+  "generated_at": "2026-09-13T11:23:01+00:00",
   "generator": "scripts/index_reusable_assets.py",
   "note": "Read this before generating a new asset. `in_repository` false means the piece exists on the owner's machine but is deliberately not committed, either because it is large and derived or because it is private; `regenerate` says how to rebuild it. Costs are recorded so reuse can be weighed against a new call.",
   "kinds": [
@@ -111,10 +111,46 @@
       "review_status": "provisional-lupe-rebind",
       "reuse": "Baked transparent PNG clips for any episode. Neutral loops against the global clock; every other action plays once and holds its last frame. There is no wave action.",
       "regenerate": "Export .riv from Rive, then scripts/rive-bake/serve.py --riv <file> --library <rig dir>",
-      "files": 425,
-      "bytes": 207982727,
+      "files": 426,
+      "bytes": 207988875,
       "committed_files": 2,
       "committed_bytes": 68097,
+      "in_repository": "partial"
+    },
+    {
+      "path": "assets/mascot/rig/v5",
+      "id": "rive-rig-v5",
+      "kind": "rive-rig",
+      "title": "Bear mascot rig v5",
+      "actions": {
+        "neutral": 120,
+        "lift": 151,
+        "explain": 151,
+        "think": 151,
+        "surprise": 151,
+        "aha": 151
+      },
+      "fps": 30,
+      "crop": [
+        69,
+        106,
+        534,
+        727
+      ],
+      "pivot": [
+        0.5,
+        1.0
+      ],
+      "runtime": null,
+      "runtime_sha256": null,
+      "source_file_id": null,
+      "review_status": "provisional-clip-bake",
+      "reuse": "Baked transparent PNG clips for any episode. Neutral loops against the global clock; every other action plays once and holds its last frame. There is no wave action.",
+      "regenerate": "Export .riv from Rive, then scripts/rive-bake/serve.py --riv <file> --library <rig dir>",
+      "files": 879,
+      "bytes": 310357975,
+      "committed_files": 2,
+      "committed_bytes": 136667,
       "in_repository": "partial"
     },
     {
@@ -207,9 +243,9 @@
         "string"
       ],
       "summary": "Rubber band on a cardboard box, a radial air field spreading from the box face, a drawn ear cutaway and a two-rate pitch comparison.",
-      "reuse": "One template renders one mechanism. Add a framing to TEMPLATE_SHOTS and a branch in the module's draw(); every geometry derives from a View.",
-      "bytes": 23833,
-      "sha256": "f31e2b3c62e1d922c33bcf862cd24803911218e628e251e964131804d0b744a1",
+      "reuse": "One template renders one mechanism. Register it once in models.TEMPLATES and add a branch in the module's draw(); every geometry derives from a View.",
+      "bytes": 25194,
+      "sha256": "3f7a9bc58f5d140cb1cea96bb681094cf2193962258800269bb9f0ac43800489",
       "in_repository": true
     },
     {
@@ -229,9 +265,32 @@
         "reset"
       ],
       "summary": "A bottle of gas with a coin on its neck, deterministic particles reflecting off the drawn outline, paper hands, and a halo cue for pressure.",
-      "reuse": "One template renders one mechanism. Add a framing to TEMPLATE_SHOTS and a branch in the module's draw(); every geometry derives from a View.",
-      "bytes": 16005,
-      "sha256": "af92815679cd368fab76381d8513781012227b86469f69d9450d79c070e47603",
+      "reuse": "One template renders one mechanism. Register it once in models.TEMPLATES and add a branch in the module's draw(); every geometry derives from a View.",
+      "bytes": 17651,
+      "sha256": "41369476f04684be315506acb18dad22f83a56c9390fd21d8df0524c5e8014d2",
+      "in_repository": true
+    },
+    {
+      "path": "src/erklaerbaer/collage_fall.py",
+      "id": "template-fall-collage",
+      "kind": "template",
+      "title": "fall-collage",
+      "asset_bundle": "fall-v3",
+      "framings": [
+        "air",
+        "crumple",
+        "drop",
+        "establish",
+        "landed",
+        "predict",
+        "recap",
+        "strobe",
+        "weigh"
+      ],
+      "summary": "A drop rig with a hinged flap, one fall law for stone and marble, a strobe of equal time steps, an air field a falling sheet pushes aside, and paper crumpling to a ball.",
+      "reuse": "One template renders one mechanism. Register it once in models.TEMPLATES and add a branch in the module's draw(); every geometry derives from a View.",
+      "bytes": 29980,
+      "sha256": "a7f0d4ccbfc2f91a519bb966b2ecc5034e2e3ee082e706e0fc265dc5ad5761da",
       "in_repository": true
     },
     {
@@ -253,20 +312,20 @@
       "summary": "One script renders both bookends so they cannot drift apart. The closing phrase is the opening melody resolving to its tonic.",
       "provenance": "Original local additive synthesis; no samples and no provider call",
       "reuse": "--duration and --outro-duration set their lengths; --language picks the card.",
-      "bytes": 13551,
-      "sha256": "a92acc9d319a70fda87fd931da80328e16e6e903f3c4ad9a80f6dc299dd22804",
+      "bytes": 13656,
+      "sha256": "73b91975df34968fd21c999c3079bd591532a65ea37097a46842fb1756585405",
       "in_repository": true
     },
     {
-      "path": "scripts/build_v3_coin.py",
+      "path": "src/erklaerbaer/sounds.py",
       "id": "audio-sound-anchors",
       "kind": "audio",
       "title": "Local sound anchors",
-      "summary": "clack, settle and escape for the coin; pluck, thud and arrival for the guitar. Each sits in measured silence and names something the picture does.",
+      "summary": "pluck, thud and arrival for the guitar; clack, settle and escape for the coin; knock, double_knock and crunch for falling objects. Each sits in measured silence and names something the picture does.",
       "provenance": "Synthesized locally from numpy; no samples",
-      "reuse": "Copy the shape function and give its beat 0.5 to 0.75 s of authored pause.",
-      "bytes": 12868,
-      "sha256": "949ef240cf7c52978406e1483b6f511b1829e45f0894bbbcef3ab6cd54085b8c",
+      "reuse": "Name the shape in the episode's SoundEvent in episodes.py; the mixer refuses an anchor outside 20 to 25 dB under speech.",
+      "bytes": 3391,
+      "sha256": "cd21201af9eab9309dba99451ea33bd4f7be7bd095b2597c22de6646ccbec51a",
       "in_repository": true
     },
     {
@@ -292,6 +351,20 @@
       "bytes": 83644,
       "committed_files": 2,
       "committed_bytes": 83644,
+      "in_repository": true
+    },
+    {
+      "path": "storyboards/v3/fall-wettrennen/nl-NL/c120949aca72eba7.json",
+      "id": "storyboard-fall-wettrennen-nl-NL",
+      "kind": "episode",
+      "title": "Wat valt het eerst?",
+      "language": "nl-NL",
+      "template": "fall-collage",
+      "scenes": 9,
+      "science_review": "docs/evidence/v3/fall-wettrennen.review.json",
+      "reuse": "Reviewed narration. Any text change needs a fresh science review and re-records the affected lines.",
+      "bytes": 19734,
+      "sha256": "2d3e2bc4252054b61be10827927182fd56c2cb09baa2e2a52dbd2f9f229d7231",
       "in_repository": true
     },
     {

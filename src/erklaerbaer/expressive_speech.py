@@ -22,14 +22,6 @@ REQUEST_MICRO_USD = 167936  # 8192 * $0.50/M + 16384 * $10/M
 TRIAL_REQUESTS = 4
 # Below this, a line is short enough that a model may treat it as a fragment to expand.
 SHORT_LINE_CHARACTERS = 60
-# One trial and one benchmark got 20. The owner authorized a second episode on
-# 2026-09-10 after comparing the reservation to the billed cost; see the
-# authorizations entry in catalog/usage.json. The constant and the ledger must both
-# allow a request, so raising one alone still cannot spend anything.
-# 2026-09-12: raised to 90 for the first clip-path pilot episode. 52 are used, an
-# episode is about 19 segments, and the rest is the retry margin the coin episode's
-# four separate raises existed only because it lacked.
-TASK_REQUESTS = 90  # does not renew on resume
 PROFILES = {
     "warm": "Warm, calm adult female science narrator. Natural curiosity, clear gentle emphasis. ",
     "curious": "A gentle friendly bear asking a sincere question. Warm natural adult voice. ",
@@ -78,56 +70,47 @@ def reserve_request(
     ledger: BudgetLedger,
     key: str,
     characters: int,
-    monthly_limit: int,
     *,
+    monthly_characters: int,
+    monthly_requests: int,
     phase: str,
     dry_run: bool = False,
 ) -> None:
+    """Reserve one request against this month's speech allowance before it is sent.
+
+    Recurring production is bounded per calendar month (owner, 2026-09-13: two episodes a
+    week). The reserved dollars follow from the request count, since every request reserves
+    the documented maximum.
+    """
     if phase not in {"trial", "benchmark"}:
-        raise ValueError("Only bounded trial and guitar benchmark are authorized")
+        raise ValueError("Only bounded trial and production requests are authorized")
     with ledger.locked():
         payload = ledger.load()  # Always read current allowance immediately before paid work.
-        task = payload.get("production_v2")
-        if not task:
-            raise BudgetExceeded("Existing production allowance is required")
         gemini = payload.setdefault(
             "gemini_v3",
-            {
-                "max_requests": TASK_REQUESTS,
-                "max_trial_requests": TRIAL_REQUESTS,
-                "max_reserved_micro_usd": TASK_REQUESTS * REQUEST_MICRO_USD,
-                "reservations": {},
-                "measured_estimates": {},
-            },
+            {"max_trial_requests": TRIAL_REQUESTS, "reservations": {}, "measured_estimates": {}},
         )
         reservations = gemini["reservations"]
         if key in reservations:
             raise ExternalServiceError("Existing Gemini reservation: recover; never resubmit")
-        if (
-            len(reservations) >= min(TASK_REQUESTS, gemini["max_requests"])
-            or sum(v["micro_usd"] for v in reservations.values()) + REQUEST_MICRO_USD
-            > min(TASK_REQUESTS * REQUEST_MICRO_USD, gemini["max_reserved_micro_usd"])
-            or (
-                phase == "trial"
-                and sum(v["phase"] == "trial" for v in reservations.values())
-                >= min(TRIAL_REQUESTS, gemini["max_trial_requests"])
-            )
-        ):
-            raise BudgetExceeded("Finite Gemini trial/benchmark reservation exhausted")
-        month = payload["months"].setdefault(ledger._month_key(), {})
-        if month.get("tts_characters", 0) + characters > monthly_limit:
+        month_key = ledger._month_key()
+        month = payload["months"].setdefault(month_key, {})
+        if month.get("gemini_requests", 0) >= monthly_requests:
+            raise BudgetExceeded(f"Monthly speech allowance of {monthly_requests} requests used")
+        trials = sum(v["phase"] == "trial" for v in reservations.values())
+        if phase == "trial" and trials >= min(TRIAL_REQUESTS, gemini["max_trial_requests"]):
+            raise BudgetExceeded("Gemini trial reservations exhausted")
+        if month.get("tts_characters", 0) + characters > monthly_characters:
             raise BudgetExceeded("Monthly TTS character limit exceeded")
-        used = task["used"].get("tts_characters", 0)
-        if used + characters > task["limits"]["tts_characters"]:
-            raise BudgetExceeded("Persistent TTS character allowance exhausted")
         reservations[key] = {
             "phase": phase,
+            "month": month_key,
             "input_tokens": INPUT_TOKENS,
             "audio_tokens": AUDIO_TOKENS,
             "micro_usd": REQUEST_MICRO_USD,
             "characters_including_prompt": characters,
         }
-        task["used"]["tts_characters"] = used + characters
+        month["gemini_requests"] = month.get("gemini_requests", 0) + 1
         month["tts_characters"] = month.get("tts_characters", 0) + characters
         if not dry_run:
             ledger._save(payload)
@@ -169,11 +152,13 @@ def synthesize_segment(
         cache.paths(key)[2].unlink()
     cache.begin(identity)
     try:
+        budgets = settings.section("budgets")
         reserve_request(
             ledger,
             reservation_key,
             len(identity["text"]) + len(identity["instructions"]),
-            int(settings.section("budgets")["monthly_tts_characters"]),
+            monthly_characters=int(budgets["monthly_tts_characters"]),
+            monthly_requests=int(budgets["monthly_speech_requests"]),
             phase=phase,
         )
     except Exception:

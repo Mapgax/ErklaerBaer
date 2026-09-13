@@ -225,7 +225,8 @@ def main():
     identity = {
         "source_sha256": sha256(Path(__file__)),
         "language": args.language,
-        "mascot": library.manifest["runtime"]["sha256"],
+        # A clip-baked library has no Rive runtime; its manifest digest below identifies it.
+        "mascot": library.manifest.get("runtime", {}).get("sha256"),
         "episode_sha256": sha256(args.episode / "video.mp4"),
         "duration": args.duration,
         "outro_duration": args.outro_duration,

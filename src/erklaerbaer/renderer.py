@@ -4,6 +4,7 @@ import hashlib
 import math
 from collections.abc import Sequence
 from dataclasses import dataclass
+from importlib import import_module
 from pathlib import Path
 
 import imageio.v2 as imageio
@@ -12,9 +13,9 @@ from PIL import Image, ImageChops, ImageDraw, ImageFont
 
 from .audio import audio_envelope
 from .config import Settings
-from .mascot_library import MascotLibrary, rig_root
+from .mascot_library import MascotLibrary, mascot_origin, rig_root
 from .mechanisms import BeatState, ScienceStage, beat_at
-from .models import Scene, ScenePrimitive, Storyboard
+from .models import TEMPLATES, Scene, ScenePrimitive, Storyboard
 from .visuals import canonical_visual_token
 
 Color = tuple[int, int, int]
@@ -135,14 +136,10 @@ class PaperCutRenderer:
     def _render_collage(
         self, image, storyboard, scene, progress, scene_seconds, global_seconds, segments
     ):
-        from .collage_coin import draw as draw_coin
-        from .collage_guitar import draw as draw_guitar
-
         if scene.shot is None or scene.mechanism is None:
             raise ValueError("V3 requires an explicit supported shot and mechanism")
-        draw_template = {"guitar-collage": draw_guitar, "coin-collage": draw_coin}[
-            scene.shot.template_id
-        ]
+        module = TEMPLATES[scene.shot.template_id].modules[0].removesuffix(".py")
+        draw_template = import_module(f".{module}", __package__).draw
         seconds = (
             scene_seconds if scene_seconds is not None else progress * scene.duration_hint_seconds
         )
@@ -161,6 +158,7 @@ class PaperCutRenderer:
             state,
             font=school_font(46),
             small_font=school_font(32),
+            segments=segments,
         )
         if scene.mascot.visible and seconds >= scene.mascot.start_seconds:
             library_root = rig_root(self.project_root)
@@ -173,12 +171,8 @@ class PaperCutRenderer:
             )
             h = round(scene.mascot.height_fraction * self.height)
             clip = self._library.frame(scene.mascot.action.value, clock, h)
-            x = (
-                round(0.12 * self.width)
-                if scene.shot.framing in {"establish", "reaction"}
-                else round(0.1 * self.width)
-            )
-            canvas.alpha_composite(clip, (x, round(0.86 * self.height) - clip.height))
+            x, baseline = mascot_origin(scene.shot.framing, self.width, self.height)
+            canvas.alpha_composite(clip, (x, baseline - clip.height))
         draw = ImageDraw.Draw(canvas)
         _centered_multiline(
             draw,

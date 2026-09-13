@@ -14,6 +14,9 @@ from pathlib import Path
 import numpy as np
 from PIL import Image, ImageDraw, ImageEnhance, ImageFilter
 
+from .mascot_library import MascotLibrary, rig_root
+from .renderer import school_font
+
 INK = "#344744"
 TEAL = "#34877f"
 CORAL = "#c9694d"
@@ -594,8 +597,11 @@ def air_shot(stage, seconds, action, *, small_font):
     d.text((196, 952), "Uitvergroot en vertraagd", font=small_font, fill=INK)
 
 
-def draw(canvas, scene, seconds, state, *, font, small_font):
-    """Render one known semantic shot. No evaluated paths or generated code."""
+def draw(canvas, scene, seconds, state, *, font, small_font, segments=()):
+    """Render one known semantic shot. No evaluated paths or generated code.
+
+    Every template receives the measured `segments`; this one times its beats from `state`.
+    """
     framing = scene.shot.framing
     # Scene 3 changes composition on its second beat, so no picture is held for two scenes.
     if framing == "attachments" and state.action == "surface":
@@ -638,3 +644,30 @@ def draw(canvas, scene, seconds, state, *, font, small_font):
             paste_prop(stage, ear(), (1360, 415, 230, 242))
     canvas.alpha_composite(stage.resize(canvas.size, Image.Resampling.LANCZOS))
     return canvas
+
+
+def thumbnail(settings, board, renderer, output_path):
+    """A composed still, not a frame grab: it has to survive a small feed tile."""
+    stage = renderer.render_background(board, progress=0.0).convert("RGBA")
+    art = Image.new("RGBA", stage.size)
+    # The band is held at full pluck displacement, so it reads as a bent line.
+    paste_guitar(art, (770, 292, 1080, 686), 0.72, 50.0, pluck=True)
+    library = MascotLibrary(rig_root(settings.project_root))
+    bear = library.frame("aha", 1.4, 800)
+    art.alpha_composite(bear, (110, stage.height - 30 - bear.height))
+    draw = ImageDraw.Draw(art)
+    font = school_font(126)
+    words = board.scenes[0].on_screen_words[0]
+    width = draw.textlength(words, font=font)
+    draw.text(
+        ((stage.width - width) / 2, 74), words, font=font, fill=INK, stroke_width=2, stroke_fill=INK
+    )
+    draw.line(
+        [((stage.width - width) / 2, 214), ((stage.width + width) / 2, 214)],
+        fill=CORAL,
+        width=9,
+    )
+    stage.alpha_composite(art)
+    stage.convert("RGB").resize((1280, 720), Image.Resampling.LANCZOS).save(
+        output_path, format="JPEG", quality=94, optimize=True
+    )

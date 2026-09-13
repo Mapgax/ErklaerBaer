@@ -1,14 +1,25 @@
-# Weekly production
+# Production cadence
 
-> Owner decision, 2026-09-11. This supersedes the daily design below, which was never active
-> and whose workflows have been deleted.
+> Owner decision, 2026-09-13. Supersedes the weekly alternation of 2026-09-11 and the daily
+> design below, which was never active and whose workflows have been deleted.
 
-**One video a week, alternating language.** The last completed and accepted slot decides the
-next language, not the calendar.
+**Two videos a week.** German on Monday, Dutch on Thursday, each at 07:00 Europe/Zurich, each
+on a topic never produced in any language. The slots are `[production_v3]` in
+`config/settings.toml`. Two local scheduled tasks, `erklaerbaer-monday-german` and
+`erklaerbaer-thursday-dutch`, run [the episode runbook](EPISODE_RUNBOOK.md). They need the Claude
+app open on this Mac, because the speech cache, credentials and bear frames are local.
+
+**Topic selection.** `scripts/next_topic.py` lists unused topics in an order fixed by the slot
+date. A topic is used once any storyboard for it exists under `storyboards/`, so the tracked
+tree is the record and nothing can be produced twice.
+
+**Budget.** Speech and science review are bounded per calendar month: 360 Gemini requests,
+750,000 characters and 200 LLM calls. That is ten episodes with retry margin, recorded as an
+owner authorization in the ledger on 2026-09-13.
 
 **Topic source.** The public MINT library at `https://mint-bot-nine.vercel.app/data/experiments.json`
 is live and holds 60 topics in four categories: kuechenchemie, natur-tiere, technik and
-weltraum-physik. Four have been touched here, so 56 have never been used.
+weltraum-physik. Five have been touched by 2026-09-13, so 55 have never been used.
 
 The "waiting to be redone" list the owner wants preferred is **not available**:
 `https://mint-bot-nine.vercel.app/api/production-favorites` returns 404. The endpoint was
@@ -23,9 +34,9 @@ has one is a short week. `vibrating-string` has `guitar-collage` and `gas-pressu
 needed when the bear himself changes, which has happened twice. When that is the case the
 owner is told, because the export must go through the editor's own menu.
 
-**A scheduled run builds and stops.** It writes the episode, reviews its own frames against
-the lessons in CLAUDE.md, fixes what it finds, uploads Private, and then waits. Publishing
-and creative acceptance stay with the owner.
+**A scheduled run builds and stops.** It writes the episode, reviews its own frames and speech
+against the lessons in CLAUDE.md, fixes what it finds, uploads Private, records the result in
+`docs/AGENT_STATUS.md`, and stops. Publishing and creative acceptance stay with the owner.
 
 **The build catalogue is stale.** `catalog/videos.json` still lists the three v1/v2 pilots.
 The two published v3 episodes were built by the direct scripts and are recorded under

@@ -65,21 +65,33 @@ def test_air_spreads_outward_and_returns_to_rest():
         assert line[-1][1] == pytest.approx(253)
 
 
-def test_budget_atomic_cap_preservation_and_uncertain_retries(tmp_path):
+def test_speech_reservations_are_atomic_monthly_and_never_resubmitted(tmp_path):
     ledger = BudgetLedger(tmp_path / "usage.json")
-    ledger.initialize_production_task()
+    limits = {"monthly_characters": 100000, "monthly_requests": 6}
     original = ledger.load()
-    reserve_request(ledger, "dry", 800, 100000, phase="trial", dry_run=True)
+    reserve_request(ledger, "dry", 800, **limits, phase="trial", dry_run=True)
     assert ledger.load() == original
     for i in range(4):
-        reserve_request(ledger, str(i), 800, 100000, phase="trial")
+        reserve_request(ledger, str(i), 800, **limits, phase="trial")
     with pytest.raises(BudgetExceeded):
-        reserve_request(ledger, "fifth", 800, 100000, phase="trial")
+        reserve_request(ledger, "fifth-trial", 800, **limits, phase="trial")
     with pytest.raises(ExternalServiceError):
-        reserve_request(ledger, "0", 800, 100000, phase="trial")
-    assert ledger.load()["production_v2"]["used"]["tts_characters"] == 3200
-    ledger.initialize_production_task()
-    assert len(ledger.load()["gemini_v3"]["reservations"]) == 4
+        reserve_request(ledger, "0", 800, **limits, phase="benchmark")
+    for i in range(4, 6):
+        reserve_request(ledger, str(i), 800, **limits, phase="benchmark")
+    with pytest.raises(BudgetExceeded, match="Monthly speech allowance"):
+        reserve_request(ledger, "seventh", 800, **limits, phase="benchmark")
+    month = ledger.load()["months"][ledger._month_key()]
+    assert month == {"gemini_requests": 6, "tts_characters": 4800}
+    with pytest.raises(BudgetExceeded, match="character"):
+        reserve_request(
+            BudgetLedger(tmp_path / "other.json"),
+            "big",
+            5000,
+            monthly_characters=4000,
+            monthly_requests=6,
+            phase="benchmark",
+        )
 
 
 def test_voice_identity_changes_only_affected_audio():

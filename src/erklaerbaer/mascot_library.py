@@ -18,6 +18,18 @@ def rig_root(project_root):
     return project_root / "assets/mascot/rig" / RIG_VERSION
 
 
+# The bear's crop bottom sits on this fraction of frame height in every v3 shot.
+MASCOT_BASELINE = 0.86
+# Establishing and reaction shots give the bear a little more room from the left edge.
+WIDE_FRAMINGS = frozenset({"establish", "reaction"})
+
+
+def mascot_origin(framing: str, width: int, height: int) -> tuple[int, int]:
+    """Left edge and baseline of the composited bear, shared by renderer and templates."""
+    fraction = 0.12 if framing in WIDE_FRAMINGS else 0.1
+    return round(fraction * width), round(MASCOT_BASELINE * height)
+
+
 class MascotLibrary:
     def __init__(self, root: Path):
         self.root = root.resolve()

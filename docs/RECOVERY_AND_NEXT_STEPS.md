@@ -48,6 +48,8 @@ No deleted data was recovered in this pass: existing local work was inventoried,
 
 ## Remaining spending allowance
 
+> Superseded 2026-09-13: speech and science review are now bounded per calendar month (360 Gemini requests, 750,000 characters, 200 LLM calls). The table below is the 2026-09-09 snapshot, kept for history.
+
 Snapshot from `catalog/usage.json`; always re-read the live ledger.
 
 | Guard | Remaining |
@@ -79,9 +81,9 @@ Run from the project root with the existing Python 3.12 environment. These comma
 
 ```bash
 .venv/bin/python3 scripts/validate_v3_bundle.py artifacts/review-v3/guitar/cedfada8807f70f3fe6b4a2c
-.venv/bin/python3 scripts/build_v3_guitar.py --expressive --cache-only
+.venv/bin/python3 scripts/build_episode.py guitar --cache-only
 .venv/bin/python3 scripts/build_brand_intro.py --episode artifacts/review-v3/guitar/cedfada8807f70f3fe6b4a2c --language nl-NL
 .venv/bin/python3 scripts/index_v3_assets.py
 ```
 
-A cache miss must fail; do not remove `--cache-only` to force success. The guitar script defaults to historical Chirp unless `--expressive` is supplied. Its fallback status text still mentions the former access blocker; the resolved state above is authoritative. Rebuilding may write a new identity if dependencies change; preserve the existing review and record the new build explicitly. Do not edit sealed manifests to make changed files pass. `--language de-DE` on the intro builder changes the title-card subtitle only; it does not translate the episode.
+A cache miss must fail; do not remove `--cache-only` to force success. The historical Chirp fallback was removed with the per-episode build scripts on 2026-09-13; `build_episode.py` reproduces the guitar, coin and falling-objects narration byte for byte. Rebuilding may write a new identity if dependencies change; preserve the existing review and record the new build explicitly. Do not edit sealed manifests to make changed files pass. `--language de-DE` on the intro builder changes the title-card subtitle only; it does not translate the episode.

@@ -21,6 +21,8 @@ from PIL import Image, ImageDraw, ImageEnhance, ImageFilter
 
 from . import gas
 from .collage_guitar import CORAL, CREAM, INK, ROOT, TEAL, material, paste_prop
+from .mascot_library import MascotLibrary, rig_root
+from .renderer import school_font
 
 GLASS = "#7f9c98"
 GLASS_WARM = "#e8efe9"
@@ -360,8 +362,11 @@ def recap_shot(view, stage, seconds, action, *, small_font):
         )
 
 
-def draw(canvas, scene, seconds, state, *, font, small_font):
-    """Render one known semantic shot. No evaluated paths or generated code."""
+def draw(canvas, scene, seconds, state, *, font, small_font, segments=()):
+    """Render one known semantic shot. No evaluated paths or generated code.
+
+    Every template receives the measured `segments`; this one times its beats from `state`.
+    """
     stage = Image.new("RGBA", (1920, 1080))
     framing = scene.shot.framing
     view = View(framing)
@@ -386,3 +391,39 @@ def draw(canvas, scene, seconds, state, *, font, small_font):
         recap_shot(view, stage, seconds, state.action, small_font=small_font)
     canvas.alpha_composite(stage)
     return canvas
+
+
+def draw_coin_thumbnail(art):
+    """The bottle mid-lift: the one moment the whole episode is about."""
+    view = View("lift")
+    draw_bottle(view, art, warm=1.0)
+    draw_hands(view, art, 1.0)
+    draw_gas(view, art, gas_points(view, travelled(2.4, 1.0)), halo=1.0)
+    draw_lid(view, art, lift=34 * view.scale, tilt=-5)
+
+
+def thumbnail(settings, board, renderer, output_path):
+    """A composed still, not a frame grab: it has to survive a small feed tile."""
+    stage = renderer.render_background(board, progress=0.0).convert("RGBA")
+    art = Image.new("RGBA", stage.size)
+    # The band is held at full pluck displacement, so it reads as a bent line.
+    draw_coin_thumbnail(art)
+    library = MascotLibrary(rig_root(settings.project_root))
+    bear = library.frame("aha", 1.4, 800)
+    art.alpha_composite(bear, (110, stage.height - 30 - bear.height))
+    draw = ImageDraw.Draw(art)
+    font = school_font(126)
+    words = board.scenes[0].on_screen_words[0]
+    width = draw.textlength(words, font=font)
+    draw.text(
+        ((stage.width - width) / 2, 74), words, font=font, fill=INK, stroke_width=2, stroke_fill=INK
+    )
+    draw.line(
+        [((stage.width - width) / 2, 214), ((stage.width + width) / 2, 214)],
+        fill=CORAL,
+        width=9,
+    )
+    stage.alpha_composite(art)
+    stage.convert("RGB").resize((1280, 720), Image.Resampling.LANCZOS).save(
+        output_path, format="JPEG", quality=94, optimize=True
+    )

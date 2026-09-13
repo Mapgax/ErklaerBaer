@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import hashlib
 import json
+from dataclasses import dataclass
 from datetime import UTC, date, datetime
 from enum import StrEnum
 from typing import Any
@@ -99,74 +100,64 @@ class SpeechSegment(BaseModel):
 class MechanismBeat(BaseModel):
     model_config = ConfigDict(extra="forbid")
     segment_id: str = Field(pattern=r"^[a-z0-9-]+$")
-    action: str = Field(
-        pattern=(
-            r"^(observe|heat|faster|pressure|lift|vent|reset|pluck|vibrate|"
-            r"couple|surface|propagate|hear|sound|damp|reveal|insect|spider|woodlouse|compare|hold)$"
-        )
-    )
+    # Which verbs are allowed depends on the mechanism, so Mechanism checks membership.
+    action: str = Field(pattern=r"^[a-z]+$")
+
+
+@dataclass(frozen=True)
+class MechanismSpec:
+    """The only objects, relationships and beat verbs one mechanism may name."""
+
+    objects: frozenset[str]
+    relationships: frozenset[str]
+    verbs: frozenset[str]
+
+
+MECHANISMS = {
+    "gas-pressure": MechanismSpec(
+        frozenset({"bottle", "gas", "coin", "heat"}),
+        frozenset({"gas-inside-bottle", "coin-seals-mouth", "heat-to-gas"}),
+        frozenset({"observe", "heat", "faster", "pressure", "lift", "vent", "reset", "hold"}),
+    ),
+    "vibrating-string": MechanismSpec(
+        frozenset({"string", "box", "air", "ear"}),
+        frozenset({"string-on-box", "vibration-to-air", "air-to-ear"}),
+        frozenset(
+            {"observe", "pluck", "vibrate", "couple", "surface", "propagate", "hear", "sound"}
+            | {"damp", "hold"}
+        ),
+    ),
+    "animal-observation": MechanismSpec(
+        frozenset({"stone", "soil", "insect", "spider", "woodlouse"}),
+        frozenset({"animals-under-stone", "compare-leg-pairs"}),
+        frozenset({"observe", "reveal", "insect", "spider", "woodlouse", "compare", "hold"}),
+    ),
+    "falling-objects": MechanismSpec(
+        frozenset({"stone", "marble", "paper", "air"}),
+        frozenset({"same-release-height", "air-resists-paper"}),
+        frozenset(
+            {"observe", "weigh", "release", "fall", "land", "compare", "pull", "resist"}
+            | {"crumple", "hold"}
+        ),
+    ),
+}
 
 
 class Mechanism(BaseModel):
     model_config = ConfigDict(extra="forbid")
-    kind: str = Field(pattern=r"^(gas-pressure|vibrating-string|animal-observation)$")
+    kind: str = Field(pattern=r"^[a-z-]+$")
     objects: list[str] = Field(min_length=1, max_length=8)
     relationships: list[str] = Field(min_length=1, max_length=8)
     beats: list[MechanismBeat] = Field(min_length=1, max_length=12)
 
     @model_validator(mode="after")
     def known_objects(self):
-        allowed = {
-            "gas-pressure": (
-                {"bottle", "gas", "coin", "heat"},
-                {"gas-inside-bottle", "coin-seals-mouth", "heat-to-gas"},
-            ),
-            "vibrating-string": (
-                {"string", "box", "air", "ear"},
-                {"string-on-box", "vibration-to-air", "air-to-ear"},
-            ),
-            "animal-observation": (
-                {"stone", "soil", "insect", "spider", "woodlouse"},
-                {"animals-under-stone", "compare-leg-pairs"},
-            ),
-        }
-        objects, relations = allowed[self.kind]
-        if set(self.objects) != objects or set(self.relationships) != relations:
+        spec = MECHANISMS.get(self.kind)
+        if spec is None:
+            raise ValueError(f"Unknown mechanism {self.kind!r}")
+        if set(self.objects) != spec.objects or set(self.relationships) != spec.relationships:
             raise ValueError("Unsupported mechanism objects or relationships")
-        verbs = {
-            "gas-pressure": {
-                "observe",
-                "heat",
-                "faster",
-                "pressure",
-                "lift",
-                "vent",
-                "reset",
-                "hold",
-            },
-            "vibrating-string": {
-                "observe",
-                "pluck",
-                "vibrate",
-                "couple",
-                "surface",
-                "propagate",
-                "hear",
-                "sound",
-                "damp",
-                "hold",
-            },
-            "animal-observation": {
-                "observe",
-                "reveal",
-                "insect",
-                "spider",
-                "woodlouse",
-                "compare",
-                "hold",
-            },
-        }
-        if not all(beat.action in verbs[self.kind] for beat in self.beats):
+        if not all(beat.action in spec.verbs for beat in self.beats):
             raise ValueError("Unsupported action for this mechanism")
         return self
 
@@ -180,33 +171,70 @@ def swiss_spelling(text: str) -> str:
     return text.replace("ß", "ss").replace("ẞ", "SS")
 
 
+@dataclass(frozen=True)
+class Template:
+    """One v3 drawing template: the single place a new template is registered.
+
+    `modules` are the source files whose code decides its pixels. The renderer draws with the
+    first, and the build identity hashes all of them, so a template change can never reuse a
+    stale render.
+    """
+
+    bundle: str
+    mechanism: str
+    framings: frozenset[str]
+    modules: tuple[str, ...]
+    summary: str
+
+
 # A framing names a composition, so it only means anything inside one template.
-TEMPLATE_SHOTS = {
-    "guitar-collage": (
+TEMPLATES = {
+    "guitar-collage": Template(
         "guitar-v3",
-        {"establish", "reaction", "string", "attachments", "air", "ear", "decay", "recap"},
+        "vibrating-string",
+        frozenset({"establish", "reaction", "string", "attachments", "air", "ear", "decay"})
+        | {"recap"},
+        ("collage_guitar.py",),
+        "Rubber band on a cardboard box, a radial air field spreading from the box face, "
+        "a drawn ear cutaway and a two-rate pitch comparison.",
     ),
-    "coin-collage": (
+    "coin-collage": Template(
         "coin-v3",
-        {"establish", "micro", "heat", "pressure", "reaction", "lift", "reset", "recap"},
+        "gas-pressure",
+        frozenset({"establish", "micro", "heat", "pressure", "reaction", "lift", "reset"})
+        | {"recap"},
+        ("collage_coin.py", "gas.py"),
+        "A bottle of gas with a coin on its neck, deterministic particles reflecting off "
+        "the drawn outline, paper hands, and a halo cue for pressure.",
+    ),
+    "fall-collage": Template(
+        "fall-v3",
+        "falling-objects",
+        frozenset({"weigh", "establish", "predict", "drop", "landed", "strobe", "air"})
+        | {"crumple", "recap"},
+        ("collage_fall.py",),
+        "A drop rig with a hinged flap, one fall law for stone and marble, a strobe of equal "
+        "time steps, an air field a falling sheet pushes aside, and paper crumpling to a ball.",
     ),
 }
 
 
 class Shot(BaseModel):
     model_config = ConfigDict(extra="forbid")
-    template_id: str = Field(default="guitar-collage", pattern=r"^(guitar-collage|coin-collage)$")
+    template_id: str = Field(default="guitar-collage", pattern=r"^[a-z-]+$")
     version: str = Field(default="3", pattern=r"^3$")
     framing: str = Field(pattern=r"^[a-z]+$")
-    asset_bundle: str = Field(default="guitar-v3", pattern=r"^(guitar-v3|coin-v3)$")
+    asset_bundle: str = Field(default="guitar-v3", pattern=r"^[a-z0-9-]+$")
 
     @model_validator(mode="after")
     def framing_belongs_to_its_template(self):
-        bundle, framings = TEMPLATE_SHOTS[self.template_id]
-        if self.framing not in framings:
+        template = TEMPLATES.get(self.template_id)
+        if template is None:
+            raise ValueError(f"Unknown template {self.template_id!r}")
+        if self.framing not in template.framings:
             raise ValueError(f"Unknown framing {self.framing!r} for {self.template_id}")
-        if self.asset_bundle != bundle:
-            raise ValueError(f"{self.template_id} requires asset bundle {bundle}")
+        if self.asset_bundle != template.bundle:
+            raise ValueError(f"{self.template_id} requires asset bundle {template.bundle}")
         return self
 
 
@@ -328,7 +356,6 @@ class Storyboard(BaseModel):
             if "ß" in self.youtube.title + self.youtube.description:
                 raise ValueError("German videos use ss, not ß")
         # Each v3 template renders one mechanism; a scene may not mix them.
-        templates = {"guitar-collage": "vibrating-string", "coin-collage": "gas-pressure"}
         if self.schema_version == "3":
             if any(scene.shot is None or scene.mechanism is None for scene in self.scenes):
                 raise ValueError("V3 requires an explicit shot and mechanism in every scene")
@@ -336,8 +363,9 @@ class Storyboard(BaseModel):
             if len(used) != 1:
                 raise ValueError("One storyboard uses one v3 template")
             template = used.pop()
-            if any(scene.mechanism.kind != templates[template] for scene in self.scenes):
-                raise ValueError(f"{template} renders the {templates[template]} mechanism")
+            mechanism = TEMPLATES[template].mechanism
+            if any(scene.mechanism.kind != mechanism for scene in self.scenes):
+                raise ValueError(f"{template} renders the {mechanism} mechanism")
         if not 6 <= len(self.scenes) <= 9:
             raise ValueError("storyboard must contain 6 to 9 scenes")
         ids = [scene.scene_id for scene in self.scenes]

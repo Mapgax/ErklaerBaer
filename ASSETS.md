@@ -12,7 +12,8 @@ because it is large and regenerable or because it is private.
 |---|---|---|---|
 | Bear mascot rig v2 | assets/mascot/rig/v2 *(manifests only)* | 187.4 MB | Baked transparent PNG clips for any episode. Neutral loops against the global clock; every other action plays once and holds its last frame. There is no wave action. |
 | Bear mascot rig v3 | assets/mascot/rig/v3 *(manifests only)* | 198.5 MB | Baked transparent PNG clips for any episode. Neutral loops against the global clock; every other action plays once and holds its last frame. There is no wave action. |
-| Bear mascot rig v4 | assets/mascot/rig/v4 *(manifests only)* | 198.3 MB | Baked transparent PNG clips for any episode. Neutral loops against the global clock; every other action plays once and holds its last frame. There is no wave action. |
+| Bear mascot rig v4 | assets/mascot/rig/v4 *(manifests only)* | 198.4 MB | Baked transparent PNG clips for any episode. Neutral loops against the global clock; every other action plays once and holds its last frame. There is no wave action. |
+| Bear mascot rig v5 | assets/mascot/rig/v5 *(manifests only)* | 296.0 MB | Baked transparent PNG clips for any episode. Neutral loops against the global clock; every other action plays once and holds its last frame. There is no wave action. |
 
 ## generated-art
 
@@ -38,8 +39,9 @@ because it is large and regenerable or because it is private.
 
 | piece | where | size | notes |
 |---|---|---|---|
-| guitar-collage | src/erklaerbaer/collage_guitar.py | 0.0 MB | One template renders one mechanism. Add a framing to TEMPLATE_SHOTS and a branch in the module's draw(); every geometry derives from a View. |
-| coin-collage | src/erklaerbaer/collage_coin.py | 0.0 MB | One template renders one mechanism. Add a framing to TEMPLATE_SHOTS and a branch in the module's draw(); every geometry derives from a View. |
+| guitar-collage | src/erklaerbaer/collage_guitar.py | 0.0 MB | One template renders one mechanism. Register it once in models.TEMPLATES and add a branch in the module's draw(); every geometry derives from a View. |
+| coin-collage | src/erklaerbaer/collage_coin.py | 0.0 MB | One template renders one mechanism. Register it once in models.TEMPLATES and add a branch in the module's draw(); every geometry derives from a View. |
+| fall-collage | src/erklaerbaer/collage_fall.py | 0.0 MB | One template renders one mechanism. Register it once in models.TEMPLATES and add a branch in the module's draw(); every geometry derives from a View. |
 | Deterministic gas inside any outline | src/erklaerbaer/gas.py | 0.0 MB | Any shot needing particles that must never leave a drawn shape. |
 
 ## audio
@@ -47,13 +49,14 @@ because it is large and regenerable or because it is private.
 | piece | where | size | notes |
 |---|---|---|---|
 | Brand intro, outro and jingle | scripts/build_brand_intro.py | 0.0 MB | --duration and --outro-duration set their lengths; --language picks the card. |
-| Local sound anchors | scripts/build_v3_coin.py | 0.0 MB | Copy the shape function and give its beat 0.5 to 0.75 s of authored pause. |
+| Local sound anchors | src/erklaerbaer/sounds.py | 0.0 MB | Name the shape in the episode's SoundEvent in episodes.py; the mixer refuses an anchor outside 20 to 25 dB under speech. |
 | Speech post-processing | src/erklaerbaer/audio.py | 0.0 MB | Both run on cached audio, cost nothing, and are covered by tests. |
 
 ## episode
 
 | piece | where | size | notes |
 |---|---|---|---|
+| Wat valt het eerst? | storyboards/v3/fall-wettrennen/nl-NL/c120949aca72eba7.json | 0.0 MB | Reviewed narration. Any text change needs a fresh science review and re-records the affected lines. |
 | Hoe een kartonnen gitaar klinkt | storyboards/v3/karton-gitarre/nl-NL/7511ac9042e30f1e.json | 0.0 MB | Reviewed narration. Any text change needs a fresh science review and re-records the affected lines. |
 | Warum die Münze hüpft | storyboards/v3/springende-muenze/de-DE/0d6d2f1d3eb3b75d.json | 0.0 MB | Reviewed narration. Any text change needs a fresh science review and re-records the affected lines. |
 | Build catalogue | catalog/videos.json | 0.0 MB | Build catalogue |

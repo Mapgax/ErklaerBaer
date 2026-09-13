@@ -1,0 +1,723 @@
+{
+  "schema_version": "3",
+  "template_version": "3",
+  "experiment_id": "fall-wettrennen",
+  "source_hash": "c120949aca72eba7",
+  "language": "nl-NL",
+  "localized_title": "Wat valt het eerst?",
+  "category": "weltraum-physik",
+  "scenes": [
+    {
+      "scene_id": "scene-1",
+      "shot": {
+        "template_id": "fall-collage",
+        "version": "3",
+        "framing": "weigh",
+        "asset_bundle": "fall-v3"
+      },
+      "mascot": {
+        "visible": true,
+        "action": "lift",
+        "placement": "left",
+        "height_fraction": 0.72,
+        "start_seconds": 0.0
+      },
+      "segments": [
+        {
+          "segment_id": "scene-1-1",
+          "text": "Deze steen is zwaar.",
+          "pause_after_seconds": 0.3,
+          "speaker": "bear",
+          "delivery": "curious"
+        },
+        {
+          "segment_id": "scene-1-2",
+          "text": "Die glazen knikker is heel licht.",
+          "pause_after_seconds": 0.3,
+          "speaker": "narrator",
+          "delivery": "warm"
+        },
+        {
+          "segment_id": "scene-1-3",
+          "text": "Als we ze tegelijk laten vallen, welke is dan het eerst beneden?",
+          "pause_after_seconds": 0.3,
+          "speaker": "bear",
+          "delivery": "curious"
+        }
+      ],
+      "mechanism": {
+        "kind": "falling-objects",
+        "objects": [
+          "stone",
+          "marble",
+          "paper",
+          "air"
+        ],
+        "relationships": [
+          "same-release-height",
+          "air-resists-paper"
+        ],
+        "beats": [
+          {
+            "segment_id": "scene-1-1",
+            "action": "weigh"
+          },
+          {
+            "segment_id": "scene-1-3",
+            "action": "observe"
+          }
+        ]
+      },
+      "primitive": "question",
+      "narration": "Deze steen is zwaar. Die glazen knikker is heel licht. Als we ze tegelijk laten vallen, welke is dan het eerst beneden?",
+      "on_screen_words": [
+        "Wat valt het eerst?"
+      ],
+      "visual_tokens": [],
+      "claim_anchors": [
+        "evidence-gravity"
+      ],
+      "sound_cue": "none",
+      "duration_hint_seconds": 12.54
+    },
+    {
+      "scene_id": "scene-2",
+      "shot": {
+        "template_id": "fall-collage",
+        "version": "3",
+        "framing": "establish",
+        "asset_bundle": "fall-v3"
+      },
+      "mascot": {
+        "visible": true,
+        "action": "neutral",
+        "placement": "left",
+        "height_fraction": 0.65,
+        "start_seconds": 0.0
+      },
+      "segments": [
+        {
+          "segment_id": "scene-2-1",
+          "text": "We leggen de steen en de knikker naast elkaar op een klep.",
+          "pause_after_seconds": 0.2,
+          "speaker": "narrator",
+          "delivery": "warm"
+        },
+        {
+          "segment_id": "scene-2-2",
+          "text": "Ze liggen allebei even hoog boven de grond.",
+          "pause_after_seconds": 0.2,
+          "speaker": "narrator",
+          "delivery": "warm"
+        },
+        {
+          "segment_id": "scene-2-3",
+          "text": "Gaat de klep open, dan beginnen ze op precies hetzelfde moment te vallen.",
+          "pause_after_seconds": 0.2,
+          "speaker": "narrator",
+          "delivery": "warm"
+        }
+      ],
+      "mechanism": {
+        "kind": "falling-objects",
+        "objects": [
+          "stone",
+          "marble",
+          "paper",
+          "air"
+        ],
+        "relationships": [
+          "same-release-height",
+          "air-resists-paper"
+        ],
+        "beats": [
+          {
+            "segment_id": "scene-2-1",
+            "action": "observe"
+          },
+          {
+            "segment_id": "scene-2-2",
+            "action": "compare"
+          },
+          {
+            "segment_id": "scene-2-3",
+            "action": "hold"
+          }
+        ]
+      },
+      "primitive": "flow",
+      "narration": "We leggen de steen en de knikker naast elkaar op een klep. Ze liggen allebei even hoog boven de grond. Gaat de klep open, dan beginnen ze op precies hetzelfde moment te vallen.",
+      "on_screen_words": [
+        "Even hoog, tegelijk los"
+      ],
+      "visual_tokens": [],
+      "claim_anchors": [
+        "evidence-gravity"
+      ],
+      "sound_cue": "none",
+      "duration_hint_seconds": 17.83
+    },
+    {
+      "scene_id": "scene-3",
+      "shot": {
+        "template_id": "fall-collage",
+        "version": "3",
+        "framing": "predict",
+        "asset_bundle": "fall-v3"
+      },
+      "mascot": {
+        "visible": true,
+        "action": "think",
+        "placement": "left",
+        "height_fraction": 0.65,
+        "start_seconds": 0.0
+      },
+      "segments": [
+        {
+          "segment_id": "scene-3-1",
+          "text": "Valt de zware steen sneller? Of komen ze samen beneden? Wat denk jij?",
+          "pause_after_seconds": 2.8,
+          "speaker": "bear",
+          "delivery": "curious"
+        }
+      ],
+      "mechanism": {
+        "kind": "falling-objects",
+        "objects": [
+          "stone",
+          "marble",
+          "paper",
+          "air"
+        ],
+        "relationships": [
+          "same-release-height",
+          "air-resists-paper"
+        ],
+        "beats": [
+          {
+            "segment_id": "scene-3-1",
+            "action": "hold"
+          }
+        ]
+      },
+      "primitive": "prediction",
+      "narration": "Valt de zware steen sneller? Of komen ze samen beneden? Wat denk jij?",
+      "on_screen_words": [
+        "Wat denk jij?"
+      ],
+      "visual_tokens": [],
+      "claim_anchors": [
+        "evidence-gravity"
+      ],
+      "sound_cue": "none",
+      "duration_hint_seconds": 9.86
+    },
+    {
+      "scene_id": "scene-4",
+      "shot": {
+        "template_id": "fall-collage",
+        "version": "3",
+        "framing": "drop",
+        "asset_bundle": "fall-v3"
+      },
+      "mascot": {
+        "visible": false,
+        "action": "neutral",
+        "placement": "left",
+        "height_fraction": 0.65,
+        "start_seconds": 0.0
+      },
+      "segments": [
+        {
+          "segment_id": "scene-4-1",
+          "text": "We laten het vertraagd zien, zodat je goed kunt kijken.",
+          "pause_after_seconds": 0.3,
+          "speaker": "narrator",
+          "delivery": "warm"
+        },
+        {
+          "segment_id": "scene-4-2",
+          "text": "De klep gaat open.",
+          "pause_after_seconds": 2.4,
+          "speaker": "narrator",
+          "delivery": "warm"
+        },
+        {
+          "segment_id": "scene-4-3",
+          "text": "Ze raken de grond op hetzelfde moment.",
+          "pause_after_seconds": 0.3,
+          "speaker": "narrator",
+          "delivery": "warm"
+        }
+      ],
+      "mechanism": {
+        "kind": "falling-objects",
+        "objects": [
+          "stone",
+          "marble",
+          "paper",
+          "air"
+        ],
+        "relationships": [
+          "same-release-height",
+          "air-resists-paper"
+        ],
+        "beats": [
+          {
+            "segment_id": "scene-4-1",
+            "action": "hold"
+          },
+          {
+            "segment_id": "scene-4-2",
+            "action": "release"
+          },
+          {
+            "segment_id": "scene-4-3",
+            "action": "land"
+          }
+        ]
+      },
+      "primitive": "cause_effect",
+      "narration": "We laten het vertraagd zien, zodat je goed kunt kijken. De klep gaat open. Ze raken de grond op hetzelfde moment.",
+      "on_screen_words": [
+        "Steen tegen knikker"
+      ],
+      "visual_tokens": [],
+      "claim_anchors": [
+        "evidence-gravity"
+      ],
+      "sound_cue": "none",
+      "duration_hint_seconds": 14.13
+    },
+    {
+      "scene_id": "scene-5",
+      "shot": {
+        "template_id": "fall-collage",
+        "version": "3",
+        "framing": "landed",
+        "asset_bundle": "fall-v3"
+      },
+      "mascot": {
+        "visible": true,
+        "action": "surprise",
+        "placement": "left",
+        "height_fraction": 0.65,
+        "start_seconds": 0.0
+      },
+      "segments": [
+        {
+          "segment_id": "scene-5-1",
+          "text": "Tegelijk? Maar de steen is toch veel zwaarder!",
+          "pause_after_seconds": 0.4,
+          "speaker": "bear",
+          "delivery": "curious"
+        },
+        {
+          "segment_id": "scene-5-2",
+          "text": "Het klopt toch. Een onderzoeker die Galilei heette, ontdekte dit al ongeveer vierhonderd jaar geleden.",
+          "pause_after_seconds": 0.2,
+          "speaker": "narrator",
+          "delivery": "warm"
+        }
+      ],
+      "mechanism": {
+        "kind": "falling-objects",
+        "objects": [
+          "stone",
+          "marble",
+          "paper",
+          "air"
+        ],
+        "relationships": [
+          "same-release-height",
+          "air-resists-paper"
+        ],
+        "beats": [
+          {
+            "segment_id": "scene-5-1",
+            "action": "land"
+          },
+          {
+            "segment_id": "scene-5-2",
+            "action": "observe"
+          }
+        ]
+      },
+      "primitive": "comparison",
+      "narration": "Tegelijk? Maar de steen is toch veel zwaarder! Het klopt toch. Een onderzoeker die Galilei heette, ontdekte dit al ongeveer vierhonderd jaar geleden.",
+      "on_screen_words": [
+        "Tegelijk beneden!"
+      ],
+      "visual_tokens": [],
+      "claim_anchors": [
+        "evidence-gravity",
+        "evidence-galileo"
+      ],
+      "sound_cue": "none",
+      "duration_hint_seconds": 12.74
+    },
+    {
+      "scene_id": "scene-6",
+      "shot": {
+        "template_id": "fall-collage",
+        "version": "3",
+        "framing": "strobe",
+        "asset_bundle": "fall-v3"
+      },
+      "mascot": {
+        "visible": false,
+        "action": "neutral",
+        "placement": "left",
+        "height_fraction": 0.65,
+        "start_seconds": 0.0
+      },
+      "segments": [
+        {
+          "segment_id": "scene-6-1",
+          "text": "Hier zie je steeds na een kort moment waar ze allebei zijn.",
+          "pause_after_seconds": 0.3,
+          "speaker": "narrator",
+          "delivery": "warm"
+        },
+        {
+          "segment_id": "scene-6-2",
+          "text": "De aarde trekt ze naar beneden. De stukjes worden steeds groter, want ze vallen steeds sneller.",
+          "pause_after_seconds": 0.3,
+          "speaker": "narrator",
+          "delivery": "warm"
+        },
+        {
+          "segment_id": "scene-6-3",
+          "text": "En op elk moment zijn ze even hoog. Zwaar of licht maakt geen verschil.",
+          "pause_after_seconds": 0.2,
+          "speaker": "narrator",
+          "delivery": "warm"
+        }
+      ],
+      "mechanism": {
+        "kind": "falling-objects",
+        "objects": [
+          "stone",
+          "marble",
+          "paper",
+          "air"
+        ],
+        "relationships": [
+          "same-release-height",
+          "air-resists-paper"
+        ],
+        "beats": [
+          {
+            "segment_id": "scene-6-1",
+            "action": "fall"
+          },
+          {
+            "segment_id": "scene-6-2",
+            "action": "pull"
+          },
+          {
+            "segment_id": "scene-6-3",
+            "action": "compare"
+          }
+        ]
+      },
+      "primitive": "comparison",
+      "narration": "Hier zie je steeds na een kort moment waar ze allebei zijn. De aarde trekt ze naar beneden. De stukjes worden steeds groter, want ze vallen steeds sneller. En op elk moment zijn ze even hoog. Zwaar of licht maakt geen verschil.",
+      "on_screen_words": [
+        "Steeds sneller, even hoog"
+      ],
+      "visual_tokens": [],
+      "claim_anchors": [
+        "evidence-gravity"
+      ],
+      "sound_cue": "none",
+      "duration_hint_seconds": 22.61
+    },
+    {
+      "scene_id": "scene-7",
+      "shot": {
+        "template_id": "fall-collage",
+        "version": "3",
+        "framing": "air",
+        "asset_bundle": "fall-v3"
+      },
+      "mascot": {
+        "visible": false,
+        "action": "neutral",
+        "placement": "left",
+        "height_fraction": 0.65,
+        "start_seconds": 0.0
+      },
+      "segments": [
+        {
+          "segment_id": "scene-7-1",
+          "text": "Nu leggen we een plat blad papier naast de steen.",
+          "pause_after_seconds": 0.3,
+          "speaker": "narrator",
+          "delivery": "warm"
+        },
+        {
+          "segment_id": "scene-7-2",
+          "text": "De klep gaat open.",
+          "pause_after_seconds": 2.4,
+          "speaker": "narrator",
+          "delivery": "warm"
+        },
+        {
+          "segment_id": "scene-7-3",
+          "text": "De steen is al beneden. Het blad zweeft nog langzaam naar de grond.",
+          "pause_after_seconds": 0.3,
+          "speaker": "narrator",
+          "delivery": "warm"
+        },
+        {
+          "segment_id": "scene-7-4",
+          "text": "Het platte blad moet veel lucht opzij duwen. Die lucht remt het af.",
+          "pause_after_seconds": 0.2,
+          "speaker": "narrator",
+          "delivery": "warm"
+        }
+      ],
+      "mechanism": {
+        "kind": "falling-objects",
+        "objects": [
+          "stone",
+          "marble",
+          "paper",
+          "air"
+        ],
+        "relationships": [
+          "same-release-height",
+          "air-resists-paper"
+        ],
+        "beats": [
+          {
+            "segment_id": "scene-7-1",
+            "action": "observe"
+          },
+          {
+            "segment_id": "scene-7-2",
+            "action": "release"
+          },
+          {
+            "segment_id": "scene-7-3",
+            "action": "land"
+          },
+          {
+            "segment_id": "scene-7-4",
+            "action": "resist"
+          }
+        ]
+      },
+      "primitive": "cause_effect",
+      "narration": "Nu leggen we een plat blad papier naast de steen. De klep gaat open. De steen is al beneden. Het blad zweeft nog langzaam naar de grond. Het platte blad moet veel lucht opzij duwen. Die lucht remt het af.",
+      "on_screen_words": [
+        "Blad tegen steen"
+      ],
+      "visual_tokens": [],
+      "claim_anchors": [
+        "evidence-air"
+      ],
+      "sound_cue": "none",
+      "duration_hint_seconds": 23.99
+    },
+    {
+      "scene_id": "scene-8",
+      "shot": {
+        "template_id": "fall-collage",
+        "version": "3",
+        "framing": "crumple",
+        "asset_bundle": "fall-v3"
+      },
+      "mascot": {
+        "visible": true,
+        "action": "explain",
+        "placement": "left",
+        "height_fraction": 0.65,
+        "start_seconds": 0.0
+      },
+      "segments": [
+        {
+          "segment_id": "scene-8-1",
+          "text": "Nu maken we van hetzelfde blad een prop.",
+          "pause_after_seconds": 1.5,
+          "speaker": "narrator",
+          "delivery": "warm"
+        },
+        {
+          "segment_id": "scene-8-2",
+          "text": "De prop is even zwaar als het blad, maar hij duwt veel minder lucht opzij.",
+          "pause_after_seconds": 0.3,
+          "speaker": "narrator",
+          "delivery": "warm"
+        },
+        {
+          "segment_id": "scene-8-3",
+          "text": "De klep gaat open.",
+          "pause_after_seconds": 2.4,
+          "speaker": "narrator",
+          "delivery": "warm"
+        },
+        {
+          "segment_id": "scene-8-4",
+          "text": "Nu komen de prop en de steen bijna tegelijk beneden.",
+          "pause_after_seconds": 0.2,
+          "speaker": "narrator",
+          "delivery": "warm"
+        }
+      ],
+      "mechanism": {
+        "kind": "falling-objects",
+        "objects": [
+          "stone",
+          "marble",
+          "paper",
+          "air"
+        ],
+        "relationships": [
+          "same-release-height",
+          "air-resists-paper"
+        ],
+        "beats": [
+          {
+            "segment_id": "scene-8-1",
+            "action": "crumple"
+          },
+          {
+            "segment_id": "scene-8-2",
+            "action": "resist"
+          },
+          {
+            "segment_id": "scene-8-3",
+            "action": "release"
+          },
+          {
+            "segment_id": "scene-8-4",
+            "action": "land"
+          }
+        ]
+      },
+      "primitive": "cause_effect",
+      "narration": "Nu maken we van hetzelfde blad een prop. De prop is even zwaar als het blad, maar hij duwt veel minder lucht opzij. De klep gaat open. Nu komen de prop en de steen bijna tegelijk beneden.",
+      "on_screen_words": [
+        "Een prop papier"
+      ],
+      "visual_tokens": [],
+      "claim_anchors": [
+        "evidence-air"
+      ],
+      "sound_cue": "none",
+      "duration_hint_seconds": 23.66
+    },
+    {
+      "scene_id": "scene-9",
+      "shot": {
+        "template_id": "fall-collage",
+        "version": "3",
+        "framing": "recap",
+        "asset_bundle": "fall-v3"
+      },
+      "mascot": {
+        "visible": true,
+        "action": "aha",
+        "placement": "left",
+        "height_fraction": 0.65,
+        "start_seconds": 0.0
+      },
+      "segments": [
+        {
+          "segment_id": "scene-9-1",
+          "text": "Zonder remmende lucht vallen zware en lichte dingen even snel.",
+          "pause_after_seconds": 0.3,
+          "speaker": "narrator",
+          "delivery": "satisfied"
+        },
+        {
+          "segment_id": "scene-9-2",
+          "text": "Een plat blad duwt veel lucht opzij en zweeft.",
+          "pause_after_seconds": 0.3,
+          "speaker": "narrator",
+          "delivery": "satisfied"
+        },
+        {
+          "segment_id": "scene-9-3",
+          "text": "Een prop glipt door de lucht en valt bijna even snel.",
+          "pause_after_seconds": 0.3,
+          "speaker": "narrator",
+          "delivery": "satisfied"
+        },
+        {
+          "segment_id": "scene-9-4",
+          "text": "Zwaar of licht, dat maakt dus niet uit!",
+          "pause_after_seconds": 0.2,
+          "speaker": "bear",
+          "delivery": "satisfied"
+        }
+      ],
+      "mechanism": {
+        "kind": "falling-objects",
+        "objects": [
+          "stone",
+          "marble",
+          "paper",
+          "air"
+        ],
+        "relationships": [
+          "same-release-height",
+          "air-resists-paper"
+        ],
+        "beats": [
+          {
+            "segment_id": "scene-9-1",
+            "action": "compare"
+          },
+          {
+            "segment_id": "scene-9-2",
+            "action": "resist"
+          },
+          {
+            "segment_id": "scene-9-3",
+            "action": "fall"
+          },
+          {
+            "segment_id": "scene-9-4",
+            "action": "hold"
+          }
+        ]
+      },
+      "primitive": "recap",
+      "narration": "Zonder remmende lucht vallen zware en lichte dingen even snel. Een plat blad duwt veel lucht opzij en zweeft. Een prop glipt door de lucht en valt bijna even snel. Zwaar of licht, dat maakt dus niet uit!",
+      "on_screen_words": [
+        "Zwaar of licht: even snel"
+      ],
+      "visual_tokens": [],
+      "claim_anchors": [
+        "evidence-gravity",
+        "evidence-air"
+      ],
+      "sound_cue": "none",
+      "duration_hint_seconds": 20.87
+    }
+  ],
+  "youtube": {
+    "title": "NL | Wat valt het eerst?",
+    "description": "Een uitleg over vallen: een zware steen, een lichte knikker en een blad papier. De stem is gemaakt met tekst-naar-spraak.",
+    "tags": [
+      "Vallen",
+      "Zwaartekracht",
+      "Luchtweerstand",
+      "Galilei",
+      "Natuurkunde",
+      "Proefje",
+      "Kinderen",
+      "Wetenschap",
+      "Uitlegvideo"
+    ],
+    "thumbnail_text": "Wat valt het eerst?"
+  },
+  "review": {
+    "approved": false,
+    "warnings": []
+  },
+  "estimated_duration_seconds": 158.23
+}
