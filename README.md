@@ -18,6 +18,12 @@ Two episodes are published: **NL, Hoe een kartonnen gitaar klinkt** and
 | See what each review taught | [docs/VISUAL_LESSONS_V3.md](docs/VISUAL_LESSONS_V3.md) |
 | Understand the bear rig | [docs/RIVE_RIG.md](docs/RIVE_RIG.md) |
 
+## Legal
+
+[Datenschutzerklärung / Privacy policy](docs/legal/datenschutz.md) and
+[Nutzungsbedingungen / Terms of use](docs/legal/nutzungsbedingungen.md). Videos are free for
+non-profit educational use with credit (CC BY-NC 4.0); the code is Apache 2.0.
+
 ## How an episode is made
 
 1. A storyboard under `storyboards/v3/` holds the narration, the shot per scene and the
